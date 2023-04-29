@@ -1,2 +1,2 @@
-# portfolio-website
-<h2> Perosnal Projects </h2>
+# portfolio-website Chatboit
+<h2> Issues faced </h2>
