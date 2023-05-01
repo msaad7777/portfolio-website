@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Form Auto Fill</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+    <!-- Update these with your own fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+<form>
+    <div class="billing-m">
+        <div class="billing-h"><h1>Billing Address</h1></div>
+        <div class="bill1">
+            <label for="fname">Fist Name</label>
+            <input type="text" name="fname" id="fname" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="primaryaddress">Store Address:</label>
+            <input type="text" name="Address" id="primaryaddress" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="state">State</label><select id="state" name="state">
+            <option value="Ford">Select</option>
+            <option value="Chevy">AAA</option>
+            <option value="Dodge">BBB</option>
+            <option value="Truck">CCC</option>
+        </select><br>
+        </div>
+
+        <div class="bill1">
+            <label for="primaryzip">Zip code:</label>
+            <input type="text" name="Zip code" id="primaryzip" pattern="[0-9]{6}" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" required/><br/>
+        </div>
+
+    </div>
+
+    <div class="delivery-m">
+        <div class="delivery-h"><h1>Delivery Address</h1></div>
+
+        <div class="checked-b">
+            <input type="checkbox" id="same" name="same" onchange="addressFunction()"/>
+            <label for="same">If same secondary address select this box.</label>
+        </div>
+        <div class="bill1">
+            <label for="fname">Fist Name</label>
+            <input type="text" name="fname" id="fname1" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname1" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="secondaryaddress">Store Address:</label>
+            <input type="text" name="Address" id="secondaryaddress" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city1" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="state">State</label><select id="state1" name="state">
+            <option value="Ford">Select</option>
+            <option value="Chevy">AAA</option>
+            <option value="Dodge">BBB</option>
+            <option value="Truck">CCC</option>
+        </select><br>
+        </div>
+
+        <div class="bill1">
+            <label for="secondaryzip">Zip code:</label>
+            <input type="text" name="Zip code" id="secondaryzip" pattern="[0-9]{6}" required/><br/>
+        </div>
+
+        <div class="bill1">
+            <label for="phone1">Phone</label>
+            <input type="tel" name="phone" id="phone1" required/><br/>
+        </div>
+    </div>
+</form>
+
+<footer class="footer">
+    <a href="../portfolio-item.html" class="footer__link">Home</a></h4><br>
+    <a href="../contact-form.html" class="footer__link">Contact Me</a></h4>
+    <ul class="social-list">
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://medium.com/@msaad_86696">
+                <i class="fab fa-medium"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://www.linkedin.com/in/badruddin-saad">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://twitter.com/Mohamme43073045?t=V2VGq-qo8elg7fkb4AwiSA&s=09">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://github.com/msaad7777">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+           <a class="social-list__link" href="https://www.credly.com/users/mohammed-saad.402d23cb/badges">
+               <i class="fas fa-graduation-cap"></i>                
+           </a>
+       </li>
+    </ul><br>
+    E-mail: <a href="mailto:badruddinsaad14@gmail.com">badruddinsaad14@gmail.com</a><br>
+    Phone: 431-726-3434
+</footer>
+<h6>&copy;&nbsp;&nbsp;&nbsp;Copyright Mohammed Badruddin Saad - COMP 125 - FALL 2022</h6>
+<script src="script.js"></script>
+</body>
+</html>
+

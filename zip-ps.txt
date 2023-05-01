@@ -1,0 +1,7 @@
+https://6882lvemt3.execute-api.us-east-2.amazonaws.com/prod
+
+Invoke-RestMethod -Method POST -Uri https://6882lvemt3.execute-api.us-east-2.amazonaws.com/prod -Headers @{"Authorization"="Bearer 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"} -Body '{"userInput":"hello"}'
+
+Compress-Archive -Path "portfolioChatbot\*" -DestinationPath "portfolioChatbot.zip" -CompressionLevel Optimal -Update
+
+"C:\Program Files\7-Zip\7z.exe" a -tzip myarchive.zip * .env
