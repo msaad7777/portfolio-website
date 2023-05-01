@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTENNIAL COLLEGE</title>
+    <link rel="stylesheet" href="styles.css"/>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+      
+      <!-- Update these with your own fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body>
+    <main>
+  <section class="header-image">
+    <a href="https://www.centennialcollege.ca/">
+    <div style="width:780px; margin-left:auto; margin-right:auto;">
+    <img src="banner.png" alt="CENTENNIAL SURVEY" height="200" width="767"></a>
+  </section>
+    <hr style="border=style:solid; border-color:olive; border-width:2px:">
+<center><h1 id="title"Style ="Color:olive">CENTENNIAL COLLEGE</h1> </center>
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+<p id="description">Continuing Education Course/instructor Evaluation
+</p>
+<p id="description">Please read each statement carefully and consider each one individually.</p>
+<form id="survey-form" method="post" action='mailto:msaad24@my.centennialcollege.ca'>
+<fieldset>
+<label for="Course-name" id="name-label">Course Name/Code: <input id="name" name="Course-name" type="text" required placeholder="..." /></label>
+        <label for="dropdown">Semester:
+          <select id="dropdown" name="semester">
+            <option value="">(select one)</option>
+            <option value="1">Spring/summer</option>
+            <option value="2">Fall</option>
+            <option value="3">Winter</option>
+          </select>
+          </label>
+          <label for="year" id="number-label">Year: <input id="number" name="year" type="number" required min="2020" max="2023" required placeholder="..." /></label>
+
+        <label for="name">Instructor: <input id="name" name="last-name" type="text" required placeholder="..."/></label>
+      </fieldset>
+      <hr style="border-style:solid; border-color:olive; border-width:2px;">
+      <fieldset>
+<label for="knowledge" name="knowledge">
+  <h3 Style ="Color:olive">INTRUCTOR<h3>
+  How would your rate Instructor's<br><br>
+  1) knowledge of subject ?
+  <ol>
+    <input id="knowledge" type="radio" required name="knowledge" class="inline" value="Excellent"/> Excellent
+    <input id="knowledge" type="radio" required name="knowledge" class="inline" value="Good"/> Good
+    <input id="knowledge" type="radio" required name="knowledge" class="inline" Value="Fair"/> Fair
+    <input id="knowledge" type="radio" required name="knowledge" class="inline" value="Satisfactory" value="Satisfactory"/> Satisfactory
+</label>
+</ol>
+
+<label for="helpfulness" name="helpfulness">
+2) helpfulness?<br>
+  <ol>
+  <input id="helpfulness" type="radio" required name="helpfulness" class="inline"value="Excellent"  /> Excellent
+  <input id="helpfulness" type="radio" required name="helpfulness" class="inline"value="Good"/> Good
+  <input id="helpfulness" type="radio" required name="helpfulness" class="inline"Value="Fair"/> Fair
+  <input id="helpfulness" type="radio" required name="helpfulness" class="inline" value="Satisfactory"/> Satisfactory
+</label></ol>
+
+<label for="respect" name="respect">
+3) courtesy and respect for all students?
+  <ol>
+    <input id="respect" type="radio" required name="respect" class="inline" value="Excellent"/> Excellent
+    <input id="respect" type="radio" required name="respect" class="inline"value="Good" /> Good
+    <input id="respect" type="radio" required name="respect" class="inline" Value="Fair"/> Fair
+    <input id="respect" type="radio" required name="respect" class="inline"value="Satisfactory" /> Satisfactory
+</label></ol>
+
+<label for="communication" name="communication">
+4) communication skills?
+  <ol>
+        <input id="communication" type="radio" required name="communication" class="inline" value="Excellent" /> Excellent
+        <input id="communication" type="radio" required name="communication" class="inline" value="Good"/> Good
+        <input id="communication" type="radio" required name="communication" class="inline"Value="Fair" /> Fair
+        <input id="communication" type="radio" required name="communication" class="inline" value="Satisfactory"/> Satisfactory
+</label></ol>
+
+<label for="performance" name="performance">
+5) overall performance?
+  <ol>
+        <input id="performance" type="radio" required name="performance" class="inline" value="Excellent" /> Excellent
+        <input id="performance" type="radio" required name="performance" class="inline" value="Good"/> Good
+        <input id="performance" type="radio" required name="performance" class="inline" Value="Fair"/> Fair
+        <input id="performance" type="radio" required name="performance" class="inline" value="Satisfactory"/> Satisfactory
+</label></ol><br>
+
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+<h3 Style ="Color:olive">COURSE</h3><br>
+6) How would your rate the course materials? <br><br>
+<label for="material" name="material">
+  <ol>
+        <input id="material" type="radio" required name="material" class="inline" value="Excellent" /> Excellent
+        <input id="material" type="radio" required name="material" class="inline" value="Good"/> Good
+        <input id="material" type="radio" required name="material" class="inline" Value="Fair"/> Fair
+        <input id="material" type="radio" required name="material" class="inline" value="Satisfactory"/> Satisfactory
+</label></ol>
+
+7) How much did the course meet your expectations? <br><br>
+<label for="expectation" name="expectation">
+  <ol>
+        <input id="expectation" type="radio" required name="expectation" class="inline" value="Excellent" /> Excellent
+        <input id="expectation" type="radio" required name="expectation" class="inline"value="Good" /> Good
+        <input id="expectation" type="radio" required name="expectation" class="inline" Value="Fair"/> Fair
+        <input id="expectation" type="radio" required name="expectation" class="inline" value="Satisfactory"/> Satisfactory
+</label></ol>
+
+8) How would you rate this course overall? <br><br>
+<label for="course-rating" name="course-rating">
+  <ol>
+        <input id="course-rating" type="radio" required name="course-rating" class="inline" value="Excellent"/> Excellent
+        <input id="course-rating" type="radio" required name="course-rating" class="inline" value="Good"/> Good
+        <input id="course-rating" type="radio" required name="course-rating" class="inline" Value="Fair"/> Fair
+        <input id="course-rating" type="radio" required name="course-rating" class="inline"value="Satisfactory" /> Satisfactory
+</label></ol><br>
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+
+<h3 Style ="Color:olive">GENERAL INFORMATION</h3><br>
+9) Was the course outline reviewed/explained at the beginning of the course? <br><br>
+<label for="outline" name="outline">
+  <ol>
+        <input id="outline" type="radio" required name="outline" class="inline" value="Excellent" /> Excellent
+        <input id="outline" type="radio" required name="outline" class="inline" value="Good"/> Good
+        <input id="outline" type="radio" required name="outline" class="inline" Value="Fair"/> Fair
+        <input id="outline" type="radio" required name="outline" class="inline"value="Satisfactory" /> Satisfactory
+</label></ol>
+
+10) would you recommend this course to a friend with the same interests ? <br><br>
+<label for="recommend" name="recommend">
+  <ol>
+        <input id="recommend" type="radio" required name="recommend" class="inline" value="Excellent"/> Excellent
+        <input id="recommend" type="radio" required name="recommend" class="inline"value="Good" /> Good
+        <input id="recommend" type="radio" required name="recommend" class="inline" Value="Fair"/> Fair
+        <input id="recommend" type="radio" required name="recommend" class="inline" value="Satisfactory" /> Satisfactory
+</label></ol>
+
+11) What is the best thing about this course ? <br>
+<label for="best-thing"><textarea id="best-thing" name="best-thing" rows="3" cols="100" placeholder="..."></textarea>
+</label>
+
+12) How could we improve this course ? <br>
+  <label for="improve">
+  <textarea id="improve" name="improve" rows="3" cols="100" placeholder="..."></textarea>
+</label>
+
+13) other: <br>
+<label for="other">
+          <textarea id="other" name="other" rows="3" cols="100" placeholder="..."></textarea>
+</label>
+
+What would you like to see improved ?
+
+<label for="videos" name="videos">
+<input id="features" type="checkbox" class="inline" value="yes"/> Videos</a>
+</label>
+<label for="Additional" name="Additional">
+<input id="Additional" type="checkbox"  class="inline" value="yes"/> Additional Courses</a>
+</label>
+<label for="wiki" name="wiki">
+<input id="wiki" type="checkbox"  class="inline" value="yes"/> Wiki</a>
+</label>
+<label for="Forum" name="Forum">
+<input id="Forum" type="checkbox" class="inline" value="yes"/> Forum</a>
+</label>
+<label for="None" name="None">
+<input id="None" type="checkbox" class="inline" value="yes"/> None</a>
+</label>
+</fieldset>
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+<fieldset>
+<label for="terms-and-conditions" name="terms-and-conditions">
+          <input id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" class="inline" value="Yes"/> I accept the <a href="https://p.widencdn.net/wnuwdt/myCard-Terms-and-Conditions"><strong>terms and conditions</strong></a>
+</label>
+</fieldset>
+
+<form action="mailto:msaad24@my.centennialcollege.ca">
+      <input id="submit" type="submit" value="Submit"/>
+</form>
+
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+
+<footer class="footer">        
+  <h4><a href="../portfolio-item.html">Home</a><br>
+      <a href="../contact-form.html" class="footer__link">Contact Me</a>
+    </h4>
+    <ul class="social-list">
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://medium.com/@msaad_86696">
+                <i class="fab fa-medium"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://www.linkedin.com/in/badruddin-saad">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://twitter.com/Mohamme43073045?t=V2VGq-qo8elg7fkb4AwiSA&s=09">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://github.com/msaad7777">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li class="social-list__item">
+            <a class="social-list__link" href="https://www.credly.com/users/mohammed-saad.402d23cb/badges">
+                <i class="fas fa-graduation-cap"></i>                
+            </a>
+        </li>
+    </ul>
+    E-mail: <a href="mailto:badruddinsaad14@gmail.com">badruddinsaad14@gmail.com</a><br>
+    Phone: 431-726-3434
+</footer>
+
+
+<hr style="border-style:solid; border-color:olive; border-width:2px;">
+<h6>&copy;&nbsp;&nbsp;&nbsp;Copyright Mohammed Badruddin Saad - COMP 213 - FALL 2022</h6>
+</div>
+</main>
+</body>
+</html> <!-- Mohammed Badruddin Saad COMP 213 - FALL 2022 301313784-->

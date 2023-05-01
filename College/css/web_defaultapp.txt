@@ -1,0 +1,97 @@
+*
+  AUDIT TRAIL: 5.2
+  1. Initial release.                        JWF 1/9/2002
+  AUDIT TRAIL: 5.3
+  2. For September 2002 release.             GPV 6/27/2002
+  3. FOR UI phase II release		     RK  7/29/2002
+     Following new classes added
+
+     Tables
+           DATA With Border (Table class with borders)
+		Its related classes defined as db.
+ 	   Non Tabular Data
+		Related classes defined as (nt)
+
+     	   Header class (TD.plheadermenulinks) for plain table.
+	        This class defines attributes for header tables.
+
+     Anchors
+	   menulinktext2 (Menu classes)
+	   sitemaplevel1 (Site Map level 1)
+	   sitemaplevel2 (Site Map level 2)
+	   sitemaplevel3 (Site Map level 3)
+
+    	   whitespace link (This anchor gives more spacing at top and bottom)
+
+  4. Fix for defect #53-0017 and #53-0018    Rk 8/23/2002
+	  Added a campus pipeline class which will be used in body tag.
+          Changed Input bg color to white
+  5. Added a class fieldmediumtextbold for student 		Rk 9/3/2002
+
+  AUDIT TRAIL:7.0						Rk 6/22/04
+  1. Modify fonts to use Verdana
+  2. Added tab styles to self service
+
+  AUDIT TRAIL END
+
+  FILE NAME..: web_defaultapp.css
+  RELEASE....: 7.0
+  PRODUCT....: WTLWEB
+  COPYRIGHT..: Copyright (C) SCT Corporation 2002. All rights reserved.
+*/
+
+
+/* BROWSER CONSIDERATIONS - Overall
+   ========================================================
+   Rule:   Set margin-left and margin-right only on BODY, not on DIVS.
+   Reason: Older browsers do not recognize margins on DIVs.
+
+   Rule:   No underscores.
+   Reason: Underscores are not valid in CSS syntax.
+
+   Rule:   Use percentages to define font sizes. Normal text should be 90%.
+   Reason: Presents text in the user's preferred font size. Facilitates page fluidity.
+
+   Rule:   Use precentages to define margins.
+   Reason: Facilitates page fluidity.
+
+   Rule:   Apply font rules to TD and TH elements. Do not rely on inheritance from the BODY.
+   Reason: Some browsers do not support inheritance well.
+*/
+
+/* TEXT CLASSES                                             */
+/* All text classes should have rules defined for at least  */
+/* the following properties (unless the class has a special */
+/* purpose):                                                */
+/* color, font-family, font-weight, font-size, font-style   */
+/* text-align                                               */
+/* ======================================================== */
+.centeraligntext {
+text-align: center;
+}
+
+.leftaligntext {
+text-align: left;
+}
+
+.rightaligntext {
+text-align: right;
+}
+
+.menulisttext {
+list-style: none;
+}
+
+.captiontext {
+color: black;
+font-family: Verdana,Arial Narrow,  helvetica, sans-serif;
+font-weight: bold;
+font-size: 90%;
+font-style: italic;
+text-align: left;
+margin-top: 1em;
+}
+
+.skiplinks {
+display: none;
+}
