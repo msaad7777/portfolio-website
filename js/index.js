@@ -11,6 +11,24 @@ navLinks.forEach(link => {
   })
 });
 
+// get video element
+var video = document.querySelector('video');
+
+// listen for scroll events
+window.addEventListener('scroll', function() {
+    // get position of video element relative to viewport
+    var rect = video.getBoundingClientRect();
+
+    // check if video is in view
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+        // video is in view, play it
+        video.play();
+    } else {
+        // video is out of view, pause it
+        video.pause();
+    }
+});
+
 // CHATBOT
 
 // Get DOM elements
