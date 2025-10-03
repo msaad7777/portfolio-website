@@ -1,0 +1,53 @@
+Mohammed Saad – Comprehensive Professional Summary
+
+I am a Senior DevOps & Site Reliability Engineer with over 9 years of experience in DevOps, Cloud Engineering, Data Engineering, and MLOps, specializing in AWS, GCP, and Azure. I have a proven track record of designing, deploying, and optimizing cloud-native infrastructure that is scalable, secure, cost-efficient, and highly observable, supporting enterprise and digital-first organizations across industries.
+
+Core Expertise
+
+Cloud & Infrastructure: Multi-cloud deployments (AWS, GCP, Azure), Kubernetes (GKE, EKS, AKS, OpenShift), Terraform, Ansible, serverless (Lambda, Cloud Functions, Cloud Run).
+
+CI/CD & Automation: Architected CI/CD pipelines using Cloud Build, GitHub Actions, Jenkins, Artifact Registry; blue-green and zero-downtime deployments; automated testing and rollbacks.
+
+Monitoring & Observability: Designed Golden Metrics (latency, traffic, errors, saturation) dashboards and SLO-driven alerting with New Relic, Prometheus, Grafana, and Datadog. Implemented synthetic checks, log/error-budget monitoring, and runbooks for faster incident response.
+
+FinOps & Cost Optimization: Delivered multi-cloud cost visibility and governance using New Relic Cloud Cost Intelligence (CCI) and Looker dashboards backed by BigQuery. Standardized tagging/labels across AWS & GCP, enabled anomaly detection and budget alerts, and drove optimizations via resource rightsizing, scheduling, and storage lifecycle policies.
+
+Data Engineering & Analytics: ETL/ELT pipelines using Airflow, Dataflow, BigQuery, PySpark, Cassandra, Hive, Informatica. Built dashboards with PowerBI, Tableau, and Looker for predictive insights and executive reporting.
+
+MLOps & AI/ML Integration: Productionized ML models with automated retraining, deployment pipelines, and model performance monitoring (precision/recall, AUC, RMSE/MAPE, drift). Integrated ML services with enterprise datasets (SAP ERP, customer churn models) and scaled inference on Kubernetes.
+
+Key Achievements
+
+Reduced MySQL downtime by 40% via blue-green deployments and automated CI/CD strategies.
+
+Improved pipeline availability by 15% and enhanced uptime for data-driven platforms.
+
+Increased monitoring efficiency by 30% through unified observability dashboards and SLO-based alerts.
+
+Delivered sustained cloud cost savings by implementing FinOps best practices, anomaly detection, and rightsizing across AWS and GCP.
+
+Standardized Golden Metrics dashboards for system performance and model metrics monitoring for AI/ML services, improving both platform reliability and business decision-making.
+
+Selected MLOps Projects
+
+Predictive Analytics Pipeline (BPCL): Built and deployed predictive models for customer churn and CO₂ emissions using Python (Logistic Regression, ARIMA), containerized and scaled on Azure Kubernetes Service (AKS). Automated training and deployment pipelines using MLOps best practices, reducing release cycles by 30%.
+
+Churn Prediction & Customer Insights (Insight2Actions): Designed ETL/ELT workflows with Apache Airflow and Dataflow, feeding into BigQuery for model training. Deployed churn prediction models with CI/CD integration and automated retraining schedules, improving accuracy monitoring and availability.
+
+ML Integration with SAP Data (BPCL): Connected enterprise SAP ERP datasets to ML pipelines, enabling productionized predictive models with PySpark, Cassandra, and Hive. Leveraged Kubernetes for scaling inference services and established an MLOps workflow for continuous improvement.
+
+Monitoring & Observability for ML Systems (Hotspex Media): Enhanced ML-powered data pipelines with Prometheus, Grafana, and New Relic to track latency, throughput, and drift. Built Looker dashboards combining business outcomes with technical ML KPIs (precision, recall, AUC, RMSE), ensuring high reliability of production AI services.
+
+Certifications
+
+AWS Certified DevOps Professional
+
+Google Professional Cloud Architect
+
+Certified Kubernetes Application Developer (CKAD)
+
+Positioning
+
+With a strong blend of DevOps, Data Engineering, FinOps, and MLOps expertise, I excel at building resilient ML pipelines, cost-optimized cloud environments, and observability-driven infrastructure. I bring the ability to reduce operational overhead, increase system uptime, and ensure enterprise-grade reliability for both traditional applications and AI-driven platforms.
+
+I am positioned to contribute as a Senior DevOps Engineer, Site Reliability Engineer, or MLOps Engineer, supporting organizations in delivering high-performing, cost-efficient, and future-ready digital ecosystems.
