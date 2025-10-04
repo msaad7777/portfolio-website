@@ -55,7 +55,7 @@ export function AboutSection() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/img/saad2.jpg"
+                src="/img/s3.jpeg"
                 alt="Mohammed Saad - DevOps Engineer"
                 className="w-full h-auto object-cover"
               />
