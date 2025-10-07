@@ -4,82 +4,134 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a portfolio website for Mohammed Faiz Ahmed (also referenced as Mohammed Badruddin Saad), a data engineer. The site features a chatbot called "SAADAI" that uses AWS Lambda and OpenAI's API to answer questions about the portfolio owner's background and work.
+Portfolio website for Mohammed Faiz Ahmed (also known as Mohammed Badruddin Saad), a DevOps/MLOps Engineer. The repository contains both a legacy static HTML portfolio and a modern Next.js application, both featuring an AI chatbot called "SAADAI" powered by AWS Lambda and OpenAI.
 
 ## Architecture
 
-### Frontend
-- **Main Portfolio Site**: Static HTML/CSS/JavaScript
-  - `index.html`: Main landing page with sections for home, services, about, and portfolio work
-  - `css/styles.css`: Complete styling including responsive design, navigation, chatbot UI
-  - `js/index.js`: Navigation toggle, chatbot functionality, and video autoplay on scroll
+### Next.js Application (Primary)
 
-### Backend
-- **Chatbot Backend** (`main.py`): AWS Lambda function that handles chatbot requests
-  - Uses OpenAI API (`text-davinci-002` model) for generating responses
-  - Configured as Lambda handler with CORS support
-  - API endpoint: `https://djjjwa2ev2.execute-api.us-east-1.amazonaws.com/Prod`
-  - Requires `OPENAI_API_KEY` environment variable
+Modern portfolio built with Next.js 14, TypeScript, React, and Tailwind CSS.
 
-### Key Dependencies
-- **Frontend**: jQuery, Font Awesome, Google Fonts
-- **Backend**: openai, python-dotenv (see `requirements.txt` for full list)
-- **Node.js**: Dependencies in `package.json` include @anthropic-ai/claude-agent-sdk, @anthropic-ai/sdk, openai
+**Main Files:**
+- `app/page.tsx`: Main page with section components (Hero, About, Experience, Skills, Portfolio, Blog, Contact)
+- `app/layout.tsx`: Root layout with theme provider and metadata
+- `components/`: Reusable components including sections, navigation, footer, and chatbot
+- `components/chatbot.tsx`: Modern SAADAI chatbot implementation
 
-## Project Structure
+**Tech Stack:**
+- Next.js 14 with App Router
+- TypeScript
+- Tailwind CSS with custom animations
+- Framer Motion for animations
+- Lucide React for icons
+- Dark/light theme support via `next-themes`
 
+### Legacy Static Portfolio
+
+Original HTML/CSS/JavaScript implementation located in root directory:
+- `index.html`: Static portfolio page
+- `css/styles.css`: Styling with responsive design
+- `js/index.js`: Navigation toggle and original chatbot implementation
+- `portfolio-item*.html`: Individual project pages
+
+### Chatbot Backend
+
+**File:** `main.py` (AWS Lambda function)
+
+- Uses OpenAI API (`text-davinci-002` model)
+- API endpoint: `https://djjjwa2ev2.execute-api.us-east-1.amazonaws.com/Prod`
+- Requires `OPENAI_API_KEY` environment variable
+- Handles CORS for both static and Next.js applications
+- System prompt defines bot as "PortfolioBot" with context about Mohammed's experience
+
+## Common Commands
+
+### Next.js Development
+
+```bash
+npm run dev        # Start development server (localhost:3000)
+npm run build      # Build production bundle
+npm run start      # Start production server
+npm run lint       # Run ESLint
+npm run export     # Build and export static site
 ```
-termproject/
-├── index.html                    # Main portfolio page
-├── portfolio-item*.html          # Individual portfolio project pages
-├── contact-form.html            # Contact form page
-├── css/
-│   └── styles.css               # Main stylesheet
-├── js/
-│   └── index.js                 # Frontend JavaScript
-├── img/                         # Images and assets
-├── main.py                      # AWS Lambda chatbot handler
-├── package.json                 # Node.js dependencies
-└── requirements.txt             # Python dependencies
-```
 
-## Chatbot System
+### Deployment
 
-The chatbot "SAADAI" is integrated into the portfolio:
+The project is configured for Vercel deployment:
+- Auto-deploys from GitHub on push
+- See `VERCEL-DEPLOYMENT.md` for detailed deployment instructions
+- Custom domain: www.msaad.co.in
 
-1. **Frontend** (`js/index.js`):
-   - Captures user input from `#chatbot-input`
-   - Sends POST request to AWS Lambda endpoint
-   - Displays responses in `#chatbot-messages`
+## Component Architecture
 
-2. **Backend** (`main.py`):
-   - Lambda function receives user input
-   - System prompt defines bot as "PortfolioBot" with context about Mohammed's background
-   - Returns OpenAI-generated response with CORS headers
+### Page Structure (app/page.tsx)
+
+Sections are imported as client components and rendered in order:
+1. Navigation (sticky header)
+2. HeroSection (introduction)
+3. AboutSection (background)
+4. ExperienceSection (work history)
+5. SkillsSection (technical skills)
+6. CertificationsSection (Credly badges)
+7. PortfolioSection (projects)
+8. BlogSection (Medium articles)
+9. ContactSection (contact form)
+10. Footer
+11. ChatBot (floating chat widget)
+
+### Chatbot Implementation
+
+**Both implementations** (legacy and Next.js) connect to the same AWS Lambda endpoint:
+- Located: `components/chatbot.tsx` (Next.js) and `js/index.js` (legacy)
+- Floating button with animated chat window
+- Maintains conversation history
+- Error handling for failed API calls
+- Loading states during API requests
+
+## Styling System
+
+- Tailwind CSS with custom configuration (`tailwind.config.ts`)
+- CSS variables for theming (dark/light mode)
+- Framer Motion for animations
+- Component library using shadcn/ui patterns (`components/ui/`)
+- Responsive design (mobile-first)
 
 ## Development Notes
 
-### Environment Setup
-- Backend requires `.env` file with `OPENAI_API_KEY`
-- Lambda function expects event structure with `body.userInput`
+### Important: Dual Implementation
+
+This repository maintains **two separate portfolio implementations**:
+- **Next.js app** (primary, modern): Used for production deployment at www.msaad.co.in
+- **Static HTML** (legacy): Original implementation in root directory (index.html, css/, js/)
+
+When making changes, consider which implementation should be updated. Typically, only the Next.js app requires updates.
 
 ### Chatbot Customization
-To modify the chatbot's knowledge or behavior, edit the system prompt in `main.py` at lines 25-31.
 
-### Styling
-- Uses CSS custom properties (variables) for theming (see `:root` in `styles.css`)
-- Responsive design with breakpoints at 600px and 800px
-- Mobile-first navigation with hamburger menu
+To modify chatbot behavior, edit system prompt in `main.py` lines 25-31.
 
-### Known Issues
-Per README.md, there are "Issues faced" with the SAADAI chatbot implementation.
+### Environment Variables
 
-## Additional Projects
+- Backend Lambda requires: `OPENAI_API_KEY`
+- Next.js application has no required environment variables (chatbot uses public API Gateway endpoint)
 
-The repository contains multiple HTML/CSS learning projects in subdirectories:
-- Coffee menu, Nutrition label, Quiz, Survey forms
-- Rothko painting, Piano, Skyline (CSS art projects)
-- Balance sheet, Magazine (layout projects)
-- Various other portfolio pieces
+### TypeScript Configuration
 
-These are standalone educational projects and not integrated into the main portfolio site.
+- Strict mode enabled (`tsconfig.json`)
+- Path aliases: `@/` maps to root directory
+
+### Component Patterns
+
+All section components follow a consistent pattern:
+- Use `"use client"` directive (client-side rendering for animations)
+- Wrapped in `<section>` with unique `id` for navigation
+- Use Framer Motion for scroll animations
+- Responsive design with Tailwind CSS breakpoints
+- Follow dark/light theme via CSS variables
+
+### Known Project Content
+
+- Repository includes legacy HTML/CSS learning projects in subdirectories (coffee-menu, Quiz, Piano, etc.)
+- These are standalone educational projects, not part of main portfolio
+- GitHub repository: https://github.com/msaad7777/portfolio-website
