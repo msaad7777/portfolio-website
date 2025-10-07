@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Briefcase, Code2, Rocket } from "lucide-react"
 
@@ -53,13 +54,16 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-square">
+              <Image
                 src="/img/s3.jpeg"
                 alt="Mohammed Saad - DevOps Engineer"
-                className="w-full h-auto object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
             </div>
           </motion.div>
 
