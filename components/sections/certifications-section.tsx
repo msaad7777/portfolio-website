@@ -74,7 +74,7 @@ export function CertificationsSection() {
         </motion.div>
 
         {/* Certifications Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.name}
@@ -97,31 +97,6 @@ export function CertificationsSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Credly Embed */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
-        >
-          <Card className="overflow-hidden border-accent/20">
-            <CardContent className="p-0">
-              <div className="relative w-full" style={{ minHeight: "400px" }}>
-                <iframe
-                  src="https://www.credly.com/users/mohammed-saad.fb7a43c3/badges"
-                  width="100%"
-                  height="600"
-                  frameBorder="0"
-                  scrolling="auto"
-                  className="w-full"
-                  title="Credly Badges"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   )

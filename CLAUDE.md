@@ -61,7 +61,7 @@ npm run export     # Build and export static site
 The project is configured for Vercel deployment:
 - Auto-deploys from GitHub on push
 - See `VERCEL-DEPLOYMENT.md` for detailed deployment instructions
-- Custom domain: www.msaad.co.in
+- Custom domain: **msaad.tech** (primary production domain)
 
 ## Component Architecture
 
