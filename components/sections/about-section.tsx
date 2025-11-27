@@ -1,9 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Briefcase, Code2, Heart, ExternalLink } from "lucide-react"
+import { Award, Briefcase, Code2, Heart, ExternalLink, MapPin, Linkedin } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function AboutSection() {
   const highlights = [
@@ -30,8 +30,15 @@ export function AboutSection() {
   ]
 
   return (
-    <section id="about" className="py-20 md:py-32 relative">
+    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
+      </div>
+
       <div className="container mx-auto px-4">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,125 +52,159 @@ export function AboutSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative flex justify-center"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[2/3]">
-              <Image
-                src="/img/final-linkedn.png"
-                alt="Mohammed Saad - Senior SRE"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
-            </div>
-          </motion.div>
+        {/* Main Content - Image Card + Bio */}
+        <div className="max-w-6xl mx-auto">
+          {/* Profile Card - Centered on top for mobile, side by side on desktop */}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
 
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold">
-              Senior Site Reliability Engineer | Senior DevOps Engineer | Platform Engineering
-            </h3>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Senior Site Reliability Engineer & DevOps Engineer with over 9 years of experience designing, building,
-              and scaling infrastructure for large-scale, cloud-native systems. I specialize in AWS, GCP, and Azure,
-              with expertise in distributed systems, security, and scalability. Proven track record of owning systems
-              end-to-end, solving ambiguous problems, and mentoring peers while delivering highly available, performant,
-              and secure services.
-            </p>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Expert in building and scaling Kubernetes clusters and containerized workloads from the ground up.
-              Proficient in Infrastructure-as-Code using Terraform and Pulumi, with hands-on experience maintaining
-              and optimizing databases (PostgreSQL, DynamoDB, Redis) and backend services. Led initiatives on stateless
-              architectures, CI/CD pipelines, and observability (Prometheus, Grafana, OpenTSDB, Envoy) to enhance
-              scalability, maintainability, and reliability.
-            </p>
-
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Strong background in platform engineering, designing internal developer platforms, and implementing
-              Golden Metrics dashboards (latency, traffic, errors, saturation) with SLO-driven alerting. Passionate
-              about fostering a culture of collaboration and continuous improvement through technical leadership
-              and mentorship. Proficient in Python, Go, and JavaScript with a technology generalist mindset.
-            </p>
-
-            {/* Community Work */}
+            {/* Left Column - Profile Card */}
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-4 rounded-xl bg-accent/5 border border-accent/20"
+              transition={{ duration: 0.6 }}
+              className="w-full lg:w-auto lg:flex-shrink-0 flex justify-center lg:sticky lg:top-24"
             >
-              <div className="flex items-start gap-3">
-                <Heart className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                <div>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    <strong className="text-foreground">Beyond my professional work</strong>, I am passionate about giving back to the community.
-                    I volunteer for non-profit organizations focused on community betterment. Currently, I serve as the{" "}
-                    <strong className="text-accent">Full Stack Developer & Playing Director</strong> at{" "}
+              <Card className="w-full max-w-sm border-accent/20 overflow-hidden bg-card/50 backdrop-blur-sm">
+                {/* Profile Image - Using img tag with explicit dimensions for reliability */}
+                <div className="relative w-full bg-gradient-to-br from-accent/20 to-emerald-500/20">
+                  <img
+                    src="/img/final-linkedn.png"
+                    alt="Mohammed Saad - Senior Site Reliability Engineer"
+                    className="w-full h-auto block"
+                    style={{ maxHeight: '400px', objectFit: 'cover', objectPosition: 'top' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                </div>
+
+                <CardContent className="p-6 -mt-8 relative z-10">
+                  <h3 className="text-xl font-bold mb-1">Mohammed Saad</h3>
+                  <p className="text-accent font-medium mb-3">Senior Site Reliability Engineer</p>
+
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                    <MapPin className="w-4 h-4" />
+                    <span>Toronto, Ontario, Canada</span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">AWS</span>
+                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">GCP</span>
+                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">Kubernetes</span>
+                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">Terraform</span>
+                  </div>
+
+                  <Button asChild className="w-full gap-2" variant="outline">
                     <a
-                      href="https://challengerscc.ca"
+                      href="https://www.linkedin.com/in/badruddin-saad"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent hover:underline inline-flex items-center gap-1"
                     >
-                      Challengers Cricket Club
-                      <ExternalLink className="w-3 h-3" />
+                      <Linkedin className="w-4 h-4" />
+                      Connect on LinkedIn
                     </a>
-                    , a cricket club in the London community. I built their website from scratch and manage their social media presence,
-                    helping grow the club&apos;s digital footprint and community engagement.
-                  </p>
-                </div>
-              </div>
+                  </Button>
+                </CardContent>
+              </Card>
             </motion.div>
 
-            <p className="text-lg font-semibold text-accent leading-relaxed">
-              Based in Toronto, Ontario, Canada • Available for Remote Work • Open to Contract and Full-Time Opportunities
-              in Senior SRE, Senior DevOps, Platform Engineering, and MLOps
-            </p>
+            {/* Right Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex-1 space-y-6"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold leading-tight">
+                Senior Site Reliability Engineer | Senior DevOps Engineer | Platform Engineering
+              </h3>
 
-            {/* Highlights Grid */}
-            <div className="grid sm:grid-cols-2 gap-4 pt-6">
-              {highlights.map((highlight, index) => (
-                <motion.div
-                  key={highlight.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <Card className="border-accent/20 hover:border-accent/50 transition-all">
-                    <CardContent className="p-4">
-                      <div className="flex items-start space-x-3">
-                        <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                          <highlight.icon className="w-5 h-5 text-accent" />
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Senior Site Reliability Engineer & DevOps Engineer with over 9 years of experience designing, building,
+                and scaling infrastructure for large-scale, cloud-native systems. I specialize in AWS, GCP, and Azure,
+                with expertise in distributed systems, security, and scalability. Proven track record of owning systems
+                end-to-end, solving ambiguous problems, and mentoring peers while delivering highly available, performant,
+                and secure services.
+              </p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Expert in building and scaling Kubernetes clusters and containerized workloads from the ground up.
+                Proficient in Infrastructure-as-Code using Terraform and Pulumi, with hands-on experience maintaining
+                and optimizing databases (PostgreSQL, DynamoDB, Redis) and backend services. Led initiatives on stateless
+                architectures, CI/CD pipelines, and observability (Prometheus, Grafana, OpenTSDB, Envoy) to enhance
+                scalability, maintainability, and reliability.
+              </p>
+
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Strong background in platform engineering, designing internal developer platforms, and implementing
+                Golden Metrics dashboards (latency, traffic, errors, saturation) with SLO-driven alerting. Passionate
+                about fostering a culture of collaboration and continuous improvement through technical leadership
+                and mentorship. Proficient in Python, Go, and JavaScript with a technology generalist mindset.
+              </p>
+
+              {/* Community Work */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-4 rounded-xl bg-accent/5 border border-accent/20"
+              >
+                <div className="flex items-start gap-3">
+                  <Heart className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      <strong className="text-foreground">Beyond my professional work</strong>, I am passionate about giving back to the community.
+                      I volunteer for non-profit organizations focused on community betterment. Currently, I serve as the{" "}
+                      <strong className="text-accent">Full Stack Developer & Playing Director</strong> at{" "}
+                      <a
+                        href="https://challengerscc.ca"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent hover:underline inline-flex items-center gap-1"
+                      >
+                        Challengers Cricket Club
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                      , a cricket club in the London community. I built their website from scratch and manage their social media presence,
+                      helping grow the club&apos;s digital footprint and community engagement.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <p className="text-lg font-semibold text-accent leading-relaxed">
+                Available for Remote Work • Open to Contract and Full-Time Opportunities
+                in Senior SRE, Senior DevOps, Platform Engineering, and MLOps
+              </p>
+
+              {/* Highlights Grid */}
+              <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                {highlights.map((highlight, index) => (
+                  <motion.div
+                    key={highlight.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <Card className="border-accent/20 hover:border-accent/50 transition-all h-full">
+                      <CardContent className="p-4">
+                        <div className="flex items-start space-x-3">
+                          <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                            <highlight.icon className="w-5 h-5 text-accent" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold mb-1">{highlight.title}</h4>
+                            <p className="text-sm text-muted-foreground">{highlight.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-semibold mb-1">{highlight.title}</h4>
-                          <p className="text-sm text-muted-foreground">{highlight.description}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
