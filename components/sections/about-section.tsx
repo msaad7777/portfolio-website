@@ -3,24 +3,24 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Briefcase, Code2, Rocket, Heart, ExternalLink } from "lucide-react"
+import { Award, Briefcase, Code2, Heart, ExternalLink } from "lucide-react"
 
 export function AboutSection() {
   const highlights = [
     {
       icon: Briefcase,
       title: "9+ Years Experience",
-      description: "DevOps, MLOps, Data Engineering, and SRE across multiple industries"
+      description: "Senior SRE, Senior DevOps, MLOps, and Platform Engineering across industries"
     },
     {
       icon: Award,
       title: "Cloud Certified",
-      description: "AWS DevOps Professional, GCP Architect, CKAD"
+      description: "AWS DevOps Professional, GCP Architect, CKAD, LFCS, KCNA, KCSA"
     },
     {
       icon: Code2,
-      title: "FinOps & Cost Optimization",
-      description: "Multi-cloud cost governance, anomaly detection, and rightsizing"
+      title: "Platform Engineering",
+      description: "Distributed systems, cloud-native architecture, and scalability design"
     },
     {
       icon: Heart,
@@ -56,7 +56,7 @@ export function AboutSection() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-square">
               <Image
-                src="/img/s3.jpeg"
+                src="/img/final-linkedn.png"
                 alt="Mohammed Saad - DevOps Engineer"
                 fill
                 className="object-cover"
@@ -76,29 +76,30 @@ export function AboutSection() {
             className="space-y-6"
           >
             <h3 className="text-2xl md:text-3xl font-bold">
-              Site Reliability Engineer | FinOps & Cost Optimization | MLOps & Observability
+              Senior Site Reliability Engineer | Senior DevOps Engineer | Platform Engineering
             </h3>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Senior DevOps & Site Reliability Engineer with over 9 years of experience in DevOps, Cloud Engineering,
-              Data Engineering, and MLOps, specializing in AWS, GCP, and Azure. I have a proven track record of
-              designing, deploying, and optimizing cloud-native infrastructure that is scalable, secure, cost-efficient,
-              and highly observable, supporting enterprise and digital-first organizations across industries.
+              Senior Site Reliability Engineer & DevOps Engineer with over 9 years of experience designing, building,
+              and scaling infrastructure for large-scale, cloud-native systems. I specialize in AWS, GCP, and Azure,
+              with expertise in distributed systems, security, and scalability. Proven track record of owning systems
+              end-to-end, solving ambiguous problems, and mentoring peers while delivering highly available, performant,
+              and secure services.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              At Hotspex Media, I architected CI/CD pipelines with Cloud Build, GitHub Actions, and Artifact Registry
-              to enable blue-green deployments and zero-downtime updates. My work reduced MySQL downtime by 40%, improved
-              pipeline availability by 15%, and increased monitoring efficiency by 30%. I also delivered sustained cloud
-              cost savings by implementing FinOps best practices, multi-cloud cost visibility with New Relic CCI and Looker
-              dashboards, anomaly detection, and resource rightsizing across AWS and GCP.
+              Expert in building and scaling Kubernetes clusters and containerized workloads from the ground up.
+              Proficient in Infrastructure-as-Code using Terraform and Pulumi, with hands-on experience maintaining
+              and optimizing databases (PostgreSQL, DynamoDB, Redis) and backend services. Led initiatives on stateless
+              architectures, CI/CD pipelines, and observability (Prometheus, Grafana, OpenTSDB, Envoy) to enhance
+              scalability, maintainability, and reliability.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Expert in designing Golden Metrics dashboards (latency, traffic, errors, saturation), SLO-driven alerting,
-              and productionizing ML models with automated retraining and drift monitoring. Proficient in Kubernetes,
-              Terraform, Prometheus, Grafana, New Relic, Datadog, and comprehensive MLOps best practices for both
-              traditional applications and AI-driven platforms.
+              Strong background in platform engineering, designing internal developer platforms, and implementing
+              Golden Metrics dashboards (latency, traffic, errors, saturation) with SLO-driven alerting. Passionate
+              about fostering a culture of collaboration and continuous improvement through technical leadership
+              and mentorship. Proficient in Python, Go, and JavaScript with a technology generalist mindset.
             </p>
 
             {/* Community Work */}
@@ -133,7 +134,7 @@ export function AboutSection() {
 
             <p className="text-lg font-semibold text-accent leading-relaxed">
               Based in Toronto, Ontario, Canada • Available for Remote Work • Open to Contract and Full-Time Opportunities
-              in MLOps, SRE, DevOps, and Gen AI Development
+              in Senior SRE, Senior DevOps, Platform Engineering, and MLOps
             </p>
 
             {/* Highlights Grid */}

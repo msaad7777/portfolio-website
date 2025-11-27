@@ -16,10 +16,30 @@ export function SkillsSection() {
     {
       category: "Container & Orchestration",
       skills: [
-        { name: "Kubernetes (GKE)", level: 95 },
+        { name: "Kubernetes (GKE/EKS/AKS)", level: 95 },
         { name: "Docker", level: 95 },
         { name: "Container Registry", level: 90 },
-        { name: "Helm", level: 85 },
+        { name: "Helm", level: 88 },
+        { name: "Envoy", level: 85 },
+      ]
+    },
+    {
+      category: "Platform Engineering",
+      skills: [
+        { name: "Internal Developer Platforms", level: 90 },
+        { name: "Self-Service Infrastructure", level: 88 },
+        { name: "Golden Paths & Templates", level: 87 },
+        { name: "Service Catalogs", level: 85 },
+        { name: "Platform APIs", level: 86 },
+      ]
+    },
+    {
+      category: "Infrastructure-as-Code",
+      skills: [
+        { name: "Terraform", level: 92 },
+        { name: "Pulumi", level: 85 },
+        { name: "Ansible", level: 88 },
+        { name: "CloudFormation", level: 85 },
       ]
     },
     {
@@ -29,18 +49,17 @@ export function SkillsSection() {
         { name: "GitHub Actions", level: 92 },
         { name: "Jenkins", level: 88 },
         { name: "GitLab CI", level: 86 },
-        { name: "Terraform", level: 90 },
-        { name: "Ansible", level: 85 },
+        { name: "ArgoCD", level: 85 },
       ]
     },
     {
       category: "Monitoring & Observability",
       skills: [
-        { name: "Prometheus", level: 90 },
+        { name: "Prometheus", level: 92 },
         { name: "Grafana", level: 92 },
+        { name: "OpenTSDB", level: 85 },
         { name: "New Relic", level: 88 },
-        { name: "CloudWatch", level: 85 },
-        { name: "Datadog", level: 82 },
+        { name: "Datadog", level: 85 },
         { name: "ELK Stack", level: 85 },
       ]
     },
@@ -49,10 +68,19 @@ export function SkillsSection() {
       skills: [
         { name: "New Relic CCI", level: 90 },
         { name: "Looker Dashboards", level: 88 },
-        { name: "Cost Anomaly Detection", level: 85 },
+        { name: "Cost Anomaly Detection", level: 88 },
         { name: "Resource Rightsizing", level: 90 },
         { name: "Cloud Tagging Strategy", level: 92 },
-        { name: "Budget Alerts", level: 88 },
+      ]
+    },
+    {
+      category: "Distributed Systems",
+      skills: [
+        { name: "High Availability Design", level: 92 },
+        { name: "Stateless Architectures", level: 90 },
+        { name: "Scalability Patterns", level: 90 },
+        { name: "Cloud-Native Architecture", level: 92 },
+        { name: "Microservices", level: 88 },
       ]
     },
     {
@@ -62,30 +90,27 @@ export function SkillsSection() {
         { name: "BigQuery", level: 92 },
         { name: "Cloud Dataflow", level: 88 },
         { name: "Apache Spark/PySpark", level: 87 },
-        { name: "MLOps", level: 85 },
-        { name: "PyTorch", level: 80 },
+        { name: "MLOps", level: 88 },
       ]
     },
     {
       category: "Programming & Scripting",
       skills: [
         { name: "Python", level: 93 },
-        { name: "Bash/Shell", level: 90 },
+        { name: "Go", level: 85 },
+        { name: "Bash/Shell", level: 92 },
         { name: "TypeScript/JavaScript", level: 85 },
         { name: "Java", level: 82 },
-        { name: "Go", level: 78 },
       ]
     },
     {
       category: "Databases & Storage",
       skills: [
+        { name: "PostgreSQL", level: 90 },
+        { name: "DynamoDB", level: 88 },
+        { name: "Redis", level: 88 },
         { name: "Cloud SQL (MySQL)", level: 90 },
-        { name: "PostgreSQL", level: 87 },
-        { name: "Cloud Storage", level: 92 },
-        { name: "Firestore", level: 85 },
-        { name: "MongoDB", level: 82 },
-        { name: "Redis", level: 83 },
-        { name: "Cassandra", level: 80 },
+        { name: "MongoDB", level: 85 },
       ]
     },
     {
@@ -94,8 +119,8 @@ export function SkillsSection() {
         { name: "IAM & Security Policies", level: 90 },
         { name: "VPC Configuration", level: 88 },
         { name: "Load Balancers", level: 90 },
-        { name: "Cybersecurity", level: 82 },
-        { name: "OAuth", level: 80 },
+        { name: "Linux Administration", level: 92 },
+        { name: "Debugging & Troubleshooting", level: 90 },
       ]
     }
   ]
@@ -155,34 +180,6 @@ export function SkillsSection() {
           ))}
         </div>
 
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
-        >
-          <h3 className="text-2xl font-bold mb-6">Certifications</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              "AWS Certified DevOps Professional",
-              "Google Professional Cloud Architect",
-              "Certified Kubernetes Application Developer (CKAD)",
-            ].map((cert, index) => (
-              <motion.div
-                key={cert}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="px-6 py-3 bg-accent/10 border border-accent/30 rounded-full font-medium"
-              >
-                {cert}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

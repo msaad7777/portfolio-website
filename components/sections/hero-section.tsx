@@ -98,8 +98,8 @@ export function HeroSection() {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl md:text-3xl text-muted-foreground space-y-1"
               >
-                <p className="gradient-text font-semibold">Site Reliability Engineer</p>
-                <p className="text-lg sm:text-xl text-muted-foreground/80">DevOps | MLOps | Cloud Solutions</p>
+                <p className="gradient-text font-semibold">Senior Site Reliability Engineer</p>
+                <p className="text-lg sm:text-xl text-muted-foreground/80">Senior DevOps | Platform Engineering | MLOps</p>
               </motion.div>
             </motion.div>
 
@@ -107,9 +107,9 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Senior DevOps & Site Reliability Engineer with <span className="text-accent font-semibold">9+ years</span> of experience specializing in
-              AWS, GCP, and Azure. Expert in CI/CD pipelines, Kubernetes, MLOps, FinOps & cost optimization,
-              and observability-driven infrastructure. Also passionate about <span className="text-accent font-semibold">community service</span> -
+              Senior SRE & DevOps Engineer with <span className="text-accent font-semibold">9+ years</span> of experience designing and scaling
+              cloud-native distributed systems on AWS, GCP, and Azure. Expert in Kubernetes, Platform Engineering,
+              Infrastructure-as-Code (Terraform, Pulumi), and observability. Passionate about <span className="text-accent font-semibold">community service</span> -
               currently volunteering as Full Stack Developer at{" "}
               <a href="https://challengerscc.ca" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
                 Challengers CC
