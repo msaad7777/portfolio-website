@@ -38,40 +38,51 @@ export function CertificationsSection() {
       isNew: true
     },
     {
-      name: "AWS Certified DevOps Engineer - Professional",
-      issuer: "Amazon Web Services",
-      icon: "☁️",
-      skills: ["AWS", "CI/CD", "DevOps", "Infrastructure as Code"]
+      name: "CKAD: Certified Kubernetes Application Developer",
+      issuer: "The Linux Foundation",
+      icon: "⎈",
+      date: "May 2025",
+      expiry: "May 2027",
+      credentialId: "7dbbf988-b1f3-42b6-8f13-ff6509bf77ca",
+      skills: ["Kubernetes", "Docker", "Python", "Node.js", "Java", "Cloud Native"],
+      isNew: true
     },
     {
-      name: "Google Cloud Professional Cloud Architect",
+      name: "Professional Cloud Architect Certification",
       issuer: "Google Cloud",
       icon: "🌐",
-      skills: ["GCP", "Cloud Architecture", "Infrastructure Design"]
+      date: "Feb 2025",
+      expiry: "Feb 2027",
+      credentialId: "79bde20e-5d20-4306-9bb8-81f0586eb855",
+      skills: ["GCP", "Cloud Architecture", "Cloud Security", "IAM", "Scalability"],
+      isNew: true
     },
     {
-      name: "Certified Kubernetes Application Developer (CKAD)",
-      issuer: "Cloud Native Computing Foundation",
-      icon: "⎈",
-      skills: ["Kubernetes", "Container Orchestration", "Application Deployment"]
+      name: "AWS Certified DevOps Engineer – Professional",
+      issuer: "Amazon Web Services",
+      icon: "☁️",
+      date: "Mar 2023",
+      expiry: "Mar 2026",
+      credentialId: "827afbe3-159e-486e-97d0-22223d506ff5",
+      skills: ["AWS", "DevOps", "CI/CD", "Cloud Automation", "AWS Cloud"]
     },
     {
       name: "HashiCorp Certified: Terraform Associate",
       issuer: "HashiCorp",
       icon: "🔧",
-      skills: ["Terraform", "IaC", "Infrastructure Automation"]
+      skills: ["Terraform", "IaC", "Infrastructure Automation", "Multi-Cloud"]
     },
     {
       name: "AWS Certified Solutions Architect - Professional",
       issuer: "Amazon Web Services",
       icon: "🏗️",
-      skills: ["AWS", "Solution Architecture", "Cloud Design"]
+      skills: ["AWS", "Solution Architecture", "Cloud Design", "High Availability"]
     },
     {
       name: "Microsoft Certified: Azure DevOps Engineer Expert",
       issuer: "Microsoft",
       icon: "🔷",
-      skills: ["Azure", "DevOps", "CI/CD Pipelines"]
+      skills: ["Azure", "DevOps", "CI/CD Pipelines", "Azure DevOps"]
     }
   ]
 
