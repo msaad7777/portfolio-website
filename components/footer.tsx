@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Linkedin, Mail, GraduationCap, BookOpen, ArrowUp, Heart, MapPin, Phone } from "lucide-react"
-import { FaXTwitter, FaGithub } from "react-icons/fa6"
+import { FaGithub } from "react-icons/fa6"
 
 export function Footer() {
   const [year, setYear] = useState(2025)
@@ -28,9 +28,8 @@ export function Footer() {
     { icon: FaGithub, href: "https://github.com/msaad7777", label: "GitHub", color: "hover:bg-gray-700" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn", color: "hover:bg-blue-600" },
     { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium Blog", color: "hover:bg-green-600" },
-    { icon: FaXTwitter, href: "https://twitter.com/Mohamme43073045?t=V2VGq-qo8elg7fkb4AwiSA&s=09", label: "Twitter", color: "hover:bg-sky-500" },
     { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email", color: "hover:bg-red-500" },
-    { icon: GraduationCap, href: "https://www.credly.com/users/mohammed-saad.402d23cb/badges", label: "Certifications", color: "hover:bg-amber-500" },
+    { icon: GraduationCap, href: "https://www.credly.com/users/mohammed-saad.fb7a43c3/badges", label: "Certifications", color: "hover:bg-amber-500" },
   ]
 
   const navLinks = [

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, Twitter, BookOpen, Download, Sparkles } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
@@ -14,7 +14,6 @@ export function HeroSection() {
     { icon: Github, href: "https://github.com/msaad7777", label: "GitHub", color: "hover:text-gray-400" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn", color: "hover:text-blue-500" },
     { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium Blog", color: "hover:text-green-500" },
-    { icon: Twitter, href: "https://twitter.com/Mohamme43073045?t=V2VGq-qo8elg7fkb4AwiSA&s=09", label: "Twitter", color: "hover:text-sky-500" },
     { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email", color: "hover:text-red-500" },
   ]
 
