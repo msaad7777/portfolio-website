@@ -66,24 +66,6 @@ export function CertificationsSection() {
       credentialId: "827afbe3-159e-486e-97d0-22223d506ff5",
       skills: ["AWS", "DevOps", "CI/CD", "Cloud Automation", "AWS Cloud"]
     },
-    {
-      name: "HashiCorp Certified: Terraform Associate",
-      issuer: "HashiCorp",
-      icon: "🔧",
-      skills: ["Terraform", "IaC", "Infrastructure Automation", "Multi-Cloud"]
-    },
-    {
-      name: "AWS Certified Solutions Architect - Professional",
-      issuer: "Amazon Web Services",
-      icon: "🏗️",
-      skills: ["AWS", "Solution Architecture", "Cloud Design", "High Availability"]
-    },
-    {
-      name: "Microsoft Certified: Azure DevOps Engineer Expert",
-      issuer: "Microsoft",
-      icon: "🔷",
-      skills: ["Azure", "DevOps", "CI/CD Pipelines", "Azure DevOps"]
-    }
   ]
 
   return (
@@ -119,7 +101,7 @@ export function CertificationsSection() {
             className="gap-2 bg-gradient-to-r from-accent to-emerald-600 hover:from-accent/90 hover:to-emerald-600/90 text-white shadow-lg shadow-accent/25"
           >
             <a
-              href="https://www.credly.com/users/mohammed-saad.402d23cb/badges"
+              href="https://www.credly.com/users/mohammed-saad.fb7a43c3/badges"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -209,15 +191,15 @@ export function CertificationsSection() {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
         >
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">9+</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">6</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Certifications</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">3</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">2</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Cloud Platforms</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">3</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">4</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Linux Foundation</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
