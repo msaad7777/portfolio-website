@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail, Twitter, BookOpen, Download, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -203,13 +204,16 @@ export function HeroSection() {
               {/* Profile Image */}
               <motion.div
                 whileHover={{ scale: 1.02 }}
-                className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-accent/30 shadow-2xl shadow-accent/10"
+                className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-accent/30 shadow-2xl shadow-accent/10 aspect-square"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
-                <img
+                <Image
                   src="/img/saad-proffessional.jpg"
-                  alt="Mohammed Saad - Site Reliability Engineer"
-                  className="w-full h-auto object-cover"
+                  alt="Mohammed Saad - Senior Site Reliability Engineer"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 512px"
+                  priority
                 />
               </motion.div>
 

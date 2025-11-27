@@ -52,15 +52,15 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative flex justify-center"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-square">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl w-full max-w-xs sm:max-w-sm md:max-w-md aspect-[2/3]">
               <Image
                 src="/img/final-linkedn.png"
-                alt="Mohammed Saad - DevOps Engineer"
+                alt="Mohammed Saad - Senior SRE"
                 fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-top"
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
