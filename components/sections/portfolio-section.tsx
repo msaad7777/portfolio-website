@@ -1,16 +1,23 @@
 "use client"
 
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Filter } from "lucide-react"
+import { ExternalLink, Eye, Layers, ArrowUpRight } from "lucide-react"
+import { FaGithub } from "react-icons/fa6"
 
 export function PortfolioSection() {
   const [activeFilter, setActiveFilter] = useState("All")
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
 
-  const filters = ["All", "DevOps", "MLOps", "Data Engineering"]
+  const filters = [
+    { name: "All", icon: Layers },
+    { name: "DevOps", icon: null },
+    { name: "MLOps", icon: null },
+    { name: "Data Engineering", icon: null }
+  ]
 
   const projects = [
     {
@@ -19,7 +26,9 @@ export function PortfolioSection() {
       description: "Led GCP and AWS multi-cloud deployments with Cloud Build, GKE, and blue-green deployment strategies, achieving 40% reduction in downtime",
       image: "/img/portfolio-01.jpg",
       tags: ["GCP", "Cloud Build", "GKE", "GitHub Actions"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "40% less downtime"
     },
     {
       title: "Predictive Analytics Pipeline (BPCL)",
@@ -27,7 +36,9 @@ export function PortfolioSection() {
       description: "Built and deployed predictive models for customer churn and CO₂ emissions using Python, containerized and scaled on Azure Kubernetes Service",
       image: "/img/portfolio-02.jpg",
       tags: ["Azure", "Kubernetes", "Python", "ARIMA"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "92% accuracy"
     },
     {
       title: "Churn Prediction & Customer Insights",
@@ -35,7 +46,9 @@ export function PortfolioSection() {
       description: "Designed ETL/ELT workflows with Apache Airflow and Dataflow, deployed churn prediction models with CI/CD integration",
       image: "/img/portfolio-03.jpg",
       tags: ["Airflow", "BigQuery", "ML", "GCP"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "25% reduced churn"
     },
     {
       title: "Enterprise Data Pipeline (GCP)",
@@ -43,7 +56,9 @@ export function PortfolioSection() {
       description: "Built optimized GCP pipelines with Cloud Storage, Dataflow, and BigQuery, increasing pipeline availability by 15%",
       image: "/img/portfolio-04.jpg",
       tags: ["Cloud Dataflow", "BigQuery", "Apache Beam"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "15% more uptime"
     },
     {
       title: "Monitoring & Observability Stack",
@@ -51,7 +66,9 @@ export function PortfolioSection() {
       description: "Implemented Prometheus, Grafana, and New Relic across multiple projects, achieving 30% increase in monitoring capabilities",
       image: "/img/portfolio-05.jpg",
       tags: ["Prometheus", "Grafana", "New Relic"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "30% better monitoring"
     },
     {
       title: "ML Integration with SAP Data",
@@ -59,15 +76,9 @@ export function PortfolioSection() {
       description: "Connected enterprise SAP ERP datasets to ML pipelines with PySpark, Cassandra, and Hive. Leveraged Kubernetes for scaling inference services",
       image: "/img/portfolio-06.jpg",
       tags: ["PySpark", "Kubernetes", "SAP", "MLOps"],
-      link: "#"
-    },
-    {
-      title: "ML Observability & Performance Monitoring",
-      category: "MLOps",
-      description: "Enhanced ML-powered data pipelines with Prometheus, Grafana, and New Relic to track latency, throughput, and drift. Built Looker dashboards combining business outcomes with technical ML KPIs",
-      image: "/img/portfolio-01.jpg",
-      tags: ["Prometheus", "Grafana", "Looker", "Drift Detection"],
-      link: "#"
+      link: "#",
+      github: "#",
+      metrics: "3x faster processing"
     }
   ]
 
@@ -76,86 +87,183 @@ export function PortfolioSection() {
     : projects.filter(p => p.category === activeFilter)
 
   return (
-    <section id="portfolio" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="portfolio" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/20 to-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Portfolio</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Selected projects showcasing my expertise
+          <motion.span
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-accent/10 text-accent border border-accent/20"
+          >
+            My Work
+          </motion.span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+            A selection of projects showcasing my expertise in cloud infrastructure, DevOps, and MLOps
           </p>
         </motion.div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <Filter className="w-5 h-5 mt-2 text-muted-foreground" />
-          {filters.map((filter) => (
-            <Button
-              key={filter}
-              variant={activeFilter === filter ? "default" : "outline"}
-              onClick={() => setActiveFilter(filter)}
-              className="rounded-full"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 md:mb-14"
+        >
+          {filters.map((filter, index) => (
+            <motion.button
+              key={filter.name}
+              onClick={() => setActiveFilter(filter.name)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeFilter === filter.name
+                  ? "bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25"
+                  : "bg-card border border-border hover:border-accent/50 text-muted-foreground hover:text-foreground"
+              }`}
             >
-              {filter}
-            </Button>
+              {filter.name}
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="group overflow-hidden hover:shadow-2xl transition-all duration-300 border-accent/20 h-full">
-                <div className="relative overflow-hidden h-48">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                    <Button size="sm" variant="secondary" className="gap-2">
-                      View Details <ExternalLink className="w-4 h-4" />
-                    </Button>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="mb-2">
-                    <span className="text-xs font-semibold text-accent">{project.category}</span>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 text-sm">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs bg-accent/10 text-accent rounded-full border border-accent/20"
+        <motion.div
+          layout
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-7xl mx-auto"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                onMouseEnter={() => setHoveredProject(project.title)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
+                <Card className="group overflow-hidden h-full bg-card/50 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10">
+                  {/* Image Container */}
+                  <div className="relative overflow-hidden h-44 sm:h-48">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-50"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+
+                    {/* Overlay with actions */}
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                      <motion.a
+                        href={project.link}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                        transition={{ delay: 0.1 }}
+                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
+                        aria-label="View project"
                       >
-                        {tag}
+                        <Eye className="w-5 h-5" />
+                      </motion.a>
+                      <motion.a
+                        href={project.github}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                        transition={{ delay: 0.2 }}
+                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
+                        aria-label="View on GitHub"
+                      >
+                        <FaGithub className="w-5 h-5" />
+                      </motion.a>
+                    </div>
+
+                    {/* Category Badge */}
+                    <div className="absolute top-3 left-3 z-10">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-accent/90 text-white backdrop-blur-sm">
+                        {project.category}
                       </span>
-                    ))}
+                    </div>
+
+                    {/* Metrics Badge */}
+                    <div className="absolute top-3 right-3 z-10">
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-black/50 text-white backdrop-blur-sm border border-white/20">
+                        {project.metrics}
+                      </span>
+                    </div>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+
+                  <CardContent className="p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-accent transition-colors line-clamp-1">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 text-sm line-clamp-2 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 sm:px-3 py-1 text-xs bg-accent/10 text-accent rounded-full border border-accent/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                      {project.tags.length > 3 && (
+                        <span className="px-2 sm:px-3 py-1 text-xs bg-muted text-muted-foreground rounded-full">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* View Project Link */}
+                    <a
+                      href={project.link}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                    >
+                      View Project
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                    </a>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* View More Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center mt-10 md:mt-14"
+        >
+          <Button
+            size="lg"
+            variant="outline"
+            asChild
+            className="border-accent/30 hover:bg-accent/10 hover:border-accent group"
+          >
+            <a href="https://github.com/msaad7777" target="_blank" rel="noopener noreferrer">
+              View All Projects on GitHub
+              <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </Button>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,8 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Removed 'output: export' for dynamic Next.js deployment on Vercel
+  // Optimized for Vercel deployment
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+  // Enable SWC minification for faster builds
+  swcMinify: true,
+  // Compiler options
+  compiler: {
+    // Remove console.log in production
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 }
 

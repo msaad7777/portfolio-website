@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Briefcase, Code2, Rocket } from "lucide-react"
+import { Award, Briefcase, Code2, Rocket, Heart, ExternalLink } from "lucide-react"
 
 export function AboutSection() {
   const highlights = [
@@ -23,9 +23,9 @@ export function AboutSection() {
       description: "Multi-cloud cost governance, anomaly detection, and rightsizing"
     },
     {
-      icon: Rocket,
-      title: "Observability Expert",
-      description: "Golden Metrics, SLO-driven alerts, and unified monitoring dashboards"
+      icon: Heart,
+      title: "Community Leader",
+      description: "Non-profit volunteer, Full Stack Developer & Playing Director at Challengers CC"
     }
   ]
 
@@ -100,6 +100,36 @@ export function AboutSection() {
               Terraform, Prometheus, Grafana, New Relic, Datadog, and comprehensive MLOps best practices for both
               traditional applications and AI-driven platforms.
             </p>
+
+            {/* Community Work */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-4 rounded-xl bg-accent/5 border border-accent/20"
+            >
+              <div className="flex items-start gap-3">
+                <Heart className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
+                <div>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground">Beyond my professional work</strong>, I am passionate about giving back to the community.
+                    I volunteer for non-profit organizations focused on community betterment. Currently, I serve as the{" "}
+                    <strong className="text-accent">Full Stack Developer & Playing Director</strong> at{" "}
+                    <a
+                      href="https://challengerscc.ca"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline inline-flex items-center gap-1"
+                    >
+                      Challengers Cricket Club
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                    , a cricket club in the London community. I built their website from scratch and manage their social media presence,
+                    helping grow the club&apos;s digital footprint and community engagement.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
 
             <p className="text-lg font-semibold text-accent leading-relaxed">
               Based in Toronto, Ontario, Canada • Available for Remote Work • Open to Contract and Full-Time Opportunities
