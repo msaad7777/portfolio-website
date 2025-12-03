@@ -30,39 +30,6 @@ export function ExperienceSection() {
         "Created dashboards in PowerBI for business insights and data visualization",
         "Managed Apache Airflow workflows and GKE migrations for scalable data processing"
       ]
-    },
-    {
-      title: "Data Engineer",
-      company: "BPCL (Bharat Petroleum)",
-      period: "March 2020 - March 2022",
-      description: [
-        "Deployed ARIMA forecasting models in Azure, optimizing parameters and scaling via Kubernetes",
-        "Conducted predictive analytics (customer churn, CO₂ emissions) using Python, Logistic Regression, and ARIMA",
-        "Built automated pipelines to load data into BigQuery via Informatica and operationalized workflows",
-        "Integrated PySpark with Cassandra and Hive for scalable ETL/ELT operations",
-        "Connected ML models with SAP datasets to support enterprise reporting and predictive analytics",
-        "Positioned AI/ML services for production through MLOps best practices and containerized deployments"
-      ]
-    },
-    {
-      title: "Data Analyst",
-      company: "Legacy Designs Inc",
-      period: "2019 - 2020",
-      description: [
-        "Analyzed data for business intelligence and reporting",
-        "Created data visualizations and dashboards for stakeholder insights",
-        "Performed data quality assessment and validation"
-      ]
-    },
-    {
-      title: "Software Engineering Analyst",
-      company: "Legacy Designs Inc",
-      period: "2016 - 2019",
-      description: [
-        "Developed and maintained software applications",
-        "Collaborated with cross-functional teams on technical solutions",
-        "Implemented software testing and quality assurance processes"
-      ]
     }
   ]
 
@@ -78,7 +45,7 @@ export function ExperienceSection() {
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Experience</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            9+ years of building and scaling infrastructure
+            10+ years of building and scaling infrastructure
           </p>
         </motion.div>
 
@@ -120,6 +87,37 @@ export function ExperienceSection() {
               </Card>
             </motion.div>
           ))}
+
+          {/* Previous Experience Note */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Card className="border-dashed border-2 border-muted-foreground/30 bg-muted/20">
+              <CardContent className="py-8 text-center">
+                <p className="text-lg text-muted-foreground mb-2">
+                  <span className="font-semibold text-foreground">10+ years in tech</span> — Working since 2014
+                </p>
+                <p className="text-muted-foreground">
+                  For detailed experience history, feel free to{" "}
+                  <a href="#contact" className="text-accent hover:underline font-medium">
+                    get in touch
+                  </a>{" "}
+                  or connect on{" "}
+                  <a
+                    href="https://www.linkedin.com/in/badruddin-saad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline font-medium"
+                  >
+                    LinkedIn
+                  </a>
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>
