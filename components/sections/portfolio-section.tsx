@@ -14,6 +14,7 @@ export function PortfolioSection() {
 
   const filters = [
     { name: "All", icon: Layers },
+    { name: "Platform Engineering", icon: null },
     { name: "DevOps", icon: null },
     { name: "MLOps", icon: null },
     { name: "Data Engineering", icon: null }
@@ -21,10 +22,30 @@ export function PortfolioSection() {
 
   const projects = [
     {
+      title: "Multi-Cloud Terraform Infrastructure",
+      category: "Platform Engineering",
+      description: "Architected multi-cloud infrastructure across AWS, GCP, and Azure using Terraform with Terragrunt for DRY configurations. Implemented modular patterns enabling teams to provision standardized environments across 3 cloud providers",
+      image: "/img/portfolio-01.jpg",
+      tags: ["Terraform", "Terragrunt", "AWS", "GCP", "Azure"],
+      link: "#",
+      github: "#",
+      metrics: "3 clouds unified"
+    },
+    {
+      title: "IaC Adoption & Migration",
+      category: "Platform Engineering",
+      description: "Led Terraform adoption in non-IaC environments using Terraformer to reverse-engineer existing infrastructure. Built GitHub Actions CI/CD pipelines with automated plan/apply workflows, enabling SRE team ownership of infrastructure provisioning",
+      image: "/img/portfolio-07.jpg",
+      tags: ["Terraformer", "GitHub Actions", "CI/CD", "IaC"],
+      link: "#",
+      github: "#",
+      metrics: "70% faster provisioning"
+    },
+    {
       title: "Multi-Cloud CI/CD Infrastructure",
       category: "DevOps",
       description: "Led GCP and AWS multi-cloud deployments with Cloud Build, GKE, and blue-green deployment strategies, achieving 40% reduction in downtime",
-      image: "/img/portfolio-01.jpg",
+      image: "/img/portfolio-02.jpg",
       tags: ["GCP", "Cloud Build", "GKE", "GitHub Actions"],
       link: "#",
       github: "#",
@@ -34,7 +55,7 @@ export function PortfolioSection() {
       title: "Predictive Analytics Pipeline (BPCL)",
       category: "MLOps",
       description: "Built and deployed predictive models for customer churn and CO₂ emissions using Python, containerized and scaled on Azure Kubernetes Service",
-      image: "/img/portfolio-02.jpg",
+      image: "/img/portfolio-03.jpg",
       tags: ["Azure", "Kubernetes", "Python", "ARIMA"],
       link: "#",
       github: "#",
@@ -44,7 +65,7 @@ export function PortfolioSection() {
       title: "Churn Prediction & Customer Insights",
       category: "MLOps",
       description: "Designed ETL/ELT workflows with Apache Airflow and Dataflow, deployed churn prediction models with CI/CD integration",
-      image: "/img/portfolio-03.jpg",
+      image: "/img/portfolio-04.jpg",
       tags: ["Airflow", "BigQuery", "ML", "GCP"],
       link: "#",
       github: "#",
@@ -54,7 +75,7 @@ export function PortfolioSection() {
       title: "Enterprise Data Pipeline (GCP)",
       category: "Data Engineering",
       description: "Built optimized GCP pipelines with Cloud Storage, Dataflow, and BigQuery, increasing pipeline availability by 15%",
-      image: "/img/portfolio-04.jpg",
+      image: "/img/portfolio-05.jpg",
       tags: ["Cloud Dataflow", "BigQuery", "Apache Beam"],
       link: "#",
       github: "#",
@@ -64,7 +85,7 @@ export function PortfolioSection() {
       title: "Monitoring & Observability Stack",
       category: "DevOps",
       description: "Implemented Prometheus, Grafana, and New Relic across multiple projects, achieving 30% increase in monitoring capabilities",
-      image: "/img/portfolio-05.jpg",
+      image: "/img/portfolio-06.jpg",
       tags: ["Prometheus", "Grafana", "New Relic"],
       link: "#",
       github: "#",
@@ -74,7 +95,7 @@ export function PortfolioSection() {
       title: "ML Integration with SAP Data",
       category: "MLOps",
       description: "Connected enterprise SAP ERP datasets to ML pipelines with PySpark, Cassandra, and Hive. Leveraged Kubernetes for scaling inference services",
-      image: "/img/portfolio-06.jpg",
+      image: "/img/portfolio-08.jpg",
       tags: ["PySpark", "Kubernetes", "SAP", "MLOps"],
       link: "#",
       github: "#",
