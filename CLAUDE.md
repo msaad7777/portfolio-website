@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer with Platform Engineering expertise. The repository contains a modern Next.js application and a legacy static HTML portfolio, both featuring an AI chatbot called "SAADAI" powered by AWS Lambda and OpenAI.
+Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer with Platform Engineering expertise. The repository contains a modern Next.js application and a legacy static HTML portfolio, both featuring an AI chatbot called "SAADAI" powered by Cloudflare Workers AI.
 
 **Production domain:** msaad.tech
 
@@ -36,10 +36,13 @@ Original HTML/CSS/JS implementation in root directory (`index.html`, `css/`, `js
 
 ### Chatbot Backend
 
-`main.py` - AWS Lambda function using OpenAI API
-- Endpoint: `https://djjjwa2ev2.execute-api.us-east-1.amazonaws.com/Prod`
-- Requires `OPENAI_API_KEY` environment variable
-- To modify bot behavior, edit system prompt in `main.py` lines 25-31
+`cloudflare-worker/src/index.js` - Cloudflare Workers AI using Llama 3.1 8B model
+- Endpoint: `https://portfolio-chatbot.mbadru3434.workers.dev`
+- Free tier: 10,000 neurons/day
+- To modify bot behavior, edit system prompt in `cloudflare-worker/src/index.js` lines 28-43
+- Deploy: `cd cloudflare-worker && npm run deploy`
+
+Legacy backend (`main.py`) uses AWS Lambda/OpenAI but is no longer active.
 
 ## Component Patterns
 

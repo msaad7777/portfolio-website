@@ -2,9 +2,10 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MessageCircle, X, Send, Loader2 } from "lucide-react"
+import { X, Send, Loader2 } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 interface Message {
   role: "user" | "bot"
@@ -74,13 +75,48 @@ export function ChatBot() {
         animate={{ scale: 1 }}
         className="fixed bottom-6 right-6 z-50"
       >
-        <Button
-          size="lg"
-          onClick={() => setIsOpen(!isOpen)}
-          className="rounded-full w-14 h-14 shadow-2xl hover:shadow-accent/50 transition-all"
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
-        </Button>
+        <div className="relative group">
+          {/* Animated pulsing rings */}
+          {!isOpen && (
+            <>
+              <span className="absolute inset-0 rounded-full bg-accent/40 animate-ping" />
+              <span className="absolute inset-[-4px] rounded-full bg-gradient-to-r from-accent to-primary animate-spin-slow opacity-60" style={{ animationDuration: '3s' }} />
+            </>
+          )}
+
+          {/* Tooltip */}
+          {!isOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-background border border-accent/30 text-foreground px-3 py-1.5 rounded-lg shadow-lg text-sm font-medium hidden group-hover:block"
+            >
+              <span className="flex items-center gap-1.5">
+                👋 Let&apos;s chat!
+              </span>
+              <div className="absolute left-full top-1/2 -translate-y-1/2 border-8 border-transparent border-l-accent/30" />
+            </motion.div>
+          )}
+
+          {/* Button with photo */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-accent shadow-2xl hover:shadow-accent/50 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          >
+            {isOpen ? (
+              <div className="w-full h-full bg-accent flex items-center justify-center">
+                <X className="w-6 h-6 text-background" />
+              </div>
+            ) : (
+              <Image
+                src="/img/saad-proffessional2.png"
+                alt="Chat with Saad"
+                fill
+                className="object-cover"
+              />
+            )}
+          </button>
+        </div>
       </motion.div>
 
       {/* Chat Window */}
@@ -95,9 +131,16 @@ export function ChatBot() {
           >
             <Card className="shadow-2xl border-accent/20">
               <CardHeader className="bg-accent/10 border-b border-accent/20">
-                <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-accent" />
-                  SAADAI - Portfolio Assistant
+                <CardTitle className="flex items-center gap-3">
+                  <div className="relative w-8 h-8 rounded-full overflow-hidden border border-accent">
+                    <Image
+                      src="/img/saad-proffessional2.png"
+                      alt="Saad"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <span>SAADAI - Portfolio Assistant</span>
                 </CardTitle>
               </CardHeader>
 
