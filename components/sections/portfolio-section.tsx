@@ -22,10 +22,20 @@ export function PortfolioSection() {
 
   const projects = [
     {
+      title: "MLOps Pipeline with CI/CD & Monitoring",
+      category: "MLOps",
+      description: "End-to-end ML pipeline for customer churn prediction featuring Airflow orchestration, FastAPI model serving, Prometheus/Grafana monitoring, and multi-cloud deployment to AWS ECS and GCP Cloud Run via GitHub Actions",
+      image: "/img/portfolio-01.jpg",
+      tags: ["Airflow", "FastAPI", "Docker", "Terraform", "XGBoost"],
+      link: "#",
+      github: "https://github.com/msaad7777/mlops-churn-pipeline",
+      metrics: "Full MLOps lifecycle"
+    },
+    {
       title: "Multi-Cloud Terraform Infrastructure",
       category: "Platform Engineering",
       description: "Architected multi-cloud infrastructure across AWS, GCP, and Azure using Terraform with Terragrunt for DRY configurations. Implemented modular patterns enabling teams to provision standardized environments across 3 cloud providers",
-      image: "/img/portfolio-01.jpg",
+      image: "/img/portfolio-02.jpg",
       tags: ["Terraform", "Terragrunt", "AWS", "GCP", "Azure"],
       link: "#",
       github: "#",
