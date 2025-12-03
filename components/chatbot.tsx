@@ -41,7 +41,7 @@ export function ChatBot() {
     setIsLoading(true)
 
     try {
-      const response = await fetch("https://djjjwa2ev2.execute-api.us-east-1.amazonaws.com/Prod", {
+      const response = await fetch("https://portfolio-chatbot.mbadru3434.workers.dev", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export function ChatBot() {
         }),
       })
 
-      const responseText = await response.text()
+      const responseText = await response.json()
       setMessages(prev => [...prev, { role: "bot", content: responseText }])
     } catch (error) {
       setMessages(prev => [
