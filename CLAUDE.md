@@ -52,6 +52,12 @@ All section components in `components/sections/` follow this pattern:
 - Framer Motion for scroll-triggered animations
 - Tailwind CSS with dark/light theme support via CSS variables
 
+## Styling
+
+- **Theming:** CSS variables in `app/globals.css` define light/dark mode colors. The accent color (green) is used throughout for highlights and interactive elements.
+- **Custom utilities:** `gradient-text`, `glass`, `glass-dark`, `card-hover`, `section-padding` classes available in globals.css
+- **Animations:** Custom keyframes for `float`, `gradient`, `shimmer`, `pulse-glow` effects
+
 ## Configuration
 
 - **TypeScript:** Strict mode, path alias `@/*` maps to root

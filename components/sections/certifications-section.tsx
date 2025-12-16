@@ -58,6 +58,16 @@ export function CertificationsSection() {
       isNew: true
     },
     {
+      name: "Associate Google Workspace Administrator",
+      issuer: "Google Cloud",
+      icon: "📧",
+      date: "Dec 2025",
+      expiry: "Dec 2027",
+      credentialId: "8914158f6cb64338952021d9717987de",
+      skills: ["Google Workspace", "Admin Console", "User Management", "Security"],
+      isNew: true
+    },
+    {
       name: "AWS Certified DevOps Engineer – Professional",
       issuer: "Amazon Web Services",
       icon: "☁️",
@@ -191,7 +201,7 @@ export function CertificationsSection() {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
         >
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">6</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">7</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Certifications</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
