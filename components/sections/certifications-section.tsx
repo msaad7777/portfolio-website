@@ -14,8 +14,7 @@ export function CertificationsSection() {
       date: "Nov 2025",
       expiry: "Nov 2027",
       credentialId: "4d67074d-d41e-4832-82b0-4ecccb70b5a8",
-      skills: ["Linux", "CentOS", "Disk Partitioning", "System Administration"],
-      isNew: true
+      skills: ["Linux", "CentOS", "Disk Partitioning", "System Administration"]
     },
     {
       name: "KCNA: Kubernetes and Cloud Native Associate",
@@ -24,8 +23,7 @@ export function CertificationsSection() {
       date: "Nov 2025",
       expiry: "Nov 2027",
       credentialId: "92262672-8bbd-4153-aa5f-749003f90e24",
-      skills: ["Kubernetes", "Containers", "Cloud Native", "GitOps", "Service Mesh"],
-      isNew: true
+      skills: ["Kubernetes", "Containers", "Cloud Native", "GitOps", "Service Mesh"]
     },
     {
       name: "KCSA: Kubernetes and Cloud Native Security Associate",
@@ -34,8 +32,7 @@ export function CertificationsSection() {
       date: "Nov 2025",
       expiry: "Nov 2027",
       credentialId: "67aa86df-6b2b-43e5-80f1-316efcd39255",
-      skills: ["Kubernetes Security", "Cloud Native Security", "Container Security"],
-      isNew: true
+      skills: ["Kubernetes Security", "Cloud Native Security", "Container Security"]
     },
     {
       name: "CKA: Certified Kubernetes Administrator",
@@ -54,8 +51,7 @@ export function CertificationsSection() {
       date: "May 2025",
       expiry: "May 2027",
       credentialId: "7dbbf988-b1f3-42b6-8f13-ff6509bf77ca",
-      skills: ["Kubernetes", "Docker", "Python", "Node.js", "Java", "Cloud Native"],
-      isNew: true
+      skills: ["Kubernetes", "Docker", "Python", "Node.js", "Java", "Cloud Native"]
     },
     {
       name: "Professional Cloud Architect Certification",
@@ -64,8 +60,7 @@ export function CertificationsSection() {
       date: "Feb 2025",
       expiry: "Feb 2027",
       credentialId: "79bde20e-5d20-4306-9bb8-81f0586eb855",
-      skills: ["GCP", "Cloud Architecture", "Cloud Security", "IAM", "Scalability"],
-      isNew: true
+      skills: ["GCP", "Cloud Architecture", "Cloud Security", "IAM", "Scalability"]
     },
     {
       name: "Associate Google Workspace Administrator",
@@ -74,8 +69,7 @@ export function CertificationsSection() {
       date: "Dec 2025",
       expiry: "Dec 2027",
       credentialId: "8914158f6cb64338952021d9717987de",
-      skills: ["Google Workspace", "Admin Console", "User Management", "Security"],
-      isNew: true
+      skills: ["Google Workspace", "Admin Console", "User Management", "Security"]
     },
     {
       name: "AWS Certified DevOps Engineer – Professional",
