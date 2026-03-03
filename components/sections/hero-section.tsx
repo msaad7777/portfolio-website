@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download, Sparkles } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { MatrixRain } from "@/components/matrix-rain"
 
 export function HeroSection() {
   const scrollToContact = () => {
@@ -37,8 +38,10 @@ export function HeroSection() {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background to-background" />
+        <MatrixRain />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background/40 to-background/50" />
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
 
         {/* Animated gradient orbs */}
         <motion.div
