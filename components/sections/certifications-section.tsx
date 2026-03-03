@@ -38,6 +38,16 @@ export function CertificationsSection() {
       isNew: true
     },
     {
+      name: "CKA: Certified Kubernetes Administrator",
+      issuer: "The Linux Foundation",
+      icon: "☸️",
+      date: "Feb 2026",
+      expiry: "Feb 2028",
+      credentialId: "f647816f-1bcd-4a3c-852c-e1da6fe3c8e1",
+      skills: ["Kubernetes", "Helm", "Scheduling", "Security Policies", "Ingress", "Volumes"],
+      isNew: true
+    },
+    {
       name: "CKAD: Certified Kubernetes Application Developer",
       issuer: "The Linux Foundation",
       icon: "⎈",
@@ -201,7 +211,7 @@ export function CertificationsSection() {
           className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
         >
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">7</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">8</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Certifications</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
@@ -209,7 +219,7 @@ export function CertificationsSection() {
             <p className="text-xs sm:text-sm text-muted-foreground">Cloud Platforms</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">4</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">5</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Linux Foundation</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">

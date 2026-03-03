@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer with Platform Engineering expertise. The repository contains a modern Next.js application and a legacy static HTML portfolio, both featuring an AI chatbot called "SAADAI" powered by Cloudflare Workers AI.
+Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Includes an AI chatbot ("SAADAI") powered by Cloudflare Workers AI.
 
-**Production domain:** msaad.tech
+**Production domain:** msaad.tech (deployed on Vercel, auto-deploys from GitHub)
 
 ## Commands
 
@@ -14,57 +14,52 @@ Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer with Platform 
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build production bundle
 npm run start      # Start production server
-npm run lint       # Run ESLint
+npm run lint       # Run ESLint (extends next/core-web-vitals)
+```
+
+Chatbot worker (separate project in `cloudflare-worker/`):
+```bash
+cd cloudflare-worker && npm run dev      # Local worker dev
+cd cloudflare-worker && npm run deploy   # Deploy to Cloudflare
 ```
 
 ## Architecture
 
-### Next.js Application (Primary)
+### Page Structure
 
-Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion.
+Single-page app — `app/page.tsx` composes all sections in order:
+Navigation → Hero → About → Experience → Skills → Certifications → Portfolio → Blog → Contact → Footer → ChatBot
 
-**Key files:**
-- `app/page.tsx` - Main page composing all section components
-- `app/layout.tsx` - Root layout with theme provider
-- `components/sections/` - Section components (hero, about, experience, skills, certifications, portfolio, blog, contact)
-- `components/chatbot.tsx` - SAADAI chatbot widget
-- `components/ui/` - Reusable UI components (shadcn/ui pattern)
+Each section in `components/sections/` has a matching `id` attribute used for anchor navigation. The navigation items are defined in `components/navigation.tsx` (`navItems` array) — update both when adding/removing sections.
 
-### Legacy Static Portfolio
+### Key Architectural Decisions
 
-Original HTML/CSS/JS implementation in root directory (`index.html`, `css/`, `js/`). Only update if specifically needed; the Next.js app is the primary implementation.
+- **All components are client-side** (`"use client"`) — no server components are used
+- **Custom ThemeProvider** in `components/theme-provider.tsx` (not next-themes) — provides `useTheme()` hook for dark/light/system toggle via class-based switching on `<html>`
+- **UI components** follow shadcn/ui pattern in `components/ui/` — use `cn()` from `lib/utils.ts` for conditional class merging (clsx + tailwind-merge)
+- **`next.config.js`** strips `console.log` in production builds
 
-### Chatbot Backend
+### Chatbot
 
-`cloudflare-worker/src/index.js` - Cloudflare Workers AI using Llama 3.1 8B model
+- Frontend: `components/chatbot.tsx` — POSTs `{ userInput }` to the worker endpoint
+- Backend: `cloudflare-worker/src/index.js` — Cloudflare Workers AI using `@cf/meta/llama-3.1-8b-instruct` (free tier: 10,000 neurons/day)
 - Endpoint: `https://portfolio-chatbot.mbadru3434.workers.dev`
-- Free tier: 10,000 neurons/day
-- To modify bot behavior, edit system prompt in `cloudflare-worker/src/index.js` lines 28-43
-- Deploy: `cd cloudflare-worker && npm run deploy`
+- To modify bot personality/knowledge, edit the `systemPrompt` variable in `cloudflare-worker/src/index.js`
 
-Legacy backend (`main.py`) uses AWS Lambda/OpenAI but is no longer active.
+### Legacy Code
 
-## Component Patterns
-
-All section components in `components/sections/` follow this pattern:
-- `"use client"` directive for client-side rendering
-- Wrapped in `<section>` with unique `id` for navigation anchors
-- Framer Motion for scroll-triggered animations
-- Tailwind CSS with dark/light theme support via CSS variables
+- Root directory has a legacy static HTML portfolio (`index.html`, `css/`, `js/`) and learning projects (coffee-menu, Quiz, Piano, etc.) — these are standalone, not part of the Next.js app
+- `main.py` is a defunct AWS Lambda/OpenAI chatbot backend
 
 ## Styling
 
-- **Theming:** CSS variables in `app/globals.css` define light/dark mode colors. The accent color (green) is used throughout for highlights and interactive elements.
-- **Custom utilities:** `gradient-text`, `glass`, `glass-dark`, `card-hover`, `section-padding` classes available in globals.css
-- **Animations:** Custom keyframes for `float`, `gradient`, `shimmer`, `pulse-glow` effects
+- **Theming:** CSS variables in `app/globals.css` for light/dark mode. Accent color is green (`hsl(142, 76%, 36%)` light / `hsl(142, 76%, 46%)` dark)
+- **Custom CSS classes:** `gradient-text`, `glass`, `glass-dark`, `card-hover`, `section-padding`, `focus-ring`, `bg-grid-pattern`
+- **Custom animations:** `animate-float`, `animate-gradient`, `animate-shimmer`, `animate-pulse-glow`, `animate-spin-slow`
+- **Path alias:** `@/*` maps to project root
 
 ## Configuration
 
-- **TypeScript:** Strict mode, path alias `@/*` maps to root
-- **Styling:** Tailwind CSS with `tailwind.config.ts`, CSS variables for theming
-- **Deployment:** Vercel (auto-deploys from GitHub)
-
-## Notes
-
-- The root directory contains legacy learning projects (coffee-menu, Quiz, Piano, etc.) - these are standalone and not part of the main portfolio
-- GitHub: https://github.com/msaad7777/portfolio-website
+- **TypeScript:** Strict mode enabled
+- **Tailwind:** `tailwind.config.ts` with `darkMode: ["class"]`, `tailwindcss-animate` plugin
+- **Images:** All remote hostnames allowed (`hostname: '**'` in next.config.js)

@@ -55,10 +55,11 @@ EXPERIENCE:
 4. Data Analyst at Legacy Designs Inc (2019-2020, Rockford, IL)
 5. Software Engineering Analyst at Legacy Designs Inc (2016-2019, Rockford, IL)
 
-CERTIFICATIONS (7 total):
+CERTIFICATIONS (8 total):
 - AWS Certified DevOps Engineer Professional
 - Google Professional Cloud Architect
 - Associate Google Workspace Administrator
+- CKA: Certified Kubernetes Administrator
 - CKAD: Certified Kubernetes Application Developer
 - KCNA: Kubernetes and Cloud Native Associate
 - KCSA: Kubernetes and Cloud Native Security Associate
