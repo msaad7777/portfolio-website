@@ -32,6 +32,16 @@ export function PortfolioSection() {
       metrics: "Full MLOps lifecycle"
     },
     {
+      title: "Multi-Tenant IaC Deployment with CI/CD",
+      category: "Platform Engineering",
+      description: "Architected and delivered enterprise-grade, multi-tenant Infrastructure-as-Code platforms for clients including Home Depot, Royal Bank of Canada, Google ViGenAir, and Meridian. Designed full-fledged CI/CD pipelines enabling tenant-isolated infrastructure provisioning with automated plan, approval, and apply workflows across environments",
+      image: "/img/portfolio-02.jpg",
+      tags: ["Terraform", "CI/CD", "Multi-Tenant", "GCP", "AWS"],
+      link: "#",
+      github: "#",
+      metrics: "4+ enterprise clients"
+    },
+    {
       title: "Multi-Cloud Terraform Infrastructure",
       category: "Platform Engineering",
       description: "Architected multi-cloud infrastructure across AWS, GCP, and Azure using Terraform with Terragrunt for DRY configurations. Implemented modular patterns enabling teams to provision standardized environments across 3 cloud providers",
