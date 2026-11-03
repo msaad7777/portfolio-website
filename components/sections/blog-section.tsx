@@ -1,72 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, ChevronLeft, ChevronRight, BookOpen } from "lucide-react"
+import { Button, buttonVariants } from "@/components/ui/button"
+import { blogCards } from "@/lib/articles"
+import { ArrowRight, ExternalLink, ChevronLeft, ChevronRight, BookOpen } from "lucide-react"
 
 export function BlogSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  const articles = [
-    {
-      title: "Effortless Database Migrations in Production with Cloud Run Jobs",
-      description: "Master DevOps Project 4: Learn how to automate database migrations in production environments using Cloud Run Jobs and GCP",
-      link: "https://medium.com/@msaad_86696/master-devops-project-4-effortless-database-migrations-in-production-with-cloud-run-jobs-and-061d13d374a7",
-      image: "/img/portfolio-01.jpg",
-      tags: ["DevOps", "Cloud Run", "Database"]
-    },
-    {
-      title: "Automating Database Migrations with CI/CD, Flyway, Cloud Build and Cloud SQL",
-      description: "Complete guide to setting up automated database migrations using Flyway, Cloud Build, and Cloud SQL in a CI/CD pipeline",
-      link: "https://medium.com/@msaad_86696/automating-database-migrations-with-ci-cd-flyway-cloud-build-and-cloud-sql-877492088690",
-      image: "/img/portfolio-02.jpg",
-      tags: ["CI/CD", "Flyway", "GCP"]
-    },
-    {
-      title: "Mastering Multi-Cluster Ingress Deployment in GKE with CI/CD",
-      description: "A complete GCP project guide for implementing multi-cluster ingress deployment strategies in Google Kubernetes Engine",
-      link: "https://medium.com/@msaad_86696/mastering-multi-cluster-ingress-deployment-in-gke-with-ci-cd-a-complete-gcp-project-a6ae56ba09a5",
-      image: "/img/portfolio-03.jpg",
-      tags: ["GKE", "Kubernetes", "Multi-Cluster"]
-    },
-    {
-      title: "Terraform to Autoscale and Load Balance Compute Engine Instances in GCP",
-      description: "Infrastructure as Code tutorial for implementing autoscaling and load balancing for GCP Compute Engine using Terraform",
-      link: "https://medium.com/aws-tip/terraform-to-autoscale-and-load-balance-compute-engine-instances-in-gcp-4b5d6f1bb4ff",
-      image: "/img/portfolio-04.jpg",
-      tags: ["Terraform", "GCP", "Autoscaling"]
-    },
-    {
-      title: "Setting Up a Multi-Tier Web Application Manually and Automatically",
-      description: "Mastering DevOps Project 1: Complete guide to deploying multi-tier applications using both manual and automated approaches",
-      link: "https://medium.com/@msaad_86696/mastering-devops-project-1-setting-up-a-multi-tier-web-application-manually-and-automatically-1a9587a6b476",
-      image: "/img/portfolio-05.jpg",
-      tags: ["DevOps", "Multi-Tier", "Web App"]
-    },
-    {
-      title: "AI Paraphrasing: Generate High-Quality Text Indistinguishable from Human Writing",
-      description: "Learn how to leverage AI for generating high-quality paraphrased content that maintains natural human-like characteristics",
-      link: "https://medium.com/@msaad_86696/ai-paraphrasing-how-to-generate-high-quality-text-that-is-indistinguishable-from-human-writing-1540944ebfb",
-      image: "/img/portfolio-06.jpg",
-      tags: ["AI", "NLP", "ChatGPT"]
-    },
-    {
-      title: "Build an AI Code Writer App with ChatGPT: A Step-by-Step Beginner's Guide",
-      description: "Complete tutorial for building an AI-powered code generation application using ChatGPT API and modern web technologies",
-      link: "https://medium.com/@msaad_86696/build-an-ai-code-writer-app-with-chatgpt-a-step-by-step-beginners-guide-14f2782c8f84",
-      image: "/img/portfolio-01.jpg",
-      tags: ["ChatGPT", "AI", "Python"]
-    },
-    {
-      title: "Create a Chatbot with ChatGPT, Python and Django: A Beginner's Guide",
-      description: "Step-by-step guide for building a fully functional chatbot using ChatGPT API, Python, and Django framework",
-      link: "https://medium.com/@msaad_86696/create-a-chatbot-with-chatgpt-and-python-and-django-a-step-by-step-guide-for-beginners-9906b18b401c",
-      image: "/img/portfolio-02.jpg",
-      tags: ["ChatGPT", "Django", "Python"]
-    }
-  ]
+  const articles = blogCards
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % articles.length)
@@ -93,12 +38,21 @@ export function BlogSection() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
             Sharing insights on DevOps, MLOps, and Cloud Engineering
           </p>
-          <Button variant="outline" asChild className="gap-2">
-            <a href="https://medium.com/@msaad_86696" target="_blank" rel="noopener noreferrer">
-              View All Articles on Medium
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/blog" className={buttonVariants({ variant: "outline", className: "gap-2" })}>
+              View All Articles
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="https://medium.com/@msaad_86696"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: "outline", className: "gap-2" })}
+            >
+              Medium Profile
               <ExternalLink className="w-4 h-4" />
             </a>
-          </Button>
+          </div>
         </motion.div>
 
         {/* Slider */}
@@ -142,16 +96,25 @@ export function BlogSection() {
                     <p className="text-muted-foreground mb-6 text-lg">
                       {articles[currentIndex].description}
                     </p>
-                    <Button asChild className="gap-2 w-fit">
+                    {articles[currentIndex].external ? (
                       <a
-                        href={articles[currentIndex].link}
+                        href={articles[currentIndex].href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className={buttonVariants({ className: "gap-2 w-fit" })}
                       >
                         Read Article
                         <ExternalLink className="w-4 h-4" />
                       </a>
-                    </Button>
+                    ) : (
+                      <Link
+                        href={articles[currentIndex].href}
+                        className={buttonVariants({ className: "gap-2 w-fit" })}
+                      >
+                        Read Article
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </CardContent>
                 </div>
               </Card>
