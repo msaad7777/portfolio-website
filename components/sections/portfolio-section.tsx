@@ -34,12 +34,12 @@ export function PortfolioSection() {
     {
       title: "Multi-Tenant IaC Deployment with CI/CD",
       category: "Platform Engineering",
-      description: "Architected and delivered enterprise-grade, multi-tenant Infrastructure-as-Code platforms for clients including Home Depot, Royal Bank of Canada, Google ViGenAir, and Meridian. Designed full-fledged CI/CD pipelines enabling tenant-isolated infrastructure provisioning with automated plan, approval, and apply workflows across environments",
+      description: "Built multi-tenant Terraform platforms for enterprise clients. Each tenant gets isolated infrastructure through a CI/CD pipeline with automated plan, approval and apply steps across environments.",
       image: "/img/portfolio-02.jpg",
       tags: ["Terraform", "CI/CD", "Multi-Tenant", "GCP", "AWS"],
       link: "#",
       github: "#",
-      metrics: "4+ enterprise clients"
+      metrics: "Multi-tenant platform"
     },
     {
       title: "Multi-Cloud Terraform Infrastructure",
@@ -72,7 +72,7 @@ export function PortfolioSection() {
       metrics: "40% less downtime"
     },
     {
-      title: "Predictive Analytics Pipeline (BPCL)",
+      title: "Predictive Analytics Pipeline",
       category: "MLOps",
       description: "Built and deployed predictive models for customer churn and CO₂ emissions using Python, containerized and scaled on Azure Kubernetes Service",
       image: "/img/portfolio-03.jpg",
