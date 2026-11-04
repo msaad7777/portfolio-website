@@ -97,7 +97,10 @@ export function ContactSection() {
         }),
       })
 
-      if (response.ok) {
+      // FormSubmit can answer 200 with success: "false", for example before the address is activated
+      const result = await response.json().catch(() => null)
+
+      if (response.ok && result?.success !== "false" && result?.success !== false) {
         setSubmitStatus({
           type: "success",
           message: "Thank you for reaching out! I'll get back to you within 24-48 hours.",
@@ -125,7 +128,8 @@ export function ContactSection() {
 
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your message has been received.",
+          // no-cors hides the response, so delivery can't be confirmed here
+          message: "Your message was submitted, but delivery couldn't be confirmed. If you don't hear back, please email me at mbadru3434@gmail.com",
         })
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
       } catch (fallbackError) {
@@ -269,6 +273,7 @@ export function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        autoComplete="name"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="John Doe"
                       />
@@ -285,6 +290,7 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        autoComplete="email"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="john@example.com"
                       />
@@ -302,6 +308,7 @@ export function ContactSection() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        autoComplete="tel"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="+1 (555) 000-0000"
                       />
@@ -317,7 +324,7 @@ export function ContactSection() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm cursor-pointer"
                       >
                         <option value="">Select a subject</option>
                         {subjectOptions.map(option => (
@@ -345,6 +352,7 @@ export function ContactSection() {
 
                   {submitStatus.type && (
                     <motion.div
+                      role={submitStatus.type === "error" ? "alert" : "status"}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className={`p-4 rounded-xl flex items-start gap-3 ${
