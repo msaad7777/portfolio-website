@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     description,
     type: "website",
     url: `${SITE_URL}/blog`,
+    images: [`${SITE_URL}/img/saad-proffessional.jpg`],
   },
 }
 
