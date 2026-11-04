@@ -22,7 +22,7 @@ export function BlogSection() {
   }
 
   return (
-    <section id="blog" className="py-20 md:py-32 bg-muted/30">
+    <section id="blog" className="py-20 md:py-32 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
