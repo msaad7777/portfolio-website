@@ -69,8 +69,9 @@ function CardBody({ card }: { card: BlogCard }) {
 
 export default function BlogPage() {
   return (
-    <main id="main-content" className="min-h-screen">
+    <>
       <BlogHeader backHref="/#blog" backLabel="Back to site" />
+      <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">Technical Blog</h1>
         <p className="text-xl text-muted-foreground mb-10 md:mb-14">
@@ -90,6 +91,7 @@ export default function BlogPage() {
           )}
         </div>
       </div>
-    </main>
+      </main>
+    </>
   )
 }

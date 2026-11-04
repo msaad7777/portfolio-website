@@ -45,8 +45,9 @@ export default function ArticlePage({ params }: Props) {
   if (!article) notFound()
 
   return (
-    <main id="main-content" className="min-h-screen">
+    <>
       <BlogHeader backHref="/blog" backLabel="All articles" />
+      <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
       <article className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 max-w-3xl">
         <div className="flex flex-wrap gap-2 mb-4">
           {article.tags.map((tag) => (
@@ -80,6 +81,7 @@ export default function ArticlePage({ params }: Props) {
         </div>
         <ArticleBody blocks={article.body} />
       </article>
-    </main>
+      </main>
+    </>
   )
 }

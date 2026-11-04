@@ -97,10 +97,11 @@ export function ContactSection() {
         }),
       })
 
-      // FormSubmit can answer 200 with success: "false", for example before the address is activated
+      // FormSubmit can answer 200 with success: "false", for example before the address is activated,
+      // so only an explicit success counts
       const result = await response.json().catch(() => null)
 
-      if (response.ok && result?.success !== "false" && result?.success !== false) {
+      if (response.ok && (result?.success === true || result?.success === "true")) {
         setSubmitStatus({
           type: "success",
           message: "Thank you for reaching out! I'll get back to you within 24-48 hours.",

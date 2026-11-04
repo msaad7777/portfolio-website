@@ -5,10 +5,11 @@ import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download } from "lucide-re
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { MatrixRain } from "@/components/matrix-rain"
+import { scrollBehavior } from "@/lib/utils"
 
 export function HeroSection() {
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+    document.getElementById("contact")?.scrollIntoView({ behavior: scrollBehavior() })
   }
 
   const socialLinks = [

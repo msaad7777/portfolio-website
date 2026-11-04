@@ -16,8 +16,8 @@ import { ChatBot } from "@/components/chatbot"
 export default function Home() {
   return (
     <MotionConfig reducedMotion="user">
-    <main id="main-content" className="min-h-screen">
-      <Navigation />
+    <Navigation />
+    <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
@@ -26,9 +26,9 @@ export default function Home() {
       <PortfolioSection />
       <BlogSection />
       <ContactSection />
-      <Footer />
-      <ChatBot />
     </main>
+    <Footer />
+    <ChatBot />
     </MotionConfig>
   )
 }

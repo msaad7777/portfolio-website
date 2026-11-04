@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Linkedin, Mail, GraduationCap, BookOpen, ArrowUp, Heart, MapPin, Phone } from "lucide-react"
 import { FaGithub } from "react-icons/fa6"
+import { scrollBehavior } from "@/lib/utils"
 
 export function Footer() {
   const [year, setYear] = useState(2025)
@@ -21,7 +22,7 @@ export function Footer() {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: scrollBehavior() })
   }
 
   const socialLinks = [
