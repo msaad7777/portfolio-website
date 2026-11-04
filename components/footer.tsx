@@ -129,10 +129,6 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/20">
-              <p className="text-xs text-accent font-medium">Available for Remote Work</p>
-              <p className="text-xs text-muted-foreground mt-1">Flexible timezone coverage</p>
-            </div>
           </div>
         </div>
 

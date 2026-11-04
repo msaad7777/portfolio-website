@@ -175,11 +175,6 @@ export function AboutSection() {
                 </div>
               </motion.div>
 
-              <p className="text-lg font-semibold text-accent leading-relaxed">
-                Available for Remote Work • Open to Contract and Full-Time Opportunities
-                in Senior SRE, Senior DevOps, Platform Engineering, and MLOps
-              </p>
-
               {/* Highlights Grid */}
               <div className="grid sm:grid-cols-2 gap-4 pt-4">
                 {highlights.map((highlight, index) => (

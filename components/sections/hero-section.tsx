@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download, Sparkles } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { MatrixRain } from "@/components/matrix-rain"
@@ -72,16 +72,6 @@ export function HeroSection() {
             className="space-y-6 text-center lg:text-left"
           >
             <motion.div variants={itemVariants} className="space-y-3">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Available for opportunities</span>
-              </motion.div>
-
               <motion.p
                 variants={itemVariants}
                 className="text-accent font-semibold text-lg"

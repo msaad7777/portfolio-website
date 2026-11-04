@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Send, Linkedin, Calendar, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
+import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 
 // Google Form Configuration - Mohammed Saad Portfolio Contact Form
 const GOOGLE_FORM_CONFIG = {
@@ -178,7 +178,7 @@ export function ContactSection() {
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Open to contract and full-time opportunities in MLOps, Site Reliability Engineering, DevOps, and Gen AI Development.
+            Questions about Site Reliability Engineering, DevOps, or MLOps? Send me a message.
           </p>
         </motion.div>
 
@@ -229,25 +229,6 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Availability Status */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="p-4 rounded-xl bg-accent/5 border border-accent/20"
-            >
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <Calendar className="w-5 h-5 text-accent" />
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm">Currently Available</p>
-                  <p className="text-xs text-muted-foreground">Open for new opportunities</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
