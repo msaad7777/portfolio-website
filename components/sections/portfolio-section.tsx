@@ -207,27 +207,33 @@ export function PortfolioSection() {
                     />
 
                     {/* Overlay with actions */}
-                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-                      <motion.a
-                        href={project.link}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
-                        transition={{ delay: 0.1 }}
-                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
-                        aria-label="View project"
-                      >
-                        <Eye className="w-5 h-5" />
-                      </motion.a>
-                      <motion.a
-                        href={project.github}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
-                        transition={{ delay: 0.2 }}
-                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
-                        aria-label="View on GitHub"
-                      >
-                        <FaGithub className="w-5 h-5" />
-                      </motion.a>
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-300 z-10">
+                      {project.link !== "#" && (
+                        <motion.a
+                          href={project.link}
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                          transition={{ delay: 0.1 }}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
+                          aria-label={`View ${project.title}`}
+                        >
+                          <Eye className="w-5 h-5" />
+                        </motion.a>
+                      )}
+                      {project.github !== "#" && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                          transition={{ delay: 0.2 }}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors focus:opacity-100"
+                          aria-label={`${project.title} on GitHub`}
+                        >
+                          <FaGithub className="w-5 h-5" />
+                        </motion.a>
+                      )}
                     </div>
 
                     {/* Category Badge */}
@@ -270,14 +276,26 @@ export function PortfolioSection() {
                       )}
                     </div>
 
-                    {/* View Project Link */}
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
-                    >
-                      View Project
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                    </a>
+                    {/* Only real destinations get a link */}
+                    {project.link !== "#" ? (
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                      >
+                        View Project
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      </a>
+                    ) : project.github !== "#" ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                      >
+                        View on GitHub
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      </a>
+                    ) : null}
                   </CardContent>
                 </Card>
               </motion.div>
