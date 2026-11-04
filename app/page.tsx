@@ -1,5 +1,6 @@
 "use client"
 
+import { MotionConfig } from "framer-motion"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
@@ -14,7 +15,8 @@ import { ChatBot } from "@/components/chatbot"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <MotionConfig reducedMotion="user">
+    <main id="main-content" className="min-h-screen">
       <Navigation />
       <HeroSection />
       <AboutSection />
@@ -27,5 +29,6 @@ export default function Home() {
       <Footer />
       <ChatBot />
     </main>
+    </MotionConfig>
   )
 }

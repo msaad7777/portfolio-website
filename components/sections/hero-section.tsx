@@ -69,7 +69,7 @@ export function HeroSection() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-6 text-center lg:text-left order-2 lg:order-1"
+            className="space-y-6 text-center lg:text-left"
           >
             <motion.div variants={itemVariants} className="space-y-3">
               <motion.div
@@ -182,7 +182,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative order-1 lg:order-2"
+            className="relative"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
               {/* Decorative elements */}

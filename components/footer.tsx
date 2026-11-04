@@ -158,6 +158,7 @@ export function Footer() {
           {/* Back to top button */}
           <motion.button
             onClick={scrollToTop}
+            tabIndex={showScrollTop ? 0 : -1}
             initial={{ opacity: 0 }}
             animate={{ opacity: showScrollTop ? 1 : 0 }}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
@@ -182,6 +183,7 @@ export function Footer() {
       {/* Fixed scroll to top button (shown when scrolled) */}
       <motion.button
         onClick={scrollToTop}
+        tabIndex={showScrollTop ? 0 : -1}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: showScrollTop ? 1 : 0,
@@ -190,7 +192,7 @@ export function Footer() {
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25 flex items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
+        className="fixed bottom-24 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25 flex items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-5 h-5" />

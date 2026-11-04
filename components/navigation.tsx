@@ -57,6 +57,7 @@ export function Navigation() {
 
   return (
     <motion.nav
+      aria-label="Main"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -114,6 +115,7 @@ export function Navigation() {
               size="icon"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="rounded-full hover:bg-accent/10 transition-colors"
+              aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div
@@ -139,6 +141,7 @@ export function Navigation() {
               className="lg:hidden rounded-full hover:bg-accent/10"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
             >
               <AnimatePresence mode="wait" initial={false}>
                 <motion.div

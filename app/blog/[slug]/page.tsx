@@ -45,7 +45,7 @@ export default function ArticlePage({ params }: Props) {
   if (!article) notFound()
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <BlogHeader backHref="/blog" backLabel="All articles" />
       <article className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 max-w-3xl">
         <div className="flex flex-wrap gap-2 mb-4">

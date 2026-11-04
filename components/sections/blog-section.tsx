@@ -72,7 +72,7 @@ export function BlogSection() {
                   <div className="relative h-64 md:h-auto overflow-hidden">
                     <img
                       src={articles[currentIndex].image}
-                      alt={articles[currentIndex].title}
+                      alt=""
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/50 to-transparent md:block hidden" />
@@ -126,6 +126,7 @@ export function BlogSection() {
                 size="icon"
                 variant="outline"
                 onClick={prevSlide}
+                aria-label="Previous article"
                 className="pointer-events-auto rounded-full bg-background/80 backdrop-blur-sm hover:bg-accent hover:text-background border-accent/30"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -134,6 +135,7 @@ export function BlogSection() {
                 size="icon"
                 variant="outline"
                 onClick={nextSlide}
+                aria-label="Next article"
                 className="pointer-events-auto rounded-full bg-background/80 backdrop-blur-sm hover:bg-accent hover:text-background border-accent/30"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -172,7 +174,7 @@ export function BlogSection() {
               >
                 <img
                   src={article.image}
-                  alt={article.title}
+                  alt=""
                   className="w-full h-24 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent flex items-end p-2">
