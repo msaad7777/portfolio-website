@@ -33,13 +33,14 @@ export function Footer() {
   ]
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Portfolio", href: "/#portfolio" },
+    { name: "Blog", href: "/#blog" },
+    { name: "Contact", href: "/#contact" },
+    { name: "SCAIS", href: "/scais" },
   ]
 
   const services = [
@@ -61,7 +62,7 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <motion.a
-              href="#home"
+              href="/#home"
               className="inline-flex items-center space-x-3 mb-4 group"
               whileHover={{ scale: 1.02 }}
             >
