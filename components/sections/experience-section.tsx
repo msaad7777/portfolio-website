@@ -151,7 +151,7 @@ export function ExperienceSection() {
             <Card className="border-dashed border-2 border-muted-foreground/30 bg-muted/20">
               <CardContent className="py-8 text-center">
                 <p className="text-lg text-muted-foreground mb-2">
-                  <span className="font-semibold text-foreground">10+ years in tech</span> — Working since 2014
+                  <span className="font-semibold text-foreground">10+ years in tech</span> — Working since 2016
                 </p>
                 <p className="text-muted-foreground">
                   For detailed experience history, feel free to{" "}

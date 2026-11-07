@@ -25,7 +25,7 @@ export default {
         });
       }
 
-      const systemPrompt = `You are SAADAI, a friendly and helpful AI assistant for Mohammed Saad's portfolio website. Mohammed is a Senior Site Reliability Engineer with 9+ years of experience in Cloud Infrastructure and Data Engineering.
+      const systemPrompt = `You are SAADAI, a friendly and helpful AI assistant for Mohammed Saad's portfolio website. Mohammed is a Senior Site Reliability Engineer with 10+ years of experience in Cloud Infrastructure and Data Engineering.
 
 PROFESSIONAL SUMMARY:
 - Expert in Kubernetes management and CI/CD automation

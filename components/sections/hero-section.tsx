@@ -110,7 +110,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Senior SRE & DevOps Engineer with <span className="text-accent font-semibold">9+ years</span> of experience designing and scaling
+              Senior SRE & DevOps Engineer with <span className="text-accent font-semibold">10+ years</span> of experience designing and scaling
               cloud-native distributed systems on AWS, GCP, and Azure. Expert in Kubernetes, Platform Engineering,
               Infrastructure-as-Code (Terraform, Pulumi), and observability. Passionate about <span className="text-accent font-semibold">community service</span> -
               currently volunteering as Full Stack Developer at{" "}
@@ -225,7 +225,7 @@ export function HeroSection() {
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-4 sm:-top-6 right-4 sm:right-8 bg-card/90 backdrop-blur-sm border border-accent/30 rounded-xl px-3 sm:px-4 py-2 shadow-xl z-20"
               >
-                <p className="text-sm sm:text-base font-bold text-accent">9+ Years</p>
+                <p className="text-sm sm:text-base font-bold text-accent">10+ Years</p>
                 <p className="text-xs text-muted-foreground">Experience</p>
               </motion.div>
 

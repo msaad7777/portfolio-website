@@ -15,12 +15,12 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: "Mohammed Saad | DevOps & MLOps Engineer",
-  description: "Portfolio of Mohammed Saad - DevOps Engineer, MLOps Engineer, and Site Reliability Engineer with 9 years of experience in cloud infrastructure, automation, and ML deployment.",
+  description: "Portfolio of Mohammed Saad - DevOps Engineer, MLOps Engineer, and Site Reliability Engineer with 10+ years of experience in cloud infrastructure, automation, and ML deployment.",
   keywords: ["DevOps", "MLOps", "SRE", "Cloud Engineer", "AWS", "GCP", "Azure", "Kubernetes", "Terraform", "CI/CD"],
   authors: [{ name: "Mohammed Saad" }],
   openGraph: {
     title: "Mohammed Saad | DevOps & MLOps Engineer",
-    description: "DevOps Engineer, MLOps Engineer, and Site Reliability Engineer with 9 years of experience",
+    description: "DevOps Engineer, MLOps Engineer, and Site Reliability Engineer with 10+ years of experience",
     type: "website",
   },
 }
