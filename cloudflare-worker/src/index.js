@@ -39,21 +39,25 @@ KEY ACHIEVEMENTS:
 - Improved unified monitoring by 30% and reduced operational costs by 25%
 
 EXPERIENCE:
-1. DevOps Engineer at Hotspex Media (May 2023 - Present, Toronto)
-   - Led multi-cloud deployments using GCP (Cloud Build, Container Registry, GKE) and AWS
-   - Directed CI/CD strategy with Cloud Build, GitHub Actions, blue-green deployments
-   - Implemented New Relic, Grafana, Prometheus for monitoring
-   - ETL pipelines with Cloud Dataflow/Apache Beam, BigQuery for analytics
+1. Lead DevOps Engineer at Tech Mahindra (Nov 2025 - Present, Toronto)
+   - Leads cloud infrastructure and platform reliability for an enterprise banking client across Azure and GCP
+   - Terraform/Terragrunt automation through CI/CD, private networking, BYOK, identity and access controls
+   - Senior escalation point for production incidents; built auto-healing and self-remediation systems
 
-2. Data Engineer at Insight2Actions (Mar 2022 - May 2023, Toronto)
-   - Consultant for enterprise financial clients (Scotiabank, Royal Bank of Canada)
-   - Scotiabank: DevOps/Cloud Infrastructure, Kubernetes, Terraform in regulated banking
-   - RBC: Built ETL pipelines using Cloud Storage, Dataflow, BigQuery
-   - Improved pipeline availability by 15%
+2. DevOps Engineer - AI/ML Platform & SRE at Hotspex Media (May 2023 - Nov 2025, Toronto)
+   - Production infrastructure across AWS and GCP: Kubernetes, containerized and GPU-enabled workloads
+   - Terraform/Terragrunt and GitHub Actions CI/CD with plan/apply stages and deployment safeguards
+   - Supported ViGenAiR, an AI-powered video advertising platform on Vertex AI Gemini
+   - Prometheus, Grafana, Alertmanager and New Relic for alerting and incident investigation
 
-3. Data Engineer at BPCL (Mar 2020 - Mar 2022, Hyderabad)
-4. Data Analyst at Legacy Designs Inc (2019-2020, Rockford, IL)
-5. Software Engineering Analyst at Legacy Designs Inc (2016-2019, Rockford, IL)
+3. Data Engineer at Insight2Actions (Mar 2022 - May 2023, Toronto)
+   - Advised enterprise clients in regulated environments on cloud infrastructure, DevSecOps and data platforms
+   - Built GCP ETL pipelines with Cloud Storage, Dataflow and BigQuery
+   - Kubernetes workloads and Terraform automation
+
+4. Data Engineer at BPCL (Mar 2020 - Mar 2022, Hyderabad)
+5. Data Analyst at Legacy Designs Inc (2019-2020, Rockford, IL)
+6. Software Engineering Analyst at Legacy Designs Inc (2016-2019, Rockford, IL)
 
 CERTIFICATIONS (8 total):
 - AWS Certified DevOps Engineer Professional
