@@ -22,6 +22,8 @@ export function MatrixRain() {
     let animationId: number
     let lastFrameTime = 0
     let isVisible = true
+    // matches stays current, so the rain stops and restarts with the setting
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 
     function resize() {
       const parent = canvas!.parentElement
@@ -45,7 +47,7 @@ export function MatrixRain() {
     function draw(time: number) {
       animationId = requestAnimationFrame(draw)
 
-      if (!isVisible) return
+      if (!isVisible || motionQuery.matches) return
       if (time - lastFrameTime < FRAME_INTERVAL) return
       lastFrameTime = time
 

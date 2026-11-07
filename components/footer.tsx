@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Linkedin, Mail, GraduationCap, BookOpen, ArrowUp, Heart, MapPin, Phone } from "lucide-react"
 import { FaGithub } from "react-icons/fa6"
+import { scrollBehavior } from "@/lib/utils"
 
 export function Footer() {
   const [year, setYear] = useState(2025)
@@ -21,7 +22,7 @@ export function Footer() {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    window.scrollTo({ top: 0, behavior: scrollBehavior() })
   }
 
   const socialLinks = [
@@ -130,10 +131,6 @@ export function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="mt-4 p-3 rounded-lg bg-accent/5 border border-accent/20">
-              <p className="text-xs text-accent font-medium">Available for Remote Work</p>
-              <p className="text-xs text-muted-foreground mt-1">Flexible timezone coverage</p>
-            </div>
           </div>
         </div>
 
@@ -159,6 +156,7 @@ export function Footer() {
           {/* Back to top button */}
           <motion.button
             onClick={scrollToTop}
+            tabIndex={showScrollTop ? 0 : -1}
             initial={{ opacity: 0 }}
             animate={{ opacity: showScrollTop ? 1 : 0 }}
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
@@ -183,6 +181,7 @@ export function Footer() {
       {/* Fixed scroll to top button (shown when scrolled) */}
       <motion.button
         onClick={scrollToTop}
+        tabIndex={showScrollTop ? 0 : -1}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: showScrollTop ? 1 : 0,
@@ -191,7 +190,7 @@ export function Footer() {
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25 flex items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
+        className="fixed bottom-24 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25 flex items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-5 h-5" />

@@ -34,12 +34,12 @@ export function PortfolioSection() {
     {
       title: "Multi-Tenant IaC Deployment with CI/CD",
       category: "Platform Engineering",
-      description: "Architected and delivered enterprise-grade, multi-tenant Infrastructure-as-Code platforms for clients including Home Depot, Royal Bank of Canada, Google ViGenAir, and Meridian. Designed full-fledged CI/CD pipelines enabling tenant-isolated infrastructure provisioning with automated plan, approval, and apply workflows across environments",
+      description: "Built multi-tenant Terraform platforms for enterprise clients. Each tenant gets isolated infrastructure through a CI/CD pipeline with automated plan, approval and apply steps across environments.",
       image: "/img/portfolio-02.jpg",
       tags: ["Terraform", "CI/CD", "Multi-Tenant", "GCP", "AWS"],
       link: "#",
       github: "#",
-      metrics: "4+ enterprise clients"
+      metrics: "Multi-tenant platform"
     },
     {
       title: "Multi-Cloud Terraform Infrastructure",
@@ -72,7 +72,7 @@ export function PortfolioSection() {
       metrics: "40% less downtime"
     },
     {
-      title: "Predictive Analytics Pipeline (BPCL)",
+      title: "Predictive Analytics Pipeline",
       category: "MLOps",
       description: "Built and deployed predictive models for customer churn and CO₂ emissions using Python, containerized and scaled on Azure Kubernetes Service",
       image: "/img/portfolio-03.jpg",
@@ -208,26 +208,34 @@ export function PortfolioSection() {
 
                     {/* Overlay with actions */}
                     <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
-                      <motion.a
-                        href={project.link}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
-                        transition={{ delay: 0.1 }}
-                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
-                        aria-label="View project"
-                      >
-                        <Eye className="w-5 h-5" />
-                      </motion.a>
-                      <motion.a
-                        href={project.github}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
-                        transition={{ delay: 0.2 }}
-                        className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
-                        aria-label="View on GitHub"
-                      >
-                        <FaGithub className="w-5 h-5" />
-                      </motion.a>
+                      {project.link !== "#" && (
+                        <motion.a
+                          href={project.link}
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                          transition={{ delay: 0.1 }}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                        >
+                          <Eye className="w-5 h-5" />
+                        </motion.a>
+                      )}
+                      {project.github !== "#" && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={hoveredProject === project.title ? { y: 0, opacity: 1 } : {}}
+                          transition={{ delay: 0.2 }}
+                          className="p-3 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white hover:bg-accent hover:border-accent transition-colors"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                        >
+                          <FaGithub className="w-5 h-5" />
+                        </motion.a>
+                      )}
                     </div>
 
                     {/* Category Badge */}
@@ -270,14 +278,28 @@ export function PortfolioSection() {
                       )}
                     </div>
 
-                    {/* View Project Link */}
-                    <a
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
-                    >
-                      View Project
-                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                    </a>
+                    {/* Only real destinations get a link */}
+                    {project.link !== "#" ? (
+                      <a
+                        href={project.link}
+                        aria-label={`View ${project.title}`}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                      >
+                        View Project
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      </a>
+                    ) : project.github !== "#" ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} on GitHub`}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                      >
+                        View on GitHub
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                      </a>
+                    ) : null}
                   </CardContent>
                 </Card>
               </motion.div>

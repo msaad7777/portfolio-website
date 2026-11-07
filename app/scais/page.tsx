@@ -71,8 +71,9 @@ const fadeUp = {
 
 export default function ScaisPage() {
   return (
-    <main className="min-h-screen">
+    <>
       <Navigation />
+      <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
 
       {/* Intro */}
       <section id="scais" className="pt-32 pb-20 md:pt-40 md:pb-28 bg-grid-pattern">
@@ -175,7 +176,8 @@ export default function ScaisPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }

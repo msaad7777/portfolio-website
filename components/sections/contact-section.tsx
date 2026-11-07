@@ -4,7 +4,7 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Send, Linkedin, Calendar, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
+import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 
 // Google Form Configuration - Mohammed Saad Portfolio Contact Form
 const GOOGLE_FORM_CONFIG = {
@@ -97,7 +97,11 @@ export function ContactSection() {
         }),
       })
 
-      if (response.ok) {
+      // FormSubmit can answer 200 with success: "false", for example before the address is activated,
+      // so only an explicit success counts
+      const result = await response.json().catch(() => null)
+
+      if (response.ok && (result?.success === true || result?.success === "true")) {
         setSubmitStatus({
           type: "success",
           message: "Thank you for reaching out! I'll get back to you within 24-48 hours.",
@@ -125,7 +129,8 @@ export function ContactSection() {
 
         setSubmitStatus({
           type: "success",
-          message: "Thank you! Your message has been received.",
+          // no-cors hides the response, so delivery can't be confirmed here
+          message: "Your message was submitted, but delivery couldn't be confirmed. If you don't hear back, please email me at mbadru3434@gmail.com",
         })
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
       } catch (fallbackError) {
@@ -174,7 +179,7 @@ export function ContactSection() {
             Let&apos;s <span className="gradient-text">Connect</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Open to contract and full-time opportunities in MLOps, Site Reliability Engineering, DevOps, and Gen AI Development.
+            Questions about Site Reliability Engineering, DevOps, or MLOps? Send me a message.
           </p>
         </motion.div>
 
@@ -225,25 +230,6 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Availability Status */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className="p-4 rounded-xl bg-accent/5 border border-accent/20"
-            >
-              <div className="flex items-center gap-3">
-                <div className="relative">
-                  <Calendar className="w-5 h-5 text-accent" />
-                  <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
-                </div>
-                <div>
-                  <p className="font-medium text-sm">Currently Available</p>
-                  <p className="text-xs text-muted-foreground">Open for new opportunities</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -269,6 +255,7 @@ export function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        autoComplete="name"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="John Doe"
                       />
@@ -285,6 +272,7 @@ export function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        autoComplete="email"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="john@example.com"
                       />
@@ -302,6 +290,7 @@ export function ContactSection() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        autoComplete="tel"
                         className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
                         placeholder="+1 (555) 000-0000"
                       />
@@ -317,7 +306,7 @@ export function ContactSection() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm appearance-none cursor-pointer"
+                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm cursor-pointer"
                       >
                         <option value="">Select a subject</option>
                         {subjectOptions.map(option => (
@@ -345,6 +334,7 @@ export function ContactSection() {
 
                   {submitStatus.type && (
                     <motion.div
+                      role={submitStatus.type === "error" ? "alert" : "status"}
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className={`p-4 rounded-xl flex items-start gap-3 ${

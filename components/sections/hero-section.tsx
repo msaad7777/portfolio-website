@@ -1,14 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download, Sparkles } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { MatrixRain } from "@/components/matrix-rain"
+import { scrollBehavior } from "@/lib/utils"
 
 export function HeroSection() {
   const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+    document.getElementById("contact")?.scrollIntoView({ behavior: scrollBehavior() })
   }
 
   const socialLinks = [
@@ -69,19 +70,9 @@ export function HeroSection() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="space-y-6 text-center lg:text-left order-2 lg:order-1"
+            className="space-y-6 text-center lg:text-left"
           >
             <motion.div variants={itemVariants} className="space-y-3">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium"
-              >
-                <Sparkles className="w-4 h-4" />
-                <span>Available for opportunities</span>
-              </motion.div>
-
               <motion.p
                 variants={itemVariants}
                 className="text-accent font-semibold text-lg"
@@ -182,7 +173,7 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative order-1 lg:order-2"
+            className="relative"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
               {/* Decorative elements */}

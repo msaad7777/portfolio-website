@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Briefcase, Code2, Heart, ExternalLink, MapPin, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -66,10 +67,12 @@ export function AboutSection() {
               className="w-full lg:w-auto lg:flex-shrink-0 flex justify-center lg:sticky lg:top-24"
             >
               <Card className="w-full max-w-sm border-accent/20 overflow-hidden bg-card/50 backdrop-blur-sm">
-                {/* Profile Image - Using img tag with explicit dimensions for reliability */}
                 <div className="relative w-full bg-gradient-to-br from-accent/20 to-emerald-500/20">
-                  <img
+                  <Image
                     src="/img/final-linkedn.png"
+                    width={832}
+                    height={1248}
+                    sizes="384px"
                     alt="Mohammed Saad - Senior Site Reliability Engineer"
                     className="w-full h-auto block"
                     style={{ maxHeight: '400px', objectFit: 'cover', objectPosition: 'top' }}
@@ -171,11 +174,6 @@ export function AboutSection() {
                   </div>
                 </div>
               </motion.div>
-
-              <p className="text-lg font-semibold text-accent leading-relaxed">
-                Available for Remote Work • Open to Contract and Full-Time Opportunities
-                in Senior SRE, Senior DevOps, Platform Engineering, and MLOps
-              </p>
 
               {/* Highlights Grid */}
               <div className="grid sm:grid-cols-2 gap-4 pt-4">

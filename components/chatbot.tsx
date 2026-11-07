@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Send } from "lucide-react"
 import Image from "next/image"
+import { scrollBehavior } from "@/lib/utils"
 
 interface Message {
   role: "user" | "bot"
@@ -53,7 +54,7 @@ export function ChatBot() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   const scrollToBottom = useCallback(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    messagesEndRef.current?.scrollIntoView({ behavior: scrollBehavior() })
   }, [])
 
   useEffect(() => {
@@ -73,6 +74,7 @@ export function ChatBot() {
     let columns = 0
     let drops: number[] = []
     let animId: number
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 
     function resize() {
       const parent = canvas!.parentElement
@@ -85,6 +87,7 @@ export function ChatBot() {
 
     function draw() {
       animId = requestAnimationFrame(draw)
+      if (motionQuery.matches) return
       ctx!.fillStyle = "rgba(0, 0, 0, 0.05)"
       ctx!.fillRect(0, 0, canvas!.width, canvas!.height)
       ctx!.fillStyle = "rgba(34, 197, 94, 0.3)"
@@ -166,6 +169,8 @@ export function ChatBot() {
 
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close chat" : "Open chat"}
+            aria-expanded={isOpen}
             className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-green-500 shadow-2xl shadow-green-500/30 hover:shadow-green-500/60 hover:scale-110 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black"
           >
             {isOpen ? (
@@ -175,7 +180,7 @@ export function ChatBot() {
             ) : (
               <Image
                 src="/img/saad-proffessional2.png"
-                alt="Chat with Saad"
+                alt=""
                 fill
                 className="object-cover"
               />
@@ -192,7 +197,7 @@ export function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: "spring", damping: 25 }}
-            className="fixed bottom-24 right-6 z-50 w-full max-w-md"
+            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] max-w-md"
           >
             <div className="rounded-xl overflow-hidden border border-green-500/30 shadow-2xl shadow-green-500/20 bg-black">
               {/* Header */}
@@ -201,7 +206,7 @@ export function ChatBot() {
                   <div className="relative w-8 h-8 rounded-full overflow-hidden border border-green-500/60">
                     <Image
                       src="/img/saad-proffessional2.png"
-                      alt="Saad"
+                      alt=""
                       fill
                       className="object-cover"
                     />
@@ -219,7 +224,7 @@ export function ChatBot() {
               </div>
 
               {/* Messages */}
-              <div className="relative h-96 overflow-y-auto">
+              <div className="relative h-96 max-h-[55vh] overflow-y-auto">
                 {/* Mini matrix rain background */}
                 <canvas
                   ref={canvasRef}
@@ -291,6 +296,9 @@ export function ChatBot() {
                     </motion.div>
                   )}
                   <div ref={messagesEndRef} />
+                  <p role="status" className="sr-only">
+                    {messages[messages.length - 1].role === "bot" ? messages[messages.length - 1].content : ""}
+                  </p>
                 </div>
               </div>
 
@@ -304,6 +312,7 @@ export function ChatBot() {
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
                       placeholder="Enter message..."
+                      aria-label="Message"
                       disabled={isLoading}
                       className="flex-1 py-2 bg-transparent text-green-300 font-mono text-sm placeholder:text-green-800 focus:outline-none disabled:opacity-50 caret-green-400"
                     />
@@ -311,6 +320,7 @@ export function ChatBot() {
                   <button
                     type="submit"
                     disabled={isLoading || !input.trim()}
+                    aria-label="Send message"
                     className="px-3 py-2 bg-green-500/20 border border-green-500/40 rounded-lg text-green-400 hover:bg-green-500/30 hover:border-green-400 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all disabled:opacity-30 disabled:hover:bg-green-500/20 disabled:hover:border-green-500/40 disabled:hover:shadow-none"
                   >
                     <Send className="w-4 h-4" />
