@@ -5,6 +5,7 @@ import { Moon, Sun, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/components/theme-provider"
 import { motion, AnimatePresence } from "framer-motion"
+import { usePathname } from "next/navigation"
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -14,6 +15,7 @@ const navItems = [
   { name: "Portfolio", href: "#portfolio" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
+  { name: "SCAIS", href: "/scais" },
 ]
 
 export function Navigation() {
@@ -21,13 +23,21 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
+  const isHome = pathname === "/"
+
+  // Section anchors live on the home page; from other pages link back to them.
+  const linkFor = (href: string) => (href.startsWith("#") && !isHome ? `/${href}` : href)
+  const idFor = (href: string) => (href.startsWith("#") ? href.slice(1) : href.replace("/", ""))
+  const isActive = (href: string) =>
+    href.startsWith("#") ? isHome && activeSection === idFor(href) : pathname === href
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
       // Update active section based on scroll position
-      const sections = navItems.map(item => item.href.replace('#', ''))
+      const sections = navItems.filter(item => item.href.startsWith('#')).map(item => item.href.slice(1))
       for (const section of sections.reverse()) {
         const element = document.getElementById(section)
         if (element) {
@@ -71,7 +81,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href={linkFor("#home")}
             className="flex items-center space-x-2 group"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -89,15 +99,15 @@ export function Navigation() {
             {navItems.map((item) => (
               <a
                 key={item.name}
-                href={item.href}
+                href={linkFor(item.href)}
                 className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:text-accent ${
-                  activeSection === item.href.replace('#', '')
+                  isActive(item.href)
                     ? 'text-accent'
                     : 'text-muted-foreground'
                 }`}
               >
                 {item.name}
-                {activeSection === item.href.replace('#', '') && (
+                {isActive(item.href) && (
                   <motion.div
                     layoutId="activeSection"
                     className="absolute inset-0 bg-accent/10 rounded-lg -z-10"
@@ -184,12 +194,12 @@ export function Navigation() {
                 {navItems.map((item, index) => (
                   <motion.a
                     key={item.name}
-                    href={item.href}
+                    href={linkFor(item.href)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     className={`px-6 py-4 rounded-xl text-lg font-medium transition-all ${
-                      activeSection === item.href.replace('#', '')
+                      isActive(item.href)
                         ? 'bg-accent/10 text-accent border-l-4 border-accent'
                         : 'text-foreground hover:bg-accent/5 hover:text-accent'
                     }`}
@@ -211,7 +221,7 @@ export function Navigation() {
                   Ready to work together?
                 </p>
                 <a
-                  href="#contact"
+                  href={linkFor("#contact")}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-4 block w-full py-4 bg-gradient-to-r from-accent to-emerald-600 text-white text-center rounded-xl font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
                 >

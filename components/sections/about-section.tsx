@@ -10,7 +10,7 @@ export function AboutSection() {
   const highlights = [
     {
       icon: Briefcase,
-      title: "9+ Years Experience",
+      title: "10+ Years Experience",
       description: "Senior SRE, Senior DevOps, MLOps, and Platform Engineering across industries"
     },
     {
@@ -123,7 +123,7 @@ export function AboutSection() {
               </h3>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Senior Site Reliability Engineer & DevOps Engineer with over 9 years of experience designing, building,
+                Senior Site Reliability Engineer & DevOps Engineer with over 10 years of experience designing, building,
                 and scaling infrastructure for large-scale, cloud-native systems. I specialize in AWS, GCP, and Azure,
                 with expertise in distributed systems, security, and scalability. Proven track record of owning systems
                 end-to-end, solving ambiguous problems, and mentoring peers while delivering highly available, performant,

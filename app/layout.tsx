@@ -15,7 +15,7 @@ const sourceCodePro = Source_Code_Pro({
 })
 
 const title = "Mohammed Saad | Senior SRE & DevOps Engineer"
-const description = "Senior SRE & DevOps Engineer with 9+ years designing and scaling cloud-native systems on AWS, GCP, and Azure. Kubernetes, Terraform, Pulumi, and observability."
+const description = "Senior SRE & DevOps Engineer with 10+ years designing and scaling cloud-native systems on AWS, GCP, and Azure. Kubernetes, Terraform, Pulumi, and observability."
 const image = "/img/saad-proffessional.jpg"
 
 export const metadata: Metadata = {
