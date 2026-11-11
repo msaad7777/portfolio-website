@@ -14,8 +14,8 @@ const sourceCodePro = Source_Code_Pro({
   variable: "--font-source-code-pro",
 })
 
-const title = "Mohammed Saad | Senior SRE & DevOps Engineer"
-const description = "Senior SRE & DevOps Engineer with 10+ years designing and scaling cloud-native systems on AWS, GCP, and Azure. Kubernetes, Terraform, Pulumi, and observability."
+const title = "Mohammed Saad | Lead AI Infrastructure, SRE & DevOps Engineer"
+const description = "Lead AI Infrastructure, SRE and DevOps engineer with 10+ years building cloud infrastructure on AWS, GCP and Azure, from the first Terraform module to AI-assisted operations."
 const image = "/img/saad-proffessional.jpg"
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ const personJsonLd = {
   name: "Mohammed Saad",
   url: SITE_URL,
   image: `${SITE_URL}${image}`,
-  jobTitle: "Senior Site Reliability Engineer",
+  jobTitle: "Lead AI Infrastructure Engineer",
   knowsAbout: ["Site Reliability Engineering", "DevOps", "Platform Engineering", "MLOps", "Kubernetes", "Terraform", "AWS", "GCP", "Azure"],
   sameAs: [
     "https://github.com/msaad7777",
