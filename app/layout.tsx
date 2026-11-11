@@ -47,7 +47,7 @@ const personJsonLd = {
   name: "Mohammed Saad",
   url: SITE_URL,
   image: `${SITE_URL}${image}`,
-  jobTitle: "Lead AI Infrastructure Engineer",
+  jobTitle: "Lead AI Infrastructure, SRE & DevOps Engineer",
   knowsAbout: ["Site Reliability Engineering", "DevOps", "Platform Engineering", "MLOps", "Kubernetes", "Terraform", "AWS", "GCP", "Azure"],
   sameAs: [
     "https://github.com/msaad7777",
