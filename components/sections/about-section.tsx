@@ -73,7 +73,7 @@ export function AboutSection() {
                     width={832}
                     height={1248}
                     sizes="384px"
-                    alt="Mohammed Saad - Senior Site Reliability Engineer"
+                    alt="Mohammed Saad - Lead AI Infrastructure, SRE and DevOps Engineer"
                     className="w-full h-auto block"
                     style={{ maxHeight: '400px', objectFit: 'cover', objectPosition: 'top' }}
                   />
@@ -82,7 +82,7 @@ export function AboutSection() {
 
                 <CardContent className="p-6 -mt-8 relative z-10">
                   <h3 className="text-xl font-bold mb-1">Mohammed Saad</h3>
-                  <p className="text-accent font-medium mb-3">Senior Site Reliability Engineer</p>
+                  <p className="text-accent font-medium mb-3">Lead AI Infrastructure / SRE / DevOps Engineer</p>
 
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <MapPin className="w-4 h-4" />
@@ -119,11 +119,11 @@ export function AboutSection() {
               className="flex-1 space-y-6"
             >
               <h3 className="text-2xl md:text-3xl font-bold leading-tight">
-                Senior Site Reliability Engineer | Senior DevOps Engineer | Platform Engineering
+                Lead AI Infrastructure / SRE / DevOps Engineer
               </h3>
 
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Senior Site Reliability Engineer & DevOps Engineer with over 10 years of experience designing, building,
+                Lead AI Infrastructure, SRE and DevOps Engineer with over 10 years of experience designing, building,
                 and scaling infrastructure for large-scale, cloud-native systems. I specialize in AWS, GCP, and Azure,
                 with expertise in distributed systems, security, and scalability. Proven track record of owning systems
                 end-to-end, solving ambiguous problems, and mentoring peers while delivering highly available, performant,

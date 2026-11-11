@@ -92,8 +92,8 @@ export function HeroSection() {
                 variants={itemVariants}
                 className="text-xl sm:text-2xl md:text-3xl text-muted-foreground space-y-1"
               >
-                <p className="gradient-text font-semibold">Senior Site Reliability Engineer</p>
-                <p className="text-lg sm:text-xl text-muted-foreground/80">Senior DevOps | Platform Engineering | MLOps</p>
+                <p className="gradient-text font-semibold">Lead AI Infrastructure &amp; SRE Engineer</p>
+                <p className="text-lg sm:text-xl text-muted-foreground/80">Cloud Infrastructure | DevOps | Platform Engineering</p>
               </motion.div>
             </motion.div>
 
@@ -101,7 +101,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Senior SRE & DevOps Engineer with <span className="text-accent font-semibold">10+ years</span> of experience designing and scaling
+              Lead AI Infrastructure, SRE & DevOps Engineer with <span className="text-accent font-semibold">10+ years</span> of experience designing and scaling
               cloud-native distributed systems on AWS, GCP, and Azure. Expert in Kubernetes, Platform Engineering,
               Infrastructure-as-Code (Terraform, Pulumi), and observability. Passionate about <span className="text-accent font-semibold">community service</span> -
               currently volunteering as Full Stack Developer at{" "}
@@ -202,7 +202,7 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
                 <Image
                   src="/img/saad-proffessional.jpg"
-                  alt="Mohammed Saad - Senior Site Reliability Engineer"
+                  alt="Mohammed Saad - Lead AI Infrastructure, SRE and DevOps Engineer"
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 512px"
