@@ -29,6 +29,7 @@ export function PortfolioSection() {
       tags: ["Terraform", "Terragrunt", "Kyverno", "FinOps", "GPU Inference"],
       link: "#",
       github: "https://github.com/msaad7777/iac-starter-kit",
+      writeup: "https://medium.com/@msaad_86696/guardrails-before-apply-what-my-iac-starter-kit-caught-that-code-review-wouldnt-edc8a9877dd2",
       metrics: "23 module tests, 5 plan policies"
     },
     {
@@ -288,28 +289,42 @@ export function PortfolioSection() {
                       )}
                     </div>
 
-                    {/* Only real destinations get a link */}
-                    {project.link !== "#" ? (
-                      <a
-                        href={project.link}
-                        aria-label={`View ${project.title}`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
-                      >
-                        View Project
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                      </a>
-                    ) : project.github !== "#" ? (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${project.title} on GitHub`}
-                        className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
-                      >
-                        View on GitHub
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-                      </a>
-                    ) : null}
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                      {/* Only real destinations get a link */}
+                      {project.link !== "#" ? (
+                        <a
+                          href={project.link}
+                          aria-label={`View ${project.title}`}
+                          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                        >
+                          View Project
+                          <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                        </a>
+                      ) : project.github !== "#" ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${project.title} on GitHub`}
+                          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                        >
+                          View on GitHub
+                          <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                        </a>
+                      ) : null}
+                      {project.writeup && (
+                        <a
+                          href={project.writeup}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Write-up: ${project.title}`}
+                          className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline group/link"
+                        >
+                          Write-up
+                          <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                        </a>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
