@@ -22,6 +22,16 @@ export function PortfolioSection() {
 
   const projects = [
     {
+      title: "AWS IaC Starter Kit: FinOps and AI Infrastructure",
+      category: "Platform Engineering",
+      description: "Tested Terraform modules, a Terragrunt dev/prod layout, and Kyverno policies that check every plan for cost tags, public S3, IMDSv2 and GPU spend. A brownfield path imports hand-built resources with zero changes, and a local RAG assistant answers questions with citations. Runs on a local AWS mock, also trialled on AWS Emulator, so no AWS account is needed.",
+      image: "/img/project-iac-starter-kit.jpg",
+      tags: ["Terraform", "Terragrunt", "Kyverno", "FinOps", "GPU Inference"],
+      link: "#",
+      github: "https://github.com/msaad7777/iac-starter-kit",
+      metrics: "23 module tests, 5 plan policies"
+    },
+    {
       title: "MLOps Pipeline with CI/CD & Monitoring",
       category: "MLOps",
       description: "End-to-end ML pipeline for customer churn prediction featuring Airflow orchestration, FastAPI model serving, Prometheus/Grafana monitoring, and multi-cloud deployment to AWS ECS and GCP Cloud Run via GitHub Actions",
