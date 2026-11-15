@@ -22,7 +22,7 @@ export function BlogSection() {
   }
 
   return (
-    <section id="blog" className="py-20 md:py-32 bg-muted/30 overflow-hidden">
+    <section id="blog" className="py-20 md:py-28 border-t border-border bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,12 +31,10 @@ export function BlogSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <BookOpen className="w-8 h-8 text-accent" />
-            <h2 className="text-3xl md:text-5xl font-bold">Technical Blog</h2>
-          </div>
+          <p className="eyebrow mb-3"><span className="text-muted-foreground">07 /</span> writing</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Write-ups</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-            Sharing insights on DevOps, MLOps, and Cloud Engineering
+            What I built, how I measured it and what failed
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link href="/blog" className={buttonVariants({ variant: "outline", className: "gap-2" })}>

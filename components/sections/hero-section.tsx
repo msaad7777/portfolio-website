@@ -1,263 +1,118 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, Github, Linkedin, Mail, BookOpen, Download } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, BookOpen, Download } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { MatrixRain } from "@/components/matrix-rain"
-import { scrollBehavior } from "@/lib/utils"
+import { StatusDot } from "@/components/section-heading"
+import { systems } from "@/lib/systems"
+
+const socialLinks = [
+  { icon: Github, href: "https://github.com/msaad7777", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn" },
+  { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium" },
+  { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email" },
+]
+
+// The hero renders without entrance animation: it holds the largest paint and the key claim.
+const fade = (_delay = 0) => ({})
 
 export function HeroSection() {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: scrollBehavior() })
-  }
-
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/msaad7777", label: "GitHub", color: "hover:text-gray-400" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn", color: "hover:text-blue-500" },
-    { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium Blog", color: "hover:text-green-500" },
-    { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email", color: "hover:text-red-500" },
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  }
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Animated Background */}
-      <div className="absolute inset-0 -z-10">
-        <MatrixRain />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-background/40 to-background/50" />
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-
-        {/* Animated gradient orbs */}
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 50, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px]"
-        />
-      </div>
+    <section id="home" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      <div className="absolute inset-0 -z-10 bg-grid-pattern [mask-image:linear-gradient(to_bottom,black,transparent)]" aria-hidden="true" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-6 text-center lg:text-left"
-          >
-            <motion.div variants={itemVariants} className="space-y-3">
-              <motion.p
-                variants={itemVariants}
-                className="text-accent font-semibold text-lg"
-              >
-                Hello, I&apos;m
-              </motion.p>
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-              >
-                Mohammed{" "}
-                <span className="bg-gradient-to-r from-accent via-emerald-400 to-accent bg-clip-text text-transparent">
-                  Saad
-                </span>
-              </motion.h1>
-              <motion.div
-                variants={itemVariants}
-                className="text-xl sm:text-2xl md:text-3xl text-muted-foreground space-y-1"
-              >
-                <p className="gradient-text font-semibold">Lead AI Infrastructure &amp; SRE Engineer</p>
-                <p className="text-lg sm:text-xl text-muted-foreground/80">Cloud Infrastructure | DevOps | Platform Engineering</p>
-              </motion.div>
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
+          <div className="min-w-0">
+            <motion.div {...fade(0)} className="flex items-center gap-4 mb-6">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-border">
+                <Image src="/img/saad-proffessional.jpg" alt="Mohammed Saad" fill sizes="56px" className="object-cover" priority />
+              </div>
+              <div>
+                <p className="text-lg font-semibold leading-tight">Mohammed Saad</p>
+                <p className="eyebrow mt-1">Lead AI Infrastructure · SRE · DevOps · 10+ yrs</p>
+              </div>
             </motion.div>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-            >
-              Lead AI Infrastructure, SRE & DevOps Engineer with <span className="text-accent font-semibold">10+ years</span> of experience designing and scaling
-              cloud-native distributed systems on AWS, GCP, and Azure. Expert in Kubernetes, Platform Engineering,
-              Infrastructure-as-Code (Terraform, Pulumi), and observability. Passionate about <span className="text-accent font-semibold">community service</span> -
-              currently volunteering as Full Stack Developer at{" "}
-              <a href="https://challengerscc.ca" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                Challengers CC
-              </a>.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+              I build the platforms <span className="text-accent">AI systems</span> run on.
+            </h1>
+
+            <motion.p {...fade(0.2)} className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
+              10+ years running infrastructure on AWS, GCP and Azure. Today I build the layer under AI systems: Terraform,
+              Kubernetes and local models, with policy checks in code and every claim measured in a public repo.
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-            >
-              <Button
-                size="lg"
-                onClick={scrollToContact}
-                className="group bg-gradient-to-r from-accent to-emerald-600 hover:from-accent/90 hover:to-emerald-600/90 text-white shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-all"
-              >
-                Get In Touch
-                <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
+            <motion.div {...fade(0.3)} className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-row">
+              <Button size="lg" asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
+                <a href="#systems" className="group">
+                  See the systems
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </a>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-accent/30 hover:bg-accent/10 hover:border-accent"
-              >
-                <a href="#portfolio">View My Work</a>
+              <Button size="lg" variant="outline" asChild>
+                <a href="#contact">Get in touch</a>
               </Button>
-              <Button
-                size="lg"
-                variant="ghost"
-                asChild
-                className="hover:bg-accent/10"
-              >
+              <Button size="lg" variant="ghost" asChild className="col-span-2 sm:col-span-1">
                 <a href="/MohammedSaadResume.pdf" download className="flex items-center gap-2">
-                  <Download className="h-4 w-4" />
+                  <Download className="h-4 w-4" aria-hidden="true" />
                   Resume
                 </a>
               </Button>
             </motion.div>
 
-            {/* Social Links */}
-            <motion.div
-              variants={itemVariants}
-              className="flex gap-3 pt-4 justify-center lg:justify-start"
-            >
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
-                  whileHover={{ scale: 1.15, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-card border border-border/50 flex items-center justify-center transition-all hover:border-accent/50 hover:shadow-lg ${social.color}`}
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </motion.a>
+            <motion.ul {...fade(0.4)} className="mt-8 flex gap-2" aria-label="Profiles">
+              {socialLinks.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target={s.href.startsWith("http") ? "_blank" : undefined}
+                    rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    aria-label={s.label}
+                    className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-card text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <s.icon className="h-5 w-5" aria-hidden="true" />
+                  </a>
+                </li>
               ))}
-            </motion.div>
-          </motion.div>
+            </motion.ul>
+          </div>
 
-          {/* Image/Visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative"
-          >
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
-              {/* Decorative elements */}
-              <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-8 -right-8 w-48 sm:w-72 h-48 sm:h-72 bg-accent/20 rounded-full blur-3xl"
-              />
-              <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.2, 0.4, 0.2]
-                }}
-                transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-8 -left-8 w-48 sm:w-72 h-48 sm:h-72 bg-emerald-500/20 rounded-full blur-3xl"
-              />
-
-              {/* Profile Image */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="relative z-10 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-accent/30 shadow-2xl shadow-accent/10 aspect-square"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent z-10" />
-                <Image
-                  src="/img/saad-proffessional.jpg"
-                  alt="Mohammed Saad - Lead AI Infrastructure, SRE and DevOps Engineer"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 320px, (max-width: 768px) 384px, 512px"
-                  priority
-                />
-              </motion.div>
-
-              {/* Floating badges */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 sm:-top-6 right-4 sm:right-8 bg-card/90 backdrop-blur-sm border border-accent/30 rounded-xl px-3 sm:px-4 py-2 shadow-xl z-20"
-              >
-                <p className="text-sm sm:text-base font-bold text-accent">10+ Years</p>
-                <p className="text-xs text-muted-foreground">Experience</p>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
-                className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-6 bg-card/90 backdrop-blur-sm border border-accent/30 rounded-xl px-3 sm:px-4 py-2 shadow-xl z-20"
-              >
-                <p className="text-sm sm:text-base font-bold text-accent">Cloud Expert</p>
-                <p className="text-xs text-muted-foreground">AWS | GCP | Azure</p>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1, ease: "easeInOut" }}
-                className="absolute top-1/2 -right-2 sm:-right-4 bg-gradient-to-r from-accent to-emerald-600 text-white rounded-xl px-3 sm:px-4 py-2 shadow-xl z-20"
-              >
-                <p className="text-xs sm:text-sm font-semibold">50+ Projects</p>
-              </motion.div>
+          {/* Status board: one row per public system, with its headline measured result */}
+          <motion.div {...fade(0.25)} className="panel min-w-0 overflow-hidden shadow-xl shadow-black/5 dark:shadow-black/40">
+            <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
+              <p className="font-mono text-xs text-muted-foreground truncate">~/systems · status</p>
+              <p className="flex items-center gap-2 font-mono text-xs text-signal shrink-0">
+                <StatusDot /> {systems.length} public repos
+              </p>
             </div>
+            <ul className="divide-y divide-border">
+              {systems.map((s) => (
+                <li key={s.slug}>
+                  <a
+                    href={`#system-${s.slug}`}
+                    className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 transition-colors hover:bg-muted/60 focus-visible:bg-muted/60"
+                  >
+                    <StatusDot />
+                    <span className="min-w-0">
+                      <span className="block text-sm font-medium leading-snug">{s.name}</span>
+                      <span className="block truncate font-mono text-[11px] text-muted-foreground">{s.kind}</span>
+                    </span>
+                    <span className="text-right">
+                      <span className="metric-value block text-sm whitespace-nowrap">{s.heroMetric.value}</span>
+                      <span className="block font-mono text-[11px] text-muted-foreground whitespace-nowrap">{s.heroMetric.label}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="border-t border-border px-4 py-2.5 font-mono text-[11px] text-muted-foreground">
+              Measured on an Apple M4 laptop · numbers from each repo&apos;s README
+            </p>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.a
-          href="#about"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-accent transition-colors"
-        >
-          <span className="text-xs uppercase tracking-widest">Scroll Down</span>
-          <ArrowDown className="w-5 h-5" />
-        </motion.a>
-      </motion.div>
     </section>
   )
 }

@@ -83,7 +83,7 @@ export function CertificationsSection() {
   ]
 
   return (
-    <section id="certifications" className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30">
+    <section id="certifications" className="py-20 md:py-28 border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -92,18 +92,11 @@ export function CertificationsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 mb-4 text-sm font-medium rounded-full bg-accent/10 text-accent border border-accent/20"
-          >
-            Credentials
-          </motion.span>
+          <p className="eyebrow mb-3"><span className="text-muted-foreground">06 /</span> credentials</p>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Award className="w-7 h-7 md:w-8 md:h-8 text-accent" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-              Certifications & <span className="gradient-text">Badges</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+              Certifications & <span className="text-accent">Badges</span>
             </h2>
           </div>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -112,7 +105,7 @@ export function CertificationsSection() {
           <Button
             asChild
             size="lg"
-            className="gap-2 bg-gradient-to-r from-accent to-emerald-600 hover:from-accent/90 hover:to-emerald-600/90 text-white shadow-lg shadow-accent/25"
+            className="gap-2 bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25"
           >
             <a
               href="https://www.credly.com/users/mohammed-saad.fb7a43c3/badges"
@@ -140,7 +133,7 @@ export function CertificationsSection() {
                   {/* New Badge */}
                   {cert.isNew && (
                     <div className="flex justify-end mb-2">
-                      <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-accent text-white animate-pulse">
+                      <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-accent text-accent-foreground animate-pulse">
                         NEW
                       </span>
                     </div>

@@ -3,11 +3,11 @@
 import { MotionConfig } from "framer-motion"
 import { HeroSection } from "@/components/sections/hero-section"
 import { AboutSection } from "@/components/sections/about-section"
-import { AiInfrastructureSection } from "@/components/sections/ai-infrastructure-section"
+import { PlatformSection } from "@/components/sections/platform-section"
 import { ExperienceSection } from "@/components/sections/experience-section"
 import { SkillsSection } from "@/components/sections/skills-section"
 import { CertificationsSection } from "@/components/sections/certifications-section"
-import { PortfolioSection } from "@/components/sections/portfolio-section"
+import { SystemsSection } from "@/components/sections/systems-section"
 import { BlogSection } from "@/components/sections/blog-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { Navigation } from "@/components/navigation"
@@ -20,12 +20,12 @@ export default function Home() {
     <Navigation />
     <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
       <HeroSection />
+      <PlatformSection />
+      <SystemsSection />
       <AboutSection />
-      <AiInfrastructureSection />
       <ExperienceSection />
       <SkillsSection />
       <CertificationsSection />
-      <PortfolioSection />
       <BlogSection />
       <ContactSection />
     </main>

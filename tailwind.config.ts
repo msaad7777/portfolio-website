@@ -18,7 +18,13 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-source-code-pro)", "ui-monospace", "SFMono-Regular", "monospace"],
+      },
       colors: {
+        signal: "hsl(var(--signal))",
+        warn: "hsl(var(--warn))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
