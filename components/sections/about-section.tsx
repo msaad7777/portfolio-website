@@ -3,7 +3,8 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { Award, Briefcase, Code2, Heart, ExternalLink, MapPin, Linkedin } from "lucide-react"
+import { Award, Briefcase, Code2, FlaskConical, MapPin, Linkedin } from "lucide-react"
+import { SectionHeading } from "@/components/section-heading"
 import { Button } from "@/components/ui/button"
 
 export function AboutSection() {
@@ -24,34 +25,17 @@ export function AboutSection() {
       description: "Distributed systems, cloud-native architecture, and scalability design"
     },
     {
-      icon: Heart,
-      title: "Community Leader",
-      description: "Non-profit volunteer, Full Stack Developer & Playing Director at Challengers CC"
+      icon: FlaskConical,
+      title: "Builds in public",
+      description: "Six public systems, each with a measured eval and a write-up of what failed"
     }
   ]
 
   return (
-    <section id="about" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
-      </div>
+    <section id="about" className="py-20 md:py-28 border-t border-border relative overflow-hidden">
 
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">About Me</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Passionate technologist driving innovation through automation and reliability
-          </p>
-        </motion.div>
+        <SectionHeading index="03" label="about" title="About me" />
 
         {/* Main Content - Image Card + Bio */}
         <div className="max-w-6xl mx-auto">
@@ -67,7 +51,7 @@ export function AboutSection() {
               className="w-full lg:w-auto lg:flex-shrink-0 flex justify-center lg:sticky lg:top-24"
             >
               <Card className="w-full max-w-sm border-accent/20 overflow-hidden bg-card/50 backdrop-blur-sm">
-                <div className="relative w-full bg-gradient-to-br from-accent/20 to-emerald-500/20">
+                <div className="relative w-full bg-accent/10">
                   <Image
                     src="/img/final-linkedn.png"
                     width={832}
@@ -144,36 +128,6 @@ export function AboutSection() {
                 about fostering a culture of collaboration and continuous improvement through technical leadership
                 and mentorship. Proficient in Python, Go, and JavaScript with a technology generalist mindset.
               </p>
-
-              {/* Community Work */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="p-4 rounded-xl bg-accent/5 border border-accent/20"
-              >
-                <div className="flex items-start gap-3">
-                  <Heart className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      <strong className="text-foreground">Beyond my professional work</strong>, I am passionate about giving back to the community.
-                      I volunteer for non-profit organizations focused on community betterment. Currently, I serve as the{" "}
-                      <strong className="text-accent">Full Stack Developer & Playing Director</strong> at{" "}
-                      <a
-                        href="https://challengerscc.ca"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent hover:underline inline-flex items-center gap-1"
-                      >
-                        Challengers Cricket Club
-                        <ExternalLink className="w-3 h-3" />
-                      </a>
-                      , a cricket club in the London community. I built their website from scratch and manage their social media presence,
-                      helping grow the club&apos;s digital footprint and community engagement.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
 
               {/* Highlights Grid */}
               <div className="grid sm:grid-cols-2 gap-4 pt-4">

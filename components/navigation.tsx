@@ -9,11 +9,11 @@ import { usePathname } from "next/navigation"
 
 const navItems = [
   { name: "Home", href: "#home" },
+  { name: "Platform", href: "#platform" },
+  { name: "Systems", href: "#systems" },
   { name: "About", href: "#about" },
-  { name: "AI Infra", href: "#ai-infrastructure" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
-  { name: "Portfolio", href: "#portfolio" },
   { name: "Blog", href: "#blog" },
   { name: "Contact", href: "#contact" },
   { name: "SCAIS", href: "/scais" },
@@ -87,10 +87,10 @@ export function Navigation() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-accent to-emerald-600 flex items-center justify-center shadow-lg shadow-accent/25 group-hover:shadow-accent/40 transition-shadow">
-              <span className="text-lg md:text-xl font-bold text-white">MS</span>
+            <div className="w-9 h-9 md:w-10 md:h-10 rounded-md bg-accent flex items-center justify-center">
+              <span className="font-mono text-sm md:text-base font-bold text-accent-foreground">MS</span>
             </div>
-            <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:inline bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+            <span className="text-base md:text-lg font-semibold whitespace-nowrap hidden sm:inline text-foreground">
               Mohammed Saad
             </span>
           </motion.a>
@@ -224,7 +224,7 @@ export function Navigation() {
                 <a
                   href={linkFor("#contact")}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 block w-full py-4 bg-gradient-to-r from-accent to-emerald-600 text-white text-center rounded-xl font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
+                  className="mt-4 block w-full py-4 bg-accent text-accent-foreground text-center rounded-xl font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
                 >
                   Get In Touch
                 </a>

@@ -126,7 +126,7 @@ export function SkillsSection() {
   ]
 
   return (
-    <section id="skills" className="py-20 md:py-32">
+    <section id="skills" className="py-20 md:py-28 border-t border-border">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -135,9 +135,10 @@ export function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Skills & Expertise</h2>
+          <p className="eyebrow mb-3"><span className="text-muted-foreground">05 /</span> skills</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Skills</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive technical stack for modern infrastructure and ML operations
+            The tools behind the platform, grouped by layer
           </p>
         </motion.div>
 

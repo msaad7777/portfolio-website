@@ -2,20 +2,17 @@
 
 import { motion } from "framer-motion"
 import {
-  Bot,
   Box,
-  Cloud,
   Compass,
   GitPullRequest,
   Lock,
   MessageSquareText,
   ShieldCheck,
   UserCheck,
-  Users,
 } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { Card, CardContent } from "@/components/ui/card"
+import { SectionHeading } from "@/components/section-heading"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -25,16 +22,13 @@ const agents = [
   {
     icon: Compass,
     name: "Lead agent",
+    role: "planner",
     text: "Plans the work. It breaks a goal into tasks, hands them to the right agent and keeps track of what is waiting on me.",
-  },
-  {
-    icon: Users,
-    name: "Interview-prep agent",
-    text: "Builds practice questions, study notes and mock-interview drafts for the roles I'm preparing for.",
   },
   {
     icon: MessageSquareText,
     name: "LinkedIn drafting agent",
+    role: "drafter",
     text: "Drafts posts and profile updates in my voice. Drafts only: nothing goes out until I've read it and posted it myself.",
   },
 ]
@@ -63,11 +57,14 @@ const rules = [
 ]
 
 const fadeUp = {
-  initial: { opacity: 0, y: 20 },
+  initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6 },
+  transition: { duration: 0.5 },
 }
+
+// The request path every piece of agent work follows, drawn as a pipeline.
+const flow = ["Goal", "Lead agent", "Specialist in a sandbox", "Pull request", "I approve", "Shipped"]
 
 export default function ScaisPage() {
   return (
@@ -76,28 +73,24 @@ export default function ScaisPage() {
       <main id="main-content" tabIndex={-1} className="min-h-screen outline-none">
 
       {/* Intro */}
-      <section id="scais" className="pt-32 pb-20 md:pt-40 md:pb-28 bg-grid-pattern">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="max-w-3xl mx-auto text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Cloud className="w-8 h-8 text-accent" />
-              <span className="px-3 py-1 text-xs bg-accent/10 text-accent rounded-full border border-accent/20">
-                Saad Cloud and AI Solutions
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="gradient-text">SCAIS</span>
+      <section id="scais" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+        <div className="absolute inset-0 -z-10 bg-grid-pattern [mask-image:linear-gradient(to_bottom,black,transparent)]" aria-hidden="true" />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="eyebrow mb-4">Saad Cloud and AI Solutions</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
+              SCAIS<span className="text-accent">.</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-4">
+            <p className="mt-6 text-xl text-muted-foreground leading-relaxed">
               SCAIS is my own cloud and AI consulting business. I help teams build reliable cloud
               infrastructure and put AI to work in ways they can trust.
             </p>
-            <p className="text-lg text-muted-foreground mb-10">
+            <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
               Behind it is a small AI office I built and run myself. The agents do the drafting; I do
               the deciding.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a href="/#contact" className={cn(buttonVariants({ size: "lg" }), "gap-2")}>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <a href="/#contact" className={cn(buttonVariants({ size: "lg" }), "bg-accent text-accent-foreground hover:bg-accent/90")}>
                 Work with me
               </a>
               <a
@@ -106,7 +99,7 @@ export default function ScaisPage() {
                 rel="noopener noreferrer"
                 className={cn(buttonVariants({ variant: "outline", size: "lg" }), "gap-2")}
               >
-                <Lock className="w-4 h-4" />
+                <Lock className="w-4 h-4" aria-hidden="true" />
                 Office (private)
                 <span className="text-xs text-muted-foreground">sign-in required</span>
               </a>
@@ -114,32 +107,38 @@ export default function ScaisPage() {
             <p className="text-xs text-muted-foreground mt-3">
               The office only opens on my own devices. For everyone else the link won&apos;t load.
             </p>
+          </div>
+
+          {/* Pipeline */}
+          <motion.div {...fadeUp} className="panel mt-14 max-w-5xl overflow-hidden">
+            <p className="border-b border-border px-4 py-3 font-mono text-xs text-muted-foreground">~/scais · pipeline</p>
+          <ol className="flex flex-wrap items-center gap-2 p-4 font-mono text-xs" aria-label="How work moves through the office">
+            {flow.map((step, i) => (
+              <li key={step} className="flex items-center gap-2">
+                <span className={cn("rounded border px-2.5 py-1", i === 4 ? "border-accent text-accent" : "border-border bg-card")}>{step}</span>
+                {i < flow.length - 1 && <span className="text-muted-foreground" aria-hidden="true">→</span>}
+              </li>
+            ))}
+          </ol>
           </motion.div>
         </div>
       </section>
 
       {/* Agents */}
-      <section className="py-20 md:py-28 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Bot className="w-8 h-8 text-accent" />
-              <h2 className="text-3xl md:text-5xl font-bold">The AI Office</h2>
-            </div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A lead agent and a few specialists, each with one job.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading index="01" label="office" title="The AI office" intro="A lead agent and a specialist, each with one job." />
+          <div className="grid md:grid-cols-2 gap-4 max-w-5xl">
             {agents.map((agent, i) => (
-              <motion.div key={agent.name} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <Card className="h-full card-hover border-accent/20">
-                  <CardContent className="p-6">
-                    <agent.icon className="w-10 h-10 text-accent mb-4" />
-                    <h3 className="text-xl font-bold mb-2">{agent.name}</h3>
-                    <p className="text-muted-foreground">{agent.text}</p>
-                  </CardContent>
-                </Card>
+              <motion.div key={agent.name} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.08 }} className="panel p-5 sm:p-6">
+                <div className="flex items-center justify-between gap-3">
+                  <agent.icon className="w-6 h-6 text-accent" aria-hidden="true" />
+                  <p className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
+                    {agent.role} · drafts only
+                  </p>
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{agent.name}</h3>
+                <p className="mt-2 text-muted-foreground leading-relaxed">{agent.text}</p>
               </motion.div>
             ))}
           </div>
@@ -147,32 +146,23 @@ export default function ScaisPage() {
       </section>
 
       {/* Rules */}
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4">
-          <motion.div {...fadeUp} className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <ShieldCheck className="w-8 h-8 text-accent" />
-              <h2 className="text-3xl md:text-5xl font-bold">How It Works</h2>
-            </div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              The same rules apply to every agent and every client.
-            </p>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading index="02" label="rules" title="How it works" intro="The same rules apply to every agent and every client." />
+          <ol className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 max-w-5xl">
             {rules.map((rule, i) => (
-              <motion.div key={rule.title} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }}>
-                <Card className="h-full card-hover">
-                  <CardContent className="p-6 flex gap-4">
-                    <rule.icon className="w-8 h-8 text-accent shrink-0" />
-                    <div>
-                      <h3 className="text-lg font-bold mb-1">{rule.title}</h3>
-                      <p className="text-muted-foreground">{rule.text}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <li key={rule.title} className="bg-card p-5 sm:p-6 flex gap-4">
+                <span className="font-mono text-xs text-muted-foreground pt-1">{String(i + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3 className="flex items-center gap-2 font-semibold">
+                    <rule.icon className="w-4 h-4 text-accent" aria-hidden="true" />
+                    {rule.title}
+                  </h3>
+                  <p className="mt-1.5 text-muted-foreground leading-relaxed">{rule.text}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 

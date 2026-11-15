@@ -35,10 +35,11 @@ export function Footer() {
 
   const navLinks = [
     { name: "Home", href: "/#home" },
+    { name: "Platform", href: "/#platform" },
+    { name: "Systems", href: "/#systems" },
     { name: "About", href: "/#about" },
     { name: "Experience", href: "/#experience" },
     { name: "Skills", href: "/#skills" },
-    { name: "Portfolio", href: "/#portfolio" },
     { name: "Blog", href: "/#blog" },
     { name: "Contact", href: "/#contact" },
     { name: "SCAIS", href: "/scais" },
@@ -67,8 +68,8 @@ export function Footer() {
               className="inline-flex items-center space-x-3 mb-4 group"
               whileHover={{ scale: 1.02 }}
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-emerald-600 flex items-center justify-center shadow-lg shadow-accent/25 group-hover:shadow-accent/40 transition-shadow">
-                <span className="text-xl font-bold text-white">MS</span>
+              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-lg shadow-accent/25 group-hover:shadow-accent/40 transition-shadow">
+                <span className="text-xl font-bold text-accent-foreground">MS</span>
               </div>
               <div>
                 <span className="text-lg font-bold block">Mohammed Saad</span>
@@ -162,7 +163,7 @@ export function Footer() {
             className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
           >
             Back to top
-            <span className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
+            <span className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
               <ArrowUp className="w-4 h-4" />
             </span>
           </motion.button>
@@ -190,7 +191,7 @@ export function Footer() {
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-24 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-accent to-emerald-600 text-white shadow-lg shadow-accent/25 flex items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
+        className="fixed bottom-24 right-8 w-12 h-12 rounded-full hidden sm:flex bg-accent text-accent-foreground shadow-lg shadow-accent/25 items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
         aria-label="Scroll to top"
       >
         <ArrowUp className="w-5 h-5" />

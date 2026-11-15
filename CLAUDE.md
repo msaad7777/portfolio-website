@@ -28,7 +28,9 @@ cd cloudflare-worker && npm run deploy   # Deploy to Cloudflare
 ### Page Structure
 
 Single-page app — `app/page.tsx` composes all sections in order:
-Navigation → Hero → About → Experience → Skills → Certifications → Portfolio → Blog → Contact → Footer → ChatBot
+Navigation → Hero → Platform → Systems → About → Experience → Skills → Certifications → Blog → Contact → Footer → ChatBot
+
+Project data (public systems, measured metrics, diagrams, build queue) lives in `lib/systems.ts`; the hero status board and the Systems section both read it. Metrics must be copied verbatim from each repo's README. Section headers use `SectionHeading` from `components/section-heading.tsx`.
 
 Each section in `components/sections/` has a matching `id` attribute used for anchor navigation. The navigation items are defined in `components/navigation.tsx` (`navItems` array) — update both when adding/removing sections.
 
@@ -53,9 +55,9 @@ Each section in `components/sections/` has a matching `id` attribute used for an
 
 ## Styling
 
-- **Theming:** CSS variables in `app/globals.css` for light/dark mode. Accent color is green (`hsl(142, 76%, 36%)` light / `hsl(142, 76%, 46%)` dark)
-- **Custom CSS classes:** `gradient-text`, `glass`, `glass-dark`, `card-hover`, `section-padding`, `focus-ring`, `bg-grid-pattern`
-- **Custom animations:** `animate-float`, `animate-gradient`, `animate-shimmer`, `animate-pulse-glow`, `animate-spin-slow`
+- **Theming:** CSS variables in `app/globals.css` for light/dark mode. Accent is cyan (`--accent`: `192 82% 29%` light / `188 80% 52%` dark), plus `--signal` (green, live/public) and `--warn` (amber, queued)
+- **Custom CSS classes:** `eyebrow` (mono section label), `panel`, `metric-value`, `gradient-text`, `section-padding`, `focus-ring`, `bg-grid-pattern`
+- **Fonts:** Inter (`font-sans`) and Source Code Pro (`font-mono`, for labels and metrics)
 - **Path alias:** `@/*` maps to project root
 
 ## Configuration
