@@ -118,7 +118,7 @@ export function AboutSection() {
                 Expert in building and scaling Kubernetes clusters and containerized workloads from the ground up.
                 Proficient in Infrastructure-as-Code using Terraform and Pulumi, with hands-on experience maintaining
                 and optimizing databases (PostgreSQL, DynamoDB, Redis) and backend services. Led initiatives on stateless
-                architectures, CI/CD pipelines, and observability (Prometheus, Grafana, OpenTSDB, Envoy) to enhance
+                architectures, CI/CD pipelines, and observability (New Relic, Prometheus, Grafana, OpenTSDB, Envoy) to enhance
                 scalability, maintainability, and reliability.
               </p>
 

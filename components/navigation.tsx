@@ -67,13 +67,14 @@ export function Navigation() {
   }, [isMobileMenuOpen])
 
   return (
+    <>
     <motion.nav
       aria-label="Main"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
+        isScrolled || isMobileMenuOpen
           ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50"
           : "bg-transparent"
       }`}
@@ -174,65 +175,67 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 top-16 md:top-20 lg:hidden bg-background/95 backdrop-blur-xl z-40"
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3, staggerChildren: 0.1 }}
-              className="container mx-auto px-4 py-8"
-            >
-              <div className="flex flex-col space-y-2">
-                {navItems.map((item, index) => (
-                  <motion.a
-                    key={item.name}
-                    href={linkFor(item.href)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className={`px-6 py-4 rounded-xl text-lg font-medium transition-all ${
-                      isActive(item.href)
-                        ? 'bg-accent/10 text-accent border-l-4 border-accent'
-                        : 'text-foreground hover:bg-accent/5 hover:text-accent'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </motion.a>
-                ))}
-              </div>
+    </motion.nav>
 
-              {/* Mobile social/contact info */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-8 pt-8 border-t border-border"
-              >
-                <p className="text-muted-foreground text-center">
-                  Ready to work together?
-                </p>
-                <a
-                  href={linkFor("#contact")}
+    {/* Mobile Navigation Overlay */}
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-x-0 bottom-0 top-16 md:top-20 lg:hidden bg-background z-[55] overflow-y-auto overscroll-contain"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, staggerChildren: 0.1 }}
+            className="container mx-auto px-4 py-8"
+          >
+            <div className="flex flex-col space-y-2">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.name}
+                  href={linkFor(item.href)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`px-6 py-4 rounded-xl text-lg font-medium transition-all ${
+                    isActive(item.href)
+                      ? 'bg-accent/10 text-accent border-l-4 border-accent'
+                      : 'text-foreground hover:bg-accent/5 hover:text-accent'
+                  }`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 block w-full py-4 bg-accent text-accent-foreground text-center rounded-xl font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
                 >
-                  Get In Touch
-                </a>
-              </motion.div>
+                  {item.name}
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Mobile social/contact info */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="mt-8 pt-8 border-t border-border"
+            >
+              <p className="text-muted-foreground text-center">
+                Ready to work together?
+              </p>
+              <a
+                href={linkFor("#contact")}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-4 block w-full py-4 bg-accent text-accent-foreground text-center rounded-xl font-semibold shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-shadow"
+              >
+                Get In Touch
+              </a>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   )
 }

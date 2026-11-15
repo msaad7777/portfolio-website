@@ -39,8 +39,8 @@ const layers: Layer[] = [
   {
     id: "observability",
     name: "Observability",
-    line: "Prometheus, Grafana, New Relic. Latency p50 and p95 reported in every eval.",
-    tools: ["Prometheus", "Grafana", "New Relic", "p50 / p95"],
+    line: "New Relic, Prometheus and Grafana in production. Latency p50 and p95 reported in every eval.",
+    tools: ["New Relic", "Prometheus", "Grafana", "p50 / p95"],
     provedIn: ["mars-rag", "restaurant-voice-agent", "novapay-agents"],
   },
   {

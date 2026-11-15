@@ -6,18 +6,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
 
-// Google Form Configuration - Mohammed Saad Portfolio Contact Form
-const GOOGLE_FORM_CONFIG = {
-  actionUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdpq7daGBpG9T6Sb46Dp39NgoJn-OLWyQgeol3o-IKJYjzArA/formResponse",
-  fields: {
-    name: "entry.1916294383",
-    email: "entry.2023264759",
-    phone: "entry.659628864",
-    subject: "entry.198284483",
-    message: "entry.1954440553"
-  }
-}
-
 export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState({
@@ -27,6 +15,8 @@ export function ContactSection() {
     subject: "",
     message: ""
   })
+  // Honeypot: hidden from people, filled in by most spam bots
+  const [honey, setHoney] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{
     type: "success" | "error" | null
@@ -93,7 +83,9 @@ export function ContactSection() {
           subject: formData.subject || "General Inquiry",
           message: formData.message,
           _subject: `Portfolio Contact: ${formData.subject || "General Inquiry"} from ${formData.name}`,
-          _template: "table"
+          _template: "table",
+          _replyto: formData.email,
+          _honey: honey,
         }),
       })
 
@@ -111,34 +103,12 @@ export function ContactSection() {
         throw new Error("Failed to send message")
       }
     } catch (error) {
-      // Fallback: Try Google Forms submission
-      try {
-        const googleFormData = new FormData()
-        googleFormData.append(GOOGLE_FORM_CONFIG.fields.name, formData.name)
-        googleFormData.append(GOOGLE_FORM_CONFIG.fields.email, formData.email)
-        googleFormData.append(GOOGLE_FORM_CONFIG.fields.phone, formData.phone || "Not provided")
-        googleFormData.append(GOOGLE_FORM_CONFIG.fields.subject, formData.subject || "General Inquiry")
-        googleFormData.append(GOOGLE_FORM_CONFIG.fields.message, formData.message)
-
-        // Google Forms submission (no-cors mode)
-        await fetch(GOOGLE_FORM_CONFIG.actionUrl, {
-          method: "POST",
-          mode: "no-cors",
-          body: googleFormData
-        })
-
-        setSubmitStatus({
-          type: "success",
-          // no-cors hides the response, so delivery can't be confirmed here
-          message: "Your message was submitted, but delivery couldn't be confirmed. If you don't hear back, please email me at mbadru3434@gmail.com",
-        })
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-      } catch (fallbackError) {
-        setSubmitStatus({
-          type: "error",
-          message: "Unable to send message. Please email me directly at mbadru3434@gmail.com",
-        })
-      }
+      // Only FormSubmit is used: it reports success or failure, so the visitor
+      // is never told a message was sent when it wasn't.
+      setSubmitStatus({
+        type: "error",
+        message: "Your message didn't go through. Please email me directly at mbadru3434@gmail.com",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -236,6 +206,12 @@ export function ContactSection() {
             <Card className="border-border/50 bg-card/50 backdrop-blur-sm shadow-xl">
               <CardContent className="p-6 sm:p-8">
                 <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                  <div className="hidden" aria-hidden="true">
+                    <label>
+                      Leave this empty
+                      <input type="text" name="_honey" tabIndex={-1} autoComplete="off" value={honey} onChange={(e) => setHoney(e.target.value)} />
+                    </label>
+                  </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
