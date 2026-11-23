@@ -4,7 +4,8 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle } from "lucide-react"
+import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle, CalendarClock, ArrowUpRight } from "lucide-react"
+import { BOOKING_LABEL, bookingHref, hasBookingUrl, showBooking } from "@/lib/booking"
 
 export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -161,6 +162,42 @@ export function ContactSection() {
                 Feel free to reach out for collaborations, opportunities, or just a friendly chat. I typically respond within 24 hours.
               </p>
             </div>
+
+            {showBooking && (
+              <Card id="book" className="border-accent/40 bg-accent/5 backdrop-blur-sm scroll-mt-24">
+                <CardContent className="p-5 sm:p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                      <CalendarClock className="w-5 h-5 text-accent" aria-hidden="true" />
+                    </div>
+                    <div className="min-w-0">
+                      <h4 className="font-semibold">Prefer to talk?</h4>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        Book a free 15-minute intro call about a role, a platform problem or a 1:1 chat. Weekday daytimes, Toronto time.
+                      </p>
+                    </div>
+                  </div>
+                  <Button
+                    size="lg"
+                    asChild
+                    className="mt-4 w-full group bg-accent hover:bg-accent/90 text-accent-foreground"
+                  >
+                    <a
+                      href={bookingHref}
+                      target={hasBookingUrl ? "_blank" : undefined}
+                      rel={hasBookingUrl ? "noopener noreferrer" : undefined}
+                    >
+                      {BOOKING_LABEL}
+                      <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                      <span className="sr-only">(opens a Google Calendar booking page in a new tab)</span>
+                    </a>
+                  </Button>
+                  {!hasBookingUrl && (
+                    <p className="mt-2 font-mono text-[11px] text-red-500">dev only: booking link not set in lib/booking.ts</p>
+                  )}
+                </CardContent>
+              </Card>
+            )}
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-3">
               {contactInfo.map((info, index) => (
