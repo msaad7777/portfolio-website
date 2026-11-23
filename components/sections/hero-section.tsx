@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail, BookOpen, Download } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, BookOpen, Download, CalendarClock } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { StatusDot } from "@/components/section-heading"
 import { systems } from "@/lib/systems"
+import { BOOKING_LABEL, showBooking } from "@/lib/booking"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/msaad7777", label: "GitHub" },
@@ -61,6 +62,18 @@ export function HeroSection() {
                 </a>
               </Button>
             </motion.div>
+
+            {showBooking && (
+              <p className="mt-4">
+                <a
+                  href="#book"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
+                >
+                  <CalendarClock className="h-4 w-4" aria-hidden="true" />
+                  Or {BOOKING_LABEL.charAt(0).toLowerCase() + BOOKING_LABEL.slice(1)} call, free
+                </a>
+              </p>
+            )}
 
             <motion.ul {...fade(0.4)} className="mt-8 flex gap-2" aria-label="Profiles">
               {socialLinks.map((s) => (
