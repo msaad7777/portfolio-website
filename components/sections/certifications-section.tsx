@@ -210,7 +210,7 @@ export function CertificationsSection() {
             <p className="text-xs sm:text-sm text-muted-foreground">Linux Foundation</p>
           </div>
           <div className="text-center p-4 rounded-xl bg-card/50 border border-border/50">
-            <p className="text-2xl sm:text-3xl font-bold text-accent">2027</p>
+            <p className="text-2xl sm:text-3xl font-bold text-accent">2030</p>
             <p className="text-xs sm:text-sm text-muted-foreground">Valid Until</p>
           </div>
         </motion.div>
