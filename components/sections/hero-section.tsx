@@ -7,6 +7,7 @@ import Image from "next/image"
 import { StatusDot } from "@/components/section-heading"
 import { systems } from "@/lib/systems"
 import { BOOKING_LABEL, showBooking } from "@/lib/booking"
+import { DotField } from "@/components/dot-field"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/msaad7777", label: "GitHub" },
@@ -21,7 +22,7 @@ const fade = (_delay = 0) => ({})
 export function HeroSection() {
   return (
     <section id="home" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
-      <div className="absolute inset-0 -z-10 bg-grid-pattern [mask-image:linear-gradient(to_bottom,black,transparent)]" aria-hidden="true" />
+      <DotField className="pointer-events-none absolute inset-0 -z-10 h-full w-full [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
