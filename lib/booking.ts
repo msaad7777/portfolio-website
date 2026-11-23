@@ -4,7 +4,7 @@
 // >>> schedule (it looks like https://calendar.app.google/...). Until it is
 // >>> set, the booking button and hero link are hidden on the live site, and
 // >>> `next dev` shows them with a "link not set" marker so the layout can be checked.
-export const BOOKING_URL = ""
+export const BOOKING_URL = "https://calendar.app.google/Qehbr62rfAqXHRbZA"
 
 export const BOOKING_LABEL = "Book a 15-min intro"
 
