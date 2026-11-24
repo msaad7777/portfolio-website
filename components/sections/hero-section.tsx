@@ -33,7 +33,7 @@ export function HeroSection() {
               </div>
               <div>
                 <p className="text-lg font-semibold leading-tight">Mohammed Saad</p>
-                <p className="eyebrow mt-1">Lead AI Infrastructure · SRE · DevOps · 10+ yrs</p>
+                <p className="eyebrow mt-1">Senior Platform Engineer · DevOps · SRE · 10+ yrs</p>
               </div>
             </motion.div>
 
