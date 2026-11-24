@@ -14,15 +14,15 @@ const sourceCodePro = Source_Code_Pro({
   variable: "--font-source-code-pro",
 })
 
-const title = "Mohammed Saad | Lead AI Infrastructure, SRE & DevOps Engineer"
-const description = "Lead AI Infrastructure, SRE and DevOps engineer with 10+ years building cloud infrastructure on AWS, GCP and Azure, from the first Terraform module to AI-assisted operations."
+const title = "Mohammed Saad | Senior Platform Engineer / DevOps / SRE"
+const description = "Senior Platform Engineer, DevOps and SRE: cloud architecture and AI infrastructure on AWS, GCP and Azure with Kubernetes and Terraform. 10+ years, from the first Terraform module to AI-assisted operations."
 const image = "/img/saad-proffessional.jpg"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title,
   description,
-  keywords: ["DevOps", "MLOps", "SRE", "Site Reliability Engineer", "Platform Engineering", "AWS", "GCP", "Azure", "Kubernetes", "Terraform", "CI/CD"],
+  keywords: ["Platform Engineer", "Platform Engineering", "DevOps", "SRE", "Site Reliability Engineer", "Cloud Architecture", "AI Infrastructure", "DevSecOps", "Observability", "MLOps", "AWS", "GCP", "Azure", "Kubernetes", "Terraform", "CI/CD"],
   authors: [{ name: "Mohammed Saad" }],
   alternates: { canonical: "/" },
   openGraph: {
@@ -47,8 +47,8 @@ const personJsonLd = {
   name: "Mohammed Saad",
   url: SITE_URL,
   image: `${SITE_URL}${image}`,
-  jobTitle: "Lead AI Infrastructure, SRE & DevOps Engineer",
-  knowsAbout: ["Site Reliability Engineering", "DevOps", "Platform Engineering", "MLOps", "Kubernetes", "Terraform", "AWS", "GCP", "Azure"],
+  jobTitle: "Senior Platform Engineer / DevOps / SRE",
+  knowsAbout: ["Platform Engineering", "DevOps", "Site Reliability Engineering", "Cloud Architecture", "AI Infrastructure", "DevSecOps", "Observability", "MLOps", "Kubernetes", "Terraform", "AWS", "GCP", "Azure"],
   sameAs: [
     "https://github.com/msaad7777",
     "https://www.linkedin.com/in/badruddin-saad",

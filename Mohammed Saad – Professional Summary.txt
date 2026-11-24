@@ -1,6 +1,6 @@
 Mohammed Saad – Comprehensive Professional Summary
 
-I am a Senior DevOps & Site Reliability Engineer with over 9 years of experience in DevOps, Cloud Engineering, Data Engineering, and MLOps, specializing in AWS, GCP, and Azure. I have a proven track record of designing, deploying, and optimizing cloud-native infrastructure that is scalable, secure, cost-efficient, and highly observable, supporting enterprise and digital-first organizations across industries.
+I am a Senior DevOps & Site Reliability Engineer with over 10 years of experience in DevOps, Cloud Engineering, Data Engineering, and MLOps, specializing in AWS, GCP, and Azure. I have a proven track record of designing, deploying, and optimizing cloud-native infrastructure that is scalable, secure, cost-efficient, and highly observable, supporting enterprise and digital-first organizations across industries.
 
 Core Expertise
 

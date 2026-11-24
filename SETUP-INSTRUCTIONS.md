@@ -285,7 +285,7 @@ If you encounter issues:
 
 ## 🎉 You're All Set!
 
-Your portfolio is ready to showcase your 9 years of DevOps/MLOps/SRE experience!
+Your portfolio is ready to showcase your 10+ years of DevOps/MLOps/SRE experience!
 
 Remember to:
 - Keep your content updated

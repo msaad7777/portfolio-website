@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Portfolio website for Mohammed Saad, a Senior SRE/DevOps Engineer. Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Includes an AI chatbot ("SAADAI") powered by Cloudflare Workers AI.
+Portfolio website for Mohammed Saad, a Senior Platform Engineer / DevOps / SRE (cloud architecture and AI infrastructure). Built with Next.js 14 App Router, TypeScript, Tailwind CSS, and Framer Motion. Includes an AI chatbot ("SAADAI") powered by Cloudflare Workers AI.
 
 **Production domain:** msaad.tech (deployed on Vercel, auto-deploys from GitHub)
 
