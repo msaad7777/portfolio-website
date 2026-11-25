@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail, BookOpen, Download, CalendarClock } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, BookOpen, CalendarClock } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { StatusDot } from "@/components/section-heading"
@@ -56,12 +56,6 @@ export function HeroSection() {
               <Button size="lg" variant="outline" asChild>
                 <a href="#contact">Get in touch</a>
               </Button>
-              <Button size="lg" variant="ghost" asChild className="col-span-2 sm:col-span-1">
-                <a href="/MohammedSaadResume.pdf" download className="flex items-center gap-2">
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Resume
-                </a>
-              </Button>
             </motion.div>
 
             {showBooking && (
@@ -75,6 +69,14 @@ export function HeroSection() {
                 </a>
               </p>
             )}
+
+            {/* No public resume file: it is shared on request so it can't be copied wholesale. */}
+            <p className="mt-2 text-sm text-muted-foreground">
+              Resume on request:{" "}
+              <a href="#contact" className="underline-offset-4 transition-colors hover:text-accent hover:underline">
+                get in touch
+              </a>
+            </p>
 
             <motion.ul {...fade(0.4)} className="mt-8 flex gap-2" aria-label="Profiles">
               {socialLinks.map((s) => (
