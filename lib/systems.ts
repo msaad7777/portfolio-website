@@ -159,12 +159,3 @@ export const systems: System[] = [
     github: "https://github.com/msaad7777/hybrid-moderation",
   },
 ]
-
-export const buildQueue = [
-  { name: "On-call agent", line: "Incident root cause, working only through the guarded MCP server." },
-  { name: "Governance agent", line: "FinOps findings, scored against the planted answer key." },
-  { name: "LLM gateway", line: "One entry point for the models these systems call." },
-  { name: "Fraud model", line: "Trained and scored on the NovaPay mock estate." },
-  { name: "Multi-cloud + DR drill", line: "Portable Terraform and a failover with measured recovery time." },
-  { name: "Agent platform on Kubernetes", line: "Built locally on kind, with Terraform for EKS and GKE." },
-]
