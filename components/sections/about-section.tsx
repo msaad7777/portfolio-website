@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Briefcase, Code2, FlaskConical, MapPin, Linkedin } from "lucide-react"
@@ -11,17 +10,17 @@ export function AboutSection() {
   const highlights = [
     {
       icon: Briefcase,
-      title: "10+ Years Experience",
+      title: "10+ years of experience",
       description: "Senior SRE, Senior DevOps, MLOps, and Platform Engineering across industries"
     },
     {
       icon: Award,
-      title: "Cloud Certified",
+      title: "Cloud certified",
       description: "AWS DevOps Professional, GCP Architect, CKAD, LFCS, KCNA, KCSA"
     },
     {
       icon: Code2,
-      title: "Platform Engineering",
+      title: "Platform engineering",
       description: "Distributed systems, cloud-native architecture, and scalability design"
     },
     {
@@ -38,20 +37,14 @@ export function AboutSection() {
         <SectionHeading index="03" label="about" title="About me" />
 
         {/* Main Content - Image Card + Bio */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl">
           {/* Profile Card - Centered on top for mobile, side by side on desktop */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
 
             {/* Left Column - Profile Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="w-full lg:w-auto lg:flex-shrink-0 flex justify-center lg:sticky lg:top-24"
-            >
-              <Card className="w-full max-w-sm border-accent/20 overflow-hidden bg-card/50 backdrop-blur-sm">
-                <div className="relative w-full bg-accent/10">
+            <div className="w-full lg:w-auto lg:flex-shrink-0 flex justify-center lg:sticky lg:top-24">
+              <Card className="w-full max-w-sm overflow-hidden shadow-none">
+                <div className="relative w-full bg-muted">
                   <Image
                     src="/img/final-linkedn.png"
                     width={832}
@@ -61,24 +54,18 @@ export function AboutSection() {
                     className="w-full h-auto block"
                     style={{ maxHeight: '400px', objectFit: 'cover', objectPosition: 'top' }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                 </div>
 
-                <CardContent className="p-6 -mt-8 relative z-10">
-                  <h3 className="text-xl font-bold mb-1">Mohammed Saad</h3>
-                  <p className="text-accent font-medium mb-3">Senior Platform Engineer / DevOps / SRE</p>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-medium mb-1">Mohammed Saad</h3>
+                  <p className="text-muted-foreground mb-4">Senior Platform Engineer / DevOps / SRE</p>
 
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <MapPin className="w-4 h-4" />
+                    <MapPin className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
                     <span>Toronto, Ontario, Canada</span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">AWS</span>
-                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">GCP</span>
-                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">Kubernetes</span>
-                    <span className="px-2 py-1 text-xs bg-accent/10 text-accent rounded-full">Terraform</span>
-                  </div>
+                  <p className="mb-6 font-mono text-xs text-muted-foreground">AWS · GCP · Kubernetes · Terraform</p>
 
                   <Button asChild className="w-full gap-2" variant="outline">
                     <a
@@ -86,23 +73,17 @@ export function AboutSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Linkedin className="w-4 h-4" />
+                      <Linkedin className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
                       Connect on LinkedIn
                     </a>
                   </Button>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
 
             {/* Right Column - Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex-1 space-y-6"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold leading-tight">
+            <div className="flex-1 space-y-6">
+              <h3 className="text-2xl md:text-3xl font-medium tracking-tight leading-tight">
                 Senior Platform Engineer / DevOps / SRE
               </h3>
 
@@ -130,32 +111,18 @@ export function AboutSection() {
               </p>
 
               {/* Highlights Grid */}
-              <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                {highlights.map((highlight, index) => (
-                  <motion.div
-                    key={highlight.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                  >
-                    <Card className="border-accent/20 hover:border-accent/50 transition-all h-full">
-                      <CardContent className="p-4">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                            <highlight.icon className="w-5 h-5 text-accent" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold mb-1">{highlight.title}</h4>
-                            <p className="text-sm text-muted-foreground">{highlight.description}</p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
+              <ul className="grid sm:grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border">
+                {highlights.map((highlight) => (
+                  <li key={highlight.title} className="flex items-start gap-3 bg-card p-5">
+                    <highlight.icon className="mt-0.5 h-[18px] w-[18px] shrink-0 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+                    <div>
+                      <h4 className="font-medium mb-1">{highlight.title}</h4>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{highlight.description}</p>
+                    </div>
+                  </li>
                 ))}
-              </div>
-            </motion.div>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

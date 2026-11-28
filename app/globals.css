@@ -74,11 +74,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-accent/30 rounded-full;
+  @apply bg-foreground/15 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-accent/50;
+  @apply bg-foreground/25;
 }
 
 /* Smooth scroll */
@@ -106,7 +106,7 @@ html {
 
 /* Infra visual language */
 .eyebrow {
-  @apply font-mono text-xs uppercase tracking-[0.18em] text-accent;
+  @apply font-mono text-xs text-muted-foreground;
 }
 
 .panel {
@@ -114,7 +114,7 @@ html {
 }
 
 .metric-value {
-  @apply font-mono font-semibold tabular-nums text-foreground;
+  @apply font-mono font-medium tabular-nums text-foreground;
 }
 
 /* Improved focus styles */

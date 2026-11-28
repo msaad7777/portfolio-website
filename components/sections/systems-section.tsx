@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Image from "next/image"
 import { ArrowUpRight, Maximize2 } from "lucide-react"
 import { FaGithub } from "react-icons/fa6"
@@ -57,13 +56,9 @@ export function SystemsSection() {
 
         <div className="space-y-6 max-w-6xl">
           {systems.map((s, i) => (
-            <motion.article
+            <article
               key={s.slug}
               id={`system-${s.slug}`}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.45 }}
               className="panel scroll-mt-24 overflow-hidden"
               aria-labelledby={`system-${s.slug}-title`}
             >
@@ -89,14 +84,14 @@ export function SystemsSection() {
 
               <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-8">
                 <div className="min-w-0">
-                  <h3 id={`system-${s.slug}-title`} className="text-2xl font-bold tracking-tight">{s.name}</h3>
+                  <h3 id={`system-${s.slug}-title`} className="text-2xl font-medium tracking-tight">{s.name}</h3>
                   <p className="mt-2 text-muted-foreground leading-relaxed">{s.summary}</p>
                   <p className="mt-4 border-l-2 border-accent pl-3 text-sm leading-relaxed">{s.lesson}</p>
 
                   <dl className="mt-5 grid grid-cols-1 gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
                     {s.metrics.map((m) => (
                       <div key={m.label} className="bg-card px-3 py-3">
-                        <dt className="font-mono text-[11px] uppercase tracking-wide text-muted-foreground">{m.label}</dt>
+                        <dt className="font-mono text-xs text-muted-foreground">{m.label}</dt>
                         <dd className="metric-value mt-1 text-lg">{m.value}</dd>
                       </div>
                     ))}
@@ -134,14 +129,14 @@ export function SystemsSection() {
                   <figcaption className="mt-2 font-mono text-[11px] text-muted-foreground">{s.diagramPath}</figcaption>
                 </figure>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 
         {/* Earlier production work */}
         <div className="mt-16 max-w-6xl">
           <h3 className="eyebrow mb-4">
-            <span className="text-muted-foreground">02.1 /</span> earlier production work
+            02.1 / earlier production work
           </h3>
           <ul className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
             {earlierWork.map((w) => (

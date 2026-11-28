@@ -4,7 +4,8 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Phone, Send, Linkedin, CheckCircle2, Loader2, AlertCircle, CalendarClock, ArrowUpRight } from "lucide-react"
+import { Mail, MapPin, Phone, Linkedin, CheckCircle2, Loader2, AlertCircle, CalendarClock, ArrowUpRight } from "lucide-react"
+import { SectionHeading } from "@/components/section-heading"
 import { BOOKING_LABEL, bookingHref, hasBookingUrl, showBooking } from "@/lib/booking"
 
 export function ContactSection() {
@@ -29,36 +30,32 @@ export function ContactSection() {
       icon: Mail,
       title: "Email",
       value: "mbadru3434@gmail.com",
-      href: "mailto:mbadru3434@gmail.com",
-      color: "from-red-500 to-orange-500"
+      href: "mailto:mbadru3434@gmail.com"
     },
     {
       icon: Phone,
       title: "Phone",
       value: "+1 (431) 726-3434",
-      href: "tel:+14317263434",
-      color: "from-accent to-accent"
+      href: "tel:+14317263434"
     },
     {
       icon: MapPin,
       title: "Location",
       value: "Toronto, Ontario, Canada",
-      href: "https://maps.google.com/?q=Toronto,Ontario,Canada",
-      color: "from-blue-500 to-cyan-500"
+      href: "https://maps.google.com/?q=Toronto,Ontario,Canada"
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
-      value: "Connect with me",
-      href: "https://www.linkedin.com/in/badruddin-saad",
-      color: "from-blue-600 to-blue-800"
+      value: "badruddin-saad",
+      href: "https://www.linkedin.com/in/badruddin-saad"
     }
   ]
 
   const subjectOptions = [
-    "General Inquiry",
-    "Job Opportunity",
-    "Freelance/Contract Work",
+    "General inquiry",
+    "Job opportunity",
+    "Freelance or contract work",
     "Consulting",
     "Collaboration",
     "Other"
@@ -81,9 +78,9 @@ export function ContactSection() {
           name: formData.name,
           email: formData.email,
           phone: formData.phone || "Not provided",
-          subject: formData.subject || "General Inquiry",
+          subject: formData.subject || "General inquiry",
           message: formData.message,
-          _subject: `Portfolio Contact: ${formData.subject || "General Inquiry"} from ${formData.name}`,
+          _subject: `Portfolio contact: ${formData.subject || "General inquiry"} from ${formData.name}`,
           _template: "table",
           _replyto: formData.email,
           _honey: honey,
@@ -97,7 +94,7 @@ export function ContactSection() {
       if (response.ok && (result?.success === true || result?.success === "true")) {
         setSubmitStatus({
           type: "success",
-          message: "Thank you for reaching out! I'll get back to you within 24-48 hours.",
+          message: "Thanks, your message arrived. I'll reply within 24 to 48 hours.",
         })
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
       } else {
@@ -123,72 +120,42 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-28 border-t border-border relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
-      </div>
-
+    <section id="contact" className="py-20 md:py-28 border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <p className="eyebrow mb-3"><span className="text-muted-foreground">08 /</span> contact</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
-            Let&apos;s <span className="text-accent">Connect</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Questions about Site Reliability Engineering, DevOps, or MLOps? Send me a message.
-          </p>
-        </motion.div>
+        <SectionHeading
+          index="08"
+          label="contact"
+          title="Get in touch"
+          intro="Questions about site reliability engineering, DevOps or MLOps? Send me a message."
+        />
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 max-w-6xl">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2 space-y-6"
-          >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">Get in Touch</h3>
-              <p className="text-muted-foreground">
-                Feel free to reach out for collaborations, opportunities, or just a friendly chat. I typically respond within 24 hours.
-              </p>
-            </div>
+          <div className="lg:col-span-2 space-y-6">
+            <p className="text-muted-foreground leading-relaxed">
+              Roles, platform problems or collaborations. I usually reply within 24 hours. My resume is shared on request.
+            </p>
 
             {showBooking && (
-              <Card id="book" className="border-accent/40 bg-accent/5 backdrop-blur-sm scroll-mt-24">
-                <CardContent className="p-5 sm:p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
-                      <CalendarClock className="w-5 h-5 text-accent" aria-hidden="true" />
-                    </div>
+              <Card id="book" className="scroll-mt-24 shadow-none">
+                <CardContent className="p-5">
+                  <div className="flex items-start gap-3">
+                    <CalendarClock className="mt-0.5 h-[18px] w-[18px] shrink-0 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
                     <div className="min-w-0">
-                      <h4 className="font-semibold">Prefer to talk?</h4>
-                      <p className="mt-1 text-sm text-muted-foreground">
+                      <h3 className="font-medium">Prefer to talk?</h3>
+                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
                         Book a free 15-minute intro call about a role, a platform problem or a 1:1 chat. Weekday daytimes, Toronto time.
                       </p>
                     </div>
                   </div>
-                  <Button
-                    size="lg"
-                    asChild
-                    className="mt-4 w-full group bg-accent hover:bg-accent/90 text-accent-foreground"
-                  >
+                  <Button size="lg" variant="outline" asChild className="mt-4 w-full">
                     <a
                       href={bookingHref}
                       target={hasBookingUrl ? "_blank" : undefined}
                       rel={hasBookingUrl ? "noopener noreferrer" : undefined}
                     >
                       {BOOKING_LABEL}
-                      <ArrowUpRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
+                      <ArrowUpRight className="ml-2 w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
                       <span className="sr-only">(opens a Google Calendar booking page in a new tab)</span>
                     </a>
                   </Button>
@@ -199,50 +166,29 @@ export function ContactSection() {
               </Card>
             )}
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-3">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.href}
-                  target={info.href.startsWith("http") ? "_blank" : undefined}
-                  rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="block group"
-                >
-                  <Card className="hover:shadow-lg transition-all duration-300 border-border/50 hover:border-accent/50 bg-card/50 backdrop-blur-sm">
-                    <CardContent className="p-4">
-                      <div className="flex items-center space-x-4">
-                        <div className={`w-11 h-11 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
-                          <info.icon className="w-5 h-5 text-accent" aria-hidden="true" />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs text-muted-foreground uppercase tracking-wider">{info.title}</p>
-                          <p className="font-medium text-sm truncate group-hover:text-accent transition-colors">{info.value}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.a>
+            <ul className="divide-y divide-border overflow-hidden rounded-lg border border-border bg-card">
+              {contactInfo.map((info) => (
+                <li key={info.title}>
+                  <a
+                    href={info.href}
+                    target={info.href.startsWith("http") ? "_blank" : undefined}
+                    rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-3 px-5 py-3 transition-colors hover:bg-muted/60 focus-visible:bg-muted/60 focus-visible:outline-none"
+                  >
+                    <info.icon className="h-[18px] w-[18px] shrink-0 text-muted-foreground" strokeWidth={1.5} aria-hidden="true" />
+                    <span className="w-20 shrink-0 font-mono text-xs text-muted-foreground">{info.title}</span>
+                    <span className="min-w-0 truncate text-sm">{info.value}</span>
+                  </a>
+                </li>
               ))}
-            </div>
-
-          </motion.div>
+            </ul>
+          </div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-3"
-          >
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm shadow-xl">
+          <div className="lg:col-span-3">
+            <Card className="shadow-none">
               <CardContent className="p-6 sm:p-8">
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                   <div className="hidden" aria-hidden="true">
                     <label>
                       Leave this empty
@@ -252,7 +198,7 @@ export function ContactSection() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Full Name <span className="text-red-500">*</span>
+                        Name <span className="text-muted-foreground" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="text"
@@ -262,14 +208,14 @@ export function ContactSection() {
                         onChange={handleChange}
                         required
                         autoComplete="name"
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
+                        className="w-full px-4 py-3 rounded-md border border-input bg-background focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors outline-none text-sm"
                         placeholder="John Doe"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email Address <span className="text-red-500">*</span>
+                        Email <span className="text-muted-foreground" aria-hidden="true">*</span>
                       </label>
                       <input
                         type="email"
@@ -279,7 +225,7 @@ export function ContactSection() {
                         onChange={handleChange}
                         required
                         autoComplete="email"
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
+                        className="w-full px-4 py-3 rounded-md border border-input bg-background focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors outline-none text-sm"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -288,7 +234,7 @@ export function ContactSection() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                        Phone Number
+                        Phone
                       </label>
                       <input
                         type="tel"
@@ -297,14 +243,14 @@ export function ContactSection() {
                         value={formData.phone}
                         onChange={handleChange}
                         autoComplete="tel"
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm"
+                        className="w-full px-4 py-3 rounded-md border border-input bg-background focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors outline-none text-sm"
                         placeholder="+1 (555) 000-0000"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                        Subject <span className="text-red-500">*</span>
+                        Subject <span className="text-muted-foreground" aria-hidden="true">*</span>
                       </label>
                       <select
                         id="subject"
@@ -312,7 +258,7 @@ export function ContactSection() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none text-sm cursor-pointer"
+                        className="w-full px-4 py-3 rounded-md border border-input bg-background focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors outline-none text-sm cursor-pointer"
                       >
                         <option value="">Select a subject</option>
                         {subjectOptions.map(option => (
@@ -324,7 +270,7 @@ export function ContactSection() {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message <span className="text-red-500">*</span>
+                      Message <span className="text-muted-foreground" aria-hidden="true">*</span>
                     </label>
                     <textarea
                       id="message"
@@ -333,26 +279,27 @@ export function ContactSection() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-input bg-background/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none resize-none text-sm"
-                      placeholder="Tell me about your project or opportunity..."
+                      className="w-full px-4 py-3 rounded-md border border-input bg-background focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors outline-none resize-none text-sm"
+                      placeholder="The role, project or problem you have in mind"
                     />
                   </div>
 
                   {submitStatus.type && (
                     <motion.div
                       role={submitStatus.type === "error" ? "alert" : "status"}
-                      initial={{ opacity: 0, y: -10 }}
+                      initial={{ opacity: 0, y: -4 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className={`p-4 rounded-xl flex items-start gap-3 ${
+                      transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
+                      className={`p-4 rounded-md flex items-start gap-3 border ${
                         submitStatus.type === "success"
-                          ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20"
-                          : "bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20"
+                          ? "bg-signal/10 text-signal border-signal/20"
+                          : "bg-destructive/10 text-destructive dark:text-red-400 border-destructive/20"
                       }`}
                     >
                       {submitStatus.type === "success" ? (
-                        <CheckCircle2 className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-[18px] h-[18px] flex-shrink-0 mt-px" strokeWidth={1.5} aria-hidden="true" />
                       ) : (
-                        <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        <AlertCircle className="w-[18px] h-[18px] flex-shrink-0 mt-px" strokeWidth={1.5} aria-hidden="true" />
                       )}
                       <p className="text-sm">{submitStatus.message}</p>
                     </motion.div>
@@ -361,29 +308,26 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full group bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-all"
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="mr-2 w-4 h-4 animate-spin" />
-                        Sending...
+                        <Loader2 className="mr-2 w-4 h-4 animate-spin" aria-hidden="true" />
+                        Sending
                       </>
                     ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </>
+                      "Send message"
                     )}
                   </Button>
 
                   <p className="text-xs text-center text-muted-foreground">
-                    By submitting this form, you agree to be contacted regarding your inquiry.
+                    By sending this form, you agree to be contacted about your message
                   </p>
                 </form>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

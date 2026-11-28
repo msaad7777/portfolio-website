@@ -1,8 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Briefcase, Calendar, MapPin } from "lucide-react"
+import { SectionHeading } from "@/components/section-heading"
 
 export function ExperienceSection() {
   const experiences = [
@@ -82,96 +81,53 @@ export function ExperienceSection() {
 
   return (
     <section id="experience" className="py-20 md:py-28 border-t border-border bg-muted/30">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="eyebrow mb-3"><span className="text-muted-foreground">04 /</span> experience</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Experience</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            10+ years of building and scaling infrastructure
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading index="04" label="experience" title="Experience" intro="10+ years of building and scaling infrastructure" />
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl space-y-4">
           {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="border-l-4 border-l-accent hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                    <div className="space-y-2">
-                      <CardTitle className="text-2xl">{exp.title}</CardTitle>
-                      <div className="flex items-center gap-2 text-muted-foreground">
-                        <Briefcase className="w-4 h-4" />
-                        <span className="font-medium">{exp.company}</span>
-                      </div>
-                      {exp.location && (
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin className="w-4 h-4" />
-                          <span>{exp.location}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      <span className="text-sm font-medium">{exp.period}</span>
-                    </div>
+            <Card key={index} className="shadow-none">
+              <CardHeader className="p-6 pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-6">
+                  <div className="space-y-1">
+                    <CardTitle className="text-xl font-medium tracking-tight">{exp.title}</CardTitle>
+                    <p className="text-muted-foreground">
+                      {exp.company}
+                      {exp.location && <span className="text-sm"> · {exp.location}</span>}
+                    </p>
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-accent mt-1.5">▸</span>
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
+                  <p className="shrink-0 font-mono text-xs tabular-nums text-muted-foreground">{exp.period}</p>
+                </div>
+              </CardHeader>
+              <CardContent className="px-6 pb-6">
+                <ul className="space-y-2">
+                  {exp.description.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-muted-foreground/60" aria-hidden="true" />
+                      <span className="text-muted-foreground leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
 
           {/* Previous Experience Note */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <Card className="border-dashed border-2 border-muted-foreground/30 bg-muted/20">
-              <CardContent className="py-8 text-center">
-                <p className="text-lg text-muted-foreground mb-2">
-                  <span className="font-semibold text-foreground">10+ years in tech</span> — Working since 2016
-                </p>
-                <p className="text-muted-foreground">
-                  For detailed experience history, feel free to{" "}
-                  <a href="#contact" className="text-accent hover:underline font-medium">
-                    get in touch
-                  </a>{" "}
-                  or connect on{" "}
-                  <a
-                    href="https://www.linkedin.com/in/badruddin-saad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline font-medium"
-                  >
-                    LinkedIn
-                  </a>
-                </p>
-              </CardContent>
-            </Card>
-          </motion.div>
+          <p className="pt-4 text-muted-foreground">
+            <span className="text-foreground">10+ years in tech</span>, working since 2016. For the full history,{" "}
+            <a href="#contact" className="text-foreground underline underline-offset-4 transition-colors hover:text-accent">
+              get in touch
+            </a>{" "}
+            or connect on{" "}
+            <a
+              href="https://www.linkedin.com/in/badruddin-saad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground underline underline-offset-4 transition-colors hover:text-accent"
+            >
+              LinkedIn
+            </a>
+          </p>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ export function SkillsSection() {
           {/* Where most of the experience sits */}
           <div className="panel p-5 sm:p-6">
             <p className="eyebrow">most experience</p>
-            <p className="mt-3 text-2xl font-bold tracking-tight">New Relic</p>
+            <p className="mt-3 text-2xl font-medium tracking-tight">New Relic</p>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
               The observability platform I&apos;ve used most: alerting, dashboards and incident investigation in
               production, plus Cloud Cost Intelligence for FinOps work.
@@ -36,7 +36,7 @@ export function SkillsSection() {
           <dl className="panel divide-y divide-border overflow-hidden">
             {groups.map((g) => (
               <div key={g.name} className="grid gap-1 px-4 py-3 sm:grid-cols-[11rem_minmax(0,1fr)] sm:gap-4 sm:px-6">
-                <dt className="font-mono text-xs uppercase tracking-wide text-muted-foreground sm:pt-0.5">{g.name}</dt>
+                <dt className="font-mono text-xs text-muted-foreground sm:pt-0.5">{g.name}</dt>
                 <dd className="text-sm">{g.tools.join(", ")}</dd>
               </div>
             ))}

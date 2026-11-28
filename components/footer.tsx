@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Linkedin, Mail, GraduationCap, BookOpen, ArrowUp, Heart, MapPin, Phone } from "lucide-react"
+import { Linkedin, Mail, GraduationCap, BookOpen, ArrowUp, MapPin, Phone } from "lucide-react"
 import { FaGithub } from "react-icons/fa6"
 import { scrollBehavior } from "@/lib/utils"
 
@@ -26,11 +26,11 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/msaad7777", label: "GitHub", color: "hover:bg-gray-700" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn", color: "hover:bg-blue-600" },
-    { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium Blog", color: "hover:bg-green-600" },
-    { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email", color: "hover:bg-red-500" },
-    { icon: GraduationCap, href: "https://www.credly.com/users/mohammed-saad.fb7a43c3/badges", label: "Certifications", color: "hover:bg-amber-500" },
+    { icon: FaGithub, href: "https://github.com/msaad7777", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn" },
+    { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium Blog" },
+    { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email" },
+    { icon: GraduationCap, href: "https://www.credly.com/users/mohammed-saad.fb7a43c3/badges", label: "Certifications" },
   ]
 
   const navLinks = [
@@ -55,47 +55,40 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative bg-gradient-to-b from-background to-muted/50 border-t border-border/50">
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+    <footer className="relative bg-background border-t border-border">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <motion.a
-              href="/#home"
-              className="inline-flex items-center space-x-3 mb-4 group"
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-lg shadow-accent/25 group-hover:shadow-accent/40 transition-shadow">
-                <span className="text-xl font-bold text-accent-foreground">MS</span>
+            <a href="/#home" className="inline-flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-md bg-accent flex items-center justify-center">
+                <span className="font-mono text-base font-medium text-accent-foreground">MS</span>
               </div>
               <div>
-                <span className="text-lg font-bold block">Mohammed Saad</span>
-                <span className="text-xs text-muted-foreground">Site Reliability Engineer</span>
+                <span className="text-base font-medium block">Mohammed Saad</span>
+                <span className="text-xs text-muted-foreground">Senior Platform Engineer</span>
               </div>
-            </motion.a>
+            </a>
             <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              Building scalable, reliable, and secure cloud infrastructure. Passionate about DevOps, MLOps, and automation.
+              I build the platforms AI systems run on, across AWS, GCP and Azure.
             </p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="w-4 h-4 text-accent" />
+              <MapPin className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
               <span>Toronto, Ontario, Canada</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-accent">Quick Links</h3>
+            <h3 className="font-medium text-sm mb-4">Pages</h3>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-accent transition-colors text-sm inline-flex items-center group"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
-                    <span className="w-0 group-hover:w-2 h-px bg-accent mr-0 group-hover:mr-2 transition-all" />
                     {link.name}
                   </a>
                 </li>
@@ -105,7 +98,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-accent">Services</h3>
+            <h3 className="font-medium text-sm mb-4">Services</h3>
             <ul className="space-y-2">
               {services.map((service) => (
                 <li key={service}>
@@ -117,17 +110,17 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-accent">Contact</h3>
+            <h3 className="font-medium text-sm mb-4">Contact</h3>
             <ul className="space-y-3">
               <li>
-                <a href="mailto:mbadru3434@gmail.com" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-                  <Mail className="w-4 h-4" />
+                <a href="mailto:mbadru3434@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors text-sm flex items-center gap-2">
+                  <Mail className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
                   mbadru3434@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+14317263434" className="text-muted-foreground hover:text-accent transition-colors text-sm flex items-center gap-2">
-                  <Phone className="w-4 h-4" />
+                <a href="tel:+14317263434" className="text-muted-foreground hover:text-foreground transition-colors text-sm flex items-center gap-2">
+                  <Phone className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
                   +1 (431) 726-3434
                 </a>
               </li>
@@ -136,21 +129,19 @@ export function Footer() {
         </div>
 
         {/* Social Links */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 border-t border-border/50">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 border-t border-border">
           <div className="flex items-center gap-3">
             {socialLinks.map((social) => (
-              <motion.a
+              <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`w-10 h-10 rounded-xl bg-card border border-border/50 flex items-center justify-center transition-all hover:border-accent/50 hover:text-white ${social.color}`}
+                className="w-10 h-10 rounded-md border border-border flex items-center justify-center text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 aria-label={social.label}
               >
-                <social.icon className="w-4 h-4" />
-              </motion.a>
+                <social.icon className="w-4 h-4" aria-hidden="true" />
+              </a>
             ))}
           </div>
 
@@ -160,21 +151,17 @@ export function Footer() {
             tabIndex={showScrollTop ? 0 : -1}
             initial={{ opacity: 0 }}
             animate={{ opacity: showScrollTop ? 1 : 0 }}
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors group"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             Back to top
-            <span className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-              <ArrowUp className="w-4 h-4" />
-            </span>
+            <ArrowUp className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
           </motion.button>
         </div>
 
         {/* Copyright */}
-        <div className="text-center pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1 flex-wrap">
-            &copy; {year} Mohammed Badruddin Saad. Crafted with
-            <Heart className="w-4 h-4 text-red-500 inline" />
-            using Next.js & Tailwind CSS
+        <div className="text-center pt-8 border-t border-border">
+          <p className="font-mono text-xs text-muted-foreground">
+            &copy; {year} Mohammed Badruddin Saad · Built with Next.js and Tailwind CSS
           </p>
         </div>
       </div>
@@ -183,18 +170,17 @@ export function Footer() {
       <motion.button
         onClick={scrollToTop}
         tabIndex={showScrollTop ? 0 : -1}
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0 }}
         animate={{
           opacity: showScrollTop ? 1 : 0,
-          scale: showScrollTop ? 1 : 0.8,
           pointerEvents: showScrollTop ? "auto" : "none"
         }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="fixed bottom-24 right-8 w-12 h-12 rounded-full hidden sm:flex bg-accent text-accent-foreground shadow-lg shadow-accent/25 items-center justify-center z-40 hover:shadow-accent/40 transition-shadow"
+        transition={{ duration: 0.2, ease: [0.2, 0, 0, 1] }}
+        whileTap={{ scale: 0.96 }}
+        className="fixed bottom-24 right-8 w-11 h-11 rounded-md hidden sm:flex border border-border bg-card text-muted-foreground items-center justify-center z-40 transition-colors hover:text-foreground hover:bg-muted"
         aria-label="Scroll to top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-[18px] h-[18px]" strokeWidth={1.5} aria-hidden="true" />
       </motion.button>
     </footer>
   )
