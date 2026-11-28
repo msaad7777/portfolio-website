@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { systems } from "@/lib/systems"
 
@@ -69,12 +68,8 @@ export function PlatformSection() {
         <p className="border-b border-border px-4 py-3 font-mono text-xs text-muted-foreground sm:px-6">~/platform · layers, top of the stack first</p>
         <ol className="divide-y divide-border">
           {layers.map((layer, i) => (
-            <motion.li
+            <li
               key={layer.id}
-              initial={{ opacity: 0, x: -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
               className="grid gap-3 p-4 sm:px-6 md:grid-cols-[13rem_minmax(0,1fr)] md:gap-6"
             >
               <div className="flex items-start gap-3 md:block">
@@ -102,7 +97,7 @@ export function PlatformSection() {
                   ))}
                 </p>
               </div>
-            </motion.li>
+            </li>
           ))}
         </ol>
         </div>

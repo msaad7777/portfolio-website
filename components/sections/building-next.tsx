@@ -9,7 +9,7 @@ export function BuildingNext() {
   return (
     <div id="building" className="mt-16 max-w-6xl scroll-mt-24">
       <h3 className="eyebrow mb-4">
-        <span className="text-muted-foreground">02.2 /</span> building next
+        02.2 / building next
       </h3>
       <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {building.map((b) => {
@@ -17,7 +17,7 @@ export function BuildingNext() {
           return (
             <li key={b.name} className="panel flex flex-col p-4">
               <p className={`flex items-center gap-2 font-mono text-xs ${active ? "text-accent" : "text-muted-foreground"}`}>
-                <StatusDot tone={active ? "accent" : "warn"} pulse={active} />
+                <StatusDot tone={active ? "accent" : "warn"} />
                 {b.status}
                 {b.when && (
                   <>

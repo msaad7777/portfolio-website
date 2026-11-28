@@ -1,19 +1,17 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail, BookOpen, CalendarClock } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { StatusDot } from "@/components/section-heading"
 import { systems } from "@/lib/systems"
-import { BOOKING_LABEL, showBooking } from "@/lib/booking"
-import { DotField } from "@/components/dot-field"
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/msaad7777", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn" },
-  { icon: BookOpen, href: "https://medium.com/@msaad_86696", label: "Medium" },
-  { icon: Mail, href: "mailto:mbadru3434@gmail.com", label: "Email" },
+  { href: "https://github.com/msaad7777", label: "GitHub" },
+  { href: "https://www.linkedin.com/in/badruddin-saad", label: "LinkedIn" },
+  { href: "https://medium.com/@msaad_86696", label: "Medium" },
+  { href: "mailto:mbadru3434@gmail.com", label: "Email" },
 ]
 
 // The hero renders without entrance animation: it holds the largest paint and the key claim.
@@ -22,8 +20,6 @@ const fade = (_delay = 0) => ({})
 export function HeroSection() {
   return (
     <section id="home" className="relative overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
-      <DotField className="pointer-events-none absolute inset-0 -z-10 h-full w-full [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 lg:gap-14 items-center">
           <div className="min-w-0">
@@ -32,13 +28,13 @@ export function HeroSection() {
                 <Image src="/img/saad-proffessional.jpg" alt="Mohammed Saad" fill sizes="56px" className="object-cover" priority />
               </div>
               <div>
-                <p className="text-lg font-semibold leading-tight">Mohammed Saad</p>
+                <p className="text-lg font-medium leading-tight">Mohammed Saad</p>
                 <p className="eyebrow mt-1">Senior Platform Engineer · DevOps · SRE · 10+ yrs</p>
               </div>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-              I build the platforms <span className="text-accent">AI systems</span> run on.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-[1.05] text-balance">
+              I build the platforms AI systems run on
             </h1>
 
             <motion.p {...fade(0.2)} className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -58,45 +54,24 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            {showBooking && (
-              <p className="mt-4">
-                <a
-                  href="#book"
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
-                >
-                  <CalendarClock className="h-4 w-4" aria-hidden="true" />
-                  Or {BOOKING_LABEL.charAt(0).toLowerCase() + BOOKING_LABEL.slice(1)} call, free
-                </a>
-              </p>
-            )}
-
-            {/* No public resume file: it is shared on request so it can't be copied wholesale. */}
-            <p className="mt-2 text-sm text-muted-foreground">
-              Resume on request:{" "}
-              <a href="#contact" className="underline-offset-4 transition-colors hover:text-accent hover:underline">
-                get in touch
-              </a>
-            </p>
-
-            <motion.ul {...fade(0.4)} className="mt-8 flex gap-2" aria-label="Profiles">
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm" aria-label="Profiles">
               {socialLinks.map((s) => (
                 <li key={s.label}>
                   <a
                     href={s.href}
                     target={s.href.startsWith("http") ? "_blank" : undefined}
                     rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    aria-label={s.label}
-                    className="flex h-11 w-11 items-center justify-center rounded-md border border-border bg-card text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                    className="text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline"
                   >
-                    <s.icon className="h-5 w-5" aria-hidden="true" />
+                    {s.label}
                   </a>
                 </li>
               ))}
-            </motion.ul>
+            </ul>
           </div>
 
           {/* Status board: one row per public system, with its headline measured result */}
-          <motion.div {...fade(0.25)} className="panel min-w-0 overflow-hidden shadow-xl shadow-black/5 dark:shadow-black/40">
+          <motion.div {...fade(0.25)} className="panel min-w-0 overflow-hidden">
             <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
               <p className="font-mono text-xs text-muted-foreground truncate">~/systems · status</p>
               <p className="flex items-center gap-2 font-mono text-xs text-signal shrink-0">
@@ -108,22 +83,21 @@ export function HeroSection() {
                 <li key={s.slug}>
                   <a
                     href={`#system-${s.slug}`}
-                    className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 transition-colors hover:bg-muted/60 focus-visible:bg-muted/60"
+                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 transition-colors hover:bg-muted/60 focus-visible:bg-muted/60"
                   >
-                    <StatusDot />
                     <span className="min-w-0">
                       <span className="block text-sm font-medium leading-snug">{s.name}</span>
                       <span className="block truncate font-mono text-[11px] text-muted-foreground">{s.kind}</span>
                     </span>
                     <span className="text-right">
-                      <span className="metric-value block text-sm whitespace-nowrap">{s.heroMetric.value}</span>
+                      <span className="metric-value block text-base whitespace-nowrap">{s.heroMetric.value}</span>
                       <span className="block font-mono text-[11px] text-muted-foreground whitespace-nowrap">{s.heroMetric.label}</span>
                     </span>
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="border-t border-border px-4 py-2.5 font-mono text-[11px] text-muted-foreground">
+            <p className="border-t border-border px-4 py-3 font-mono text-[11px] text-muted-foreground">
               Measured on an Apple M4 laptop · numbers from each repo&apos;s README
             </p>
           </motion.div>
