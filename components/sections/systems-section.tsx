@@ -5,7 +5,8 @@ import Image from "next/image"
 import { ArrowUpRight, Maximize2 } from "lucide-react"
 import { FaGithub } from "react-icons/fa6"
 import { SectionHeading, StatusDot } from "@/components/section-heading"
-import { buildQueue, systems } from "@/lib/systems"
+import { systems } from "@/lib/systems"
+import { BuildingNext } from "@/components/sections/building-next"
 
 // Client and employer work from before the public repos. Descriptions only: the
 // figures behind it live in the Experience section, not on these cards.
@@ -157,24 +158,7 @@ export function SystemsSection() {
             ))}
           </ul>
         </div>
-        {/* Build queue */}
-        <div className="mt-16 max-w-6xl">
-          <h3 className="eyebrow mb-4">
-            <span className="text-muted-foreground">02.2 /</span> build queue
-          </h3>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {buildQueue.map((b) => (
-              <li key={b.name} className="panel p-4">
-                <p className="flex items-center gap-2 font-mono text-xs text-warn">
-                  <StatusDot tone="warn" /> queued
-                </p>
-                <p className="mt-2 font-semibold">{b.name}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{b.line}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-3 text-xs text-muted-foreground">Numbers appear here only after each one has a measured run.</p>
-        </div>
+        <BuildingNext />
 
       </div>
     </section>

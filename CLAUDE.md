@@ -30,7 +30,7 @@ cd cloudflare-worker && npm run deploy   # Deploy to Cloudflare
 Single-page app — `app/page.tsx` composes all sections in order:
 Navigation → Hero → Platform → Systems → About → Experience → Skills → Certifications → Blog → Contact → Footer → ChatBot
 
-Project data (public systems, measured metrics, diagrams, build queue) lives in `lib/systems.ts`; the hero status board and the Systems section both read it. Metrics must be copied verbatim from each repo's README. Section headers use `SectionHeading` from `components/section-heading.tsx`.
+Project data (public systems, measured metrics, diagrams) lives in `lib/systems.ts`; the hero status board and the Systems section both read it. In-progress and planned work lives in `lib/building.ts` (no metrics, and a repo link only when the repo is public), shown by `components/sections/building-next.tsx`. Metrics must be copied verbatim from each repo's README. Section headers use `SectionHeading` from `components/section-heading.tsx`.
 
 Each section in `components/sections/` has a matching `id` attribute used for anchor navigation. The navigation items are defined in `components/navigation.tsx` (`navItems` array) — update both when adding/removing sections.
 
